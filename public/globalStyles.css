@@ -1,0 +1,53 @@
+:root {
+  /* COLORS */
+  --jb-gradient: linear-gradient(135deg, #0ec785 0%, #3c2bac 100%);
+  --jb-green: #0ec785;
+  --jb-purple: #3c2bac;
+
+  /* FONTS */
+  --ff-sans: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --ff-serif: Georgia, serif;
+  --ff-mono: Monaco;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3rem;
+  --fs-6xl: 4rem;
+
+  /* // ------ SHADOWS ------ // */
+  --bs-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --bs-default: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --bs-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --bs-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --bs-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --bs-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --bs-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --bs-outline: 0 0 0 3px blue;
+}
+
+/* DEFAULTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+  box-shadow: var(--bs-outline);
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: var(--ff-sans);
+}
