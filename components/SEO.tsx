@@ -17,7 +17,7 @@ interface Props {
 export default ({
   title = 'Julián Benegas',
   description = 'This is my personal site, where I share my thoughts and my work.',
-  favicon = '/favicon.png',
+  favicon = '/images/favicon.png',
   openGraph
 }: Props) => {
   return (

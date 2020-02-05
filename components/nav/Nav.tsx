@@ -1,14 +1,21 @@
-import Logo from '../Logo'
+import Logo from './Logo'
+import Search from './Search'
+import Pinned from './Pinned'
+import Tags from './Tags'
 
 export default () => {
   return (
     <nav>
       <Logo />
+      <Search />
+      <Pinned />
+      <Tags />
       <style jsx>{`
         nav {
           height: 100vh;
           min-width: 320px;
-          background: #f3f4f4;
+          width: 320px;
+          background: var(--grey-1);
           display: flex;
           flex-direction: column;
           justify-content: flex-start;

@@ -24,8 +24,9 @@ export default () => {
           width: fit-content;
         }
         h1 {
+          color: var(--grey-9);
           margin-left: 8px;
-          font-size: 22px;
+          font-size: var(--fs-2xl);
           line-height: 1;
         }
       `}</style>

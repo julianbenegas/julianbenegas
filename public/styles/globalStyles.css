@@ -1,8 +1,29 @@
 :root {
   /* COLORS */
-  --jb-gradient: linear-gradient(135deg, #0ec785 0%, #3c2bac 100%);
+
   --jb-green: #0ec785;
   --jb-purple: #3c2bac;
+  --jb-gradient: linear-gradient(
+    135deg,
+    var(--jb-green) 0%,
+    var(--jb-purple) 100%
+  );
+
+  --grey-1: hsl(197, 33%, 97%);
+  --grey-2: hsl(197, 32%, 92%);
+  --grey-3: hsl(197, 27%, 87%);
+  --grey-4: hsl(197, 14%, 70%);
+  --grey-5: hsl(197, 8%, 45%);
+  --grey-6: hsl(197, 13%, 29%);
+  --grey-7: hsl(197, 20%, 19%);
+  --grey-8: hsl(197, 12%, 12%);
+  --grey-9: hsl(197, 26%, 7%);
+
+  --teal-1: hsl(197, 100%, 84%);
+  --teal-2: hsl(197, 61%, 37%);
+  --teal-3: hsl(197, 100%, 25%);
+
+  --background-color: white;
 
   /* FONTS */
   --ff-sans: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
@@ -32,7 +53,27 @@
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --bs-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --bs-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  --bs-outline: 0 0 0 3px blue;
+}
+
+/* DARK MODE */
+div[data-colormode='dark'] {
+  --grey-9: hsl(197, 33%, 97%);
+  --grey-8: hsl(197, 32%, 92%);
+  --grey-7: hsl(197, 27%, 87%);
+  --grey-6: hsl(197, 14%, 70%);
+  --grey-5: hsl(197, 8%, 45%);
+  --grey-4: hsl(197, 13%, 29%);
+  --grey-3: hsl(197, 20%, 19%);
+  --grey-2: hsl(197, 12%, 12%);
+  --grey-1: hsl(197, 12%, 12%);
+
+  --teal-3: hsl(197, 100%, 84%);
+  --teal-2: hsl(197, 61%, 37%);
+  --teal-1: hsl(197, 100%, 25%);
+
+  --grey-0: hsl(197, 26%, 7%);
+
+  --background-color: var(--grey-0);
 }
 
 /* DEFAULTS */
@@ -43,7 +84,6 @@
 }
 *:focus {
   outline: none;
-  box-shadow: var(--bs-outline);
 }
 a {
   text-decoration: none;

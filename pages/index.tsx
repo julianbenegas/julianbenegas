@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Nav from '../components/layout/Nav'
-import Tree from '../components/layout/Tree'
+import Nav from '../components/nav/Nav'
+import Tree from '../components/Tree'
 
 export default () => {
   return (
