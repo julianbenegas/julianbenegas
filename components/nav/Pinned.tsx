@@ -37,6 +37,7 @@ const PinnedEvent = () => (
         font-size: 13px;
         color: var(--grey-6);
         font-weight: 400;
+        line-height: var(--lh-tight);
       }
     `}</style>
   </div>
