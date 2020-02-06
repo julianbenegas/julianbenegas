@@ -63,7 +63,7 @@ const Event = ({ event, index, isNow = false }: Props) => {
           max-height: 24px;
           height: 24px;
           border: 6px solid var(--background-color);
-          background: var(--teal-2);
+          background: var(--teal-3);
           border-radius: 50%;
           z-index: 10;
           position: absolute;
@@ -72,6 +72,7 @@ const Event = ({ event, index, isNow = false }: Props) => {
         }
         button {
           text-align: inherit;
+          background: var(--background-color);
           border: none;
           max-width: 50%;
           padding: 3px
@@ -97,6 +98,50 @@ const Event = ({ event, index, isNow = false }: Props) => {
           font-size: var(--fs-sm);
           color: var(--grey-6);
           line-height: var(--lh-tight);
+        }
+
+        @media screen and (max-width: 900px) {
+          .container {
+            justify-content: ${isNow ? 'center' : 'flex-end'};
+            text-align: ${isNow ? 'center' : 'left'};
+          }
+          button {
+            padding: 3px ${isNow ? '0 26px 0' : '0 0 30px'};
+          }
+        }
+        @media screen and (max-width: 620px) {
+          .container {
+            text-align: ${textAlignment};
+            justify-content: ${alignment === 'right'
+              ? 'flex-end'
+              : alignment === 'left'
+              ? 'flex-start'
+              : 'center'};
+          }
+          button {
+            padding: 3px
+              ${alignment === 'right'
+                ? '0 0 30px'
+                : alignment === 'left'
+                ? '30px 0 0'
+                : '0 26px 0'};
+          }
+          h1 {
+            font-size: var(--fs-lg);
+          }
+          a,
+          p {
+            font-size: var(--fs-xs);
+          }
+        }
+        @media screen and (max-width: 400px) {
+          .container {
+            justify-content: ${isNow ? 'center' : 'flex-end'};
+            text-align: ${isNow ? 'center' : 'left'};
+          }
+          button {
+            padding: 3px ${isNow ? '0 26px 0' : '0 0 30px'};
+          }
         }
       `}</style>
     </div>
@@ -205,6 +250,34 @@ export default () => {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
+        }
+
+        @media screen and (max-width: 900px) {
+          .container {
+            padding-left: 0;
+            margin-left: -20%;
+            padding-right: 5%;
+          }
+        }
+        @media screen and (max-width: 620px) {
+          .container {
+            padding-left: 5%;
+            margin-left: 0;
+            padding-right: 5%;
+          }
+        }
+        @media screen and (max-width: 400px) {
+          .container {
+            padding-left: 0;
+            margin-left: -50%;
+            padding-right: 5%;
+            width: 150%;
+          }
+        }
+        @media screen and (min-width: 1500px) {
+          .container {
+            padding: 150.2px 20% 0;
+          }
         }
       `}</style>
     </div>

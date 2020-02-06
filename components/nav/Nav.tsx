@@ -21,6 +21,12 @@ export default () => {
           justify-content: flex-start;
           padding: 40px;
         }
+
+        @media screen and (max-width: 620px) {
+          nav {
+            display: none;
+          }
+        }
       `}</style>
     </nav>
   )
