@@ -261,17 +261,16 @@ export default () => {
         }
         @media screen and (max-width: 620px) {
           .container {
-            padding-left: 5%;
             margin-left: 0;
-            padding-right: 5%;
+            padding: 100px 5% 0;
           }
         }
         @media screen and (max-width: 400px) {
           .container {
             padding-left: 0;
-            margin-left: -50%;
+            margin-left: -60%;
             padding-right: 5%;
-            width: 150%;
+            width: 160%;
           }
         }
         @media screen and (min-width: 1500px) {

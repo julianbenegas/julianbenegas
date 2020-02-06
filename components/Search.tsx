@@ -33,7 +33,7 @@ export default () => {
           border: 1px solid var(--grey-4);
           display: flex;
           align-items: center;
-          margin: 1rem 0px 1.5rem;
+          margin: 0 0 1.5rem;
         }
         i {
           color: var(--grey-4);

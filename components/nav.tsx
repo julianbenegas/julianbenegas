@@ -3,14 +3,24 @@ import Search from './Search'
 import Pinned from './Pinned'
 import Tags from './Tags'
 import { useState } from 'react'
+import Social from './Social'
 
 export function Nav() {
   return (
     <nav>
-      <Logo />
-      <Search />
-      <Pinned />
-      <Tags />
+      <div className="logo">
+        <Logo />
+      </div>
+      <div className="menu">
+        <div>
+          <Search />
+          <Pinned />
+          <Tags />
+        </div>
+        <div>
+          <Social />
+        </div>
+      </div>
       <style jsx>{`
         nav {
           height: 100vh;
@@ -20,7 +30,21 @@ export function Nav() {
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
-          padding: 40px;
+          padding: 40px 0 0;
+          z-index: var(--zi-nav);
+        }
+        .logo {
+          padding: 0 40px 20px;
+        }
+        .menu {
+          background: var(--grey-1);
+          overflow: hidden;
+          padding: 0 40px;
+          height: calc(100vh - 64px);
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
         }
       `}</style>
     </nav>
@@ -56,7 +80,7 @@ function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
-    <div>
+    <nav>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`${isOpen && 'isOpen'}`}
@@ -65,11 +89,19 @@ function HamburgerMenu() {
         <span />
       </button>
       <div className={`menu ${isOpen && 'isOpen'}`}>
-        <Search />
-        <Pinned />
-        <Tags />
+        <div>
+          <Search />
+          <Pinned />
+          <Tags />
+        </div>
+        <div>
+          <Social />
+        </div>
       </div>
       <style jsx>{`
+        nav {
+          z-index: var(--zi-nav);
+        }
         button {
           width: 24px;
           height: 24px;
@@ -104,20 +136,23 @@ function HamburgerMenu() {
           transition: all 0.3s;
           z-index: var(--zi-nav);
           height: 0;
-          padding: 0 20px;
           position: fixed;
           top: 64px;
           left: 0;
           right: 0;
           width: 100vw;
           background: var(--grey-1);
-          overflow: hidden;
+          padding: 0 20px;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
         }
         .menu.isOpen {
-          overflow-y: auto;
           height: calc(100vh - 64px);
+          overflow-y: auto;
         }
       `}</style>
-    </div>
+    </nav>
   )
 }
