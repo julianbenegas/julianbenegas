@@ -114,6 +114,7 @@ function HamburgerMenu() {
           overflow: hidden;
         }
         .menu.isOpen {
+          overflow-y: auto;
           height: calc(100vh - 64px);
         }
       `}</style>
