@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdx-js/loader": "^1.5.5",
     "@next/mdx": "^9.2.1",
+    "chroma-js": "^2.1.0",
     "isomorphic-unfetch": "3.0.0",
     "moment": "^2.24.0",
     "next": "^9.2.0",

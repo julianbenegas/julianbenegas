@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react'
-import { P } from '../mdxBlocks'
+import { P, H1, H2, H3 } from './blocks'
 import Logo from '../Logo'
 
 type ComponentType =
@@ -36,20 +36,36 @@ export interface MDXProviderProps {
 }
 
 const components = {
+  h1: (props: MDXProviderProps) => <H1 {...props} />,
+  h2: (props: MDXProviderProps) => <H2 {...props} />,
+  h3: (props: MDXProviderProps) => <H3 {...props} />,
   p: (props: MDXProviderProps) => <P {...props} />
 }
 
 export default (props: MDXProviderProps) => (
-  <div>
+  <div className="container">
     <Logo />
-    <MDXProvider components={components}>
-      <main {...props}></main>
-    </MDXProvider>
+    <div className="content">
+      <MDXProvider components={components}>
+        <main {...props}></main>
+      </MDXProvider>
+    </div>
     <style jsx>{`
-      div {
+      .container {
         padding: 40px;
         min-height: 100vh;
         background: var(--background-color);
+      }
+      .content {
+        padding: 100px 0;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      @media screen and (max-width: 620px) {
+        .container {
+          padding: 20px;
+        }
       }
     `}</style>
   </div>

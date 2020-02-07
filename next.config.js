@@ -2,5 +2,15 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/
 })
 module.exports = withMDX({
-  pageExtensions: ['mdx', 'tsx']
+  pageExtensions: ['mdx', 'tsx'],
+  // From https://github.com/zeit/next.js/issues/7755#issuecomment-508633125
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.node = {
+        fs: 'empty'
+      }
+    }
+    return config
+  }
 })

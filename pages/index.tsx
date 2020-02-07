@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { Nav, MobileNav } from '../components/nav'
 import Tree from '../components/Tree'
+import getEvents from '../data/getEvents'
 
-export default () => {
+export default function Index({ events }: { events: [] }) {
+  console.log(events)
   return (
     <div>
       <div className="desktop-nav">
@@ -31,4 +33,10 @@ export default () => {
       `}</style>
     </div>
   )
+}
+
+Index.getInitialProps = () => {
+  const events = getEvents()
+  console.log(events)
+  return { events }
 }

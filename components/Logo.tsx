@@ -15,7 +15,7 @@ const GradientSVG = () => (
 
 export default () => {
   return (
-    <Link href="">
+    <Link href="/">
       <a>
         <GradientSVG />
         <h1>Julián Benegas</h1>

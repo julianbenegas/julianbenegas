@@ -8,7 +8,8 @@ export const H1 = ({ children }: Props) => {
       {children}
       <style jsx>{`
         h1 {
-          color: green;
+          color: var(--grey-9);
+          margin: 1.5rem 0 1rem;
         }
       `}</style>
     </h1>
@@ -21,7 +22,8 @@ export const H2 = ({ children }: Props) => {
       {children}
       <style jsx>{`
         h2 {
-          color: green;
+          color: var(--grey-9);
+          margin: 1rem 0 0.5rem;
         }
       `}</style>
     </h2>
@@ -34,7 +36,8 @@ export const H3 = ({ children }: Props) => {
       {children}
       <style jsx>{`
         h3 {
-          color: green;
+          color: var(--grey-9);
+          margin-bottom: 1rem;
         }
       `}</style>
     </h3>
@@ -47,7 +50,9 @@ export const P = ({ children }: Props) => {
       {children}
       <style jsx>{`
         p {
-          color: green;
+          color: var(--grey-9);
+          margin-bottom: 1.5rem;
+          line-height: var(--lh-normal);
         }
       `}</style>
     </p>
