@@ -20,7 +20,7 @@ export default () => {
           justify-content: space-evenly;
         }
         a {
-          color: var(--grey-9);
+          color: var(--grey-7);
           font-size: var(--fs-2xl);
         }
       `}</style>

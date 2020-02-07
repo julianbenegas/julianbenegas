@@ -976,6 +976,13 @@
   resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-9.2.1.tgz#0cc3016a03572e34e5fcb7bb3137fc74266c3f97"
   integrity sha512-Nhwxlg/CMExjTdXVDc7mbx4UkSGr/ye36iFe8fAj71MyWAjX3y+GB+VG7iLU564y3TqeuLG4iWxwZpmmh/HJxQ==
 
+"@types/mdx-js__react@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@types/mdx-js__react/-/mdx-js__react-1.5.0.tgz#b429bb82d37332810756dd463c440df7f9f2b48e"
+  integrity sha512-bkxx9ebCyE4jm3+10y0xpop1E0pq1NNoO4CkAeO/Gbbt0Wgc3tbtEgNaGT3P+0ixIbhqu3qN7SS10qXCjd8rAQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/node@^12.12.21":
   version "12.12.26"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.26.tgz#213e153babac0ed169d44a6d919501e68f59dea9"

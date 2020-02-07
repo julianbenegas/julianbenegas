@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const GradientSVG = () => (
   <div>
     <style jsx>{`
@@ -13,23 +15,25 @@ const GradientSVG = () => (
 
 export default () => {
   return (
-    <div>
-      <GradientSVG />
-      <h1>Julián Benegas</h1>
-      <style jsx>{`
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: fit-content;
-        }
-        h1 {
-          color: var(--grey-9);
-          margin-left: 8px;
-          font-size: var(--fs-2xl);
-          line-height: 1;
-        }
-      `}</style>
-    </div>
+    <Link href="">
+      <a>
+        <GradientSVG />
+        <h1>Julián Benegas</h1>
+        <style jsx>{`
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+          }
+          h1 {
+            color: var(--grey-9);
+            margin-left: 8px;
+            font-size: var(--fs-2xl);
+            line-height: 1;
+          }
+        `}</style>
+      </a>
+    </Link>
   )
 }
