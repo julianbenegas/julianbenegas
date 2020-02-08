@@ -2,7 +2,142 @@
     "tags": [
         {
             "name": "Work",
-            "colour": "red",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Work",
+            "color": "red",
+            "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "work"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "work"
+        },
+        {
+            "name": "Life",
+            "color": "purple",
             "id": "work"
         }
     ]

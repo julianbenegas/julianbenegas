@@ -32,8 +32,6 @@ export default function Index({
   tags: Tag[]
   pinned: FullEvent[]
 }) {
-  console.log(events)
-  console.log(tags)
   return (
     <div>
       <div className="desktop-nav">
