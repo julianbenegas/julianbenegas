@@ -1,19 +1,48 @@
 import * as React from 'react'
 import { Nav, MobileNav } from '../components/nav'
 import Tree from '../components/Tree'
-import getEvents from '../data/getEvents'
+import { Event, FullEvent } from '../interfaces/event'
+import { Tag } from '../interfaces/tag'
+import { events } from '../data/events.json'
+import { tags } from '../data/tags.json'
+import { pinned } from '../data/pinned.json'
 
-export default function Index({ events }: { events: [] }) {
+export function unstable_getStaticProps() {
+  return {
+    props: {
+      events: events.map((event: Event) => ({
+        ...event,
+        url: `${new Date(event.timestamp).getFullYear()}/${event.id}`
+      })),
+      pinned: pinned.map((event: Event) => ({
+        ...event,
+        url: `${new Date(event.timestamp).getFullYear()}/${event.id}`
+      })),
+      tags
+    }
+  }
+}
+
+export default function Index({
+  events,
+  tags,
+  pinned
+}: {
+  events: FullEvent[]
+  tags: Tag[]
+  pinned: FullEvent[]
+}) {
   console.log(events)
+  console.log(tags)
   return (
     <div>
       <div className="desktop-nav">
-        <Nav />
+        <Nav pinned={pinned} tags={tags} />
       </div>
       <div className="mobile-nav">
-        <MobileNav />
+        <MobileNav pinned={pinned} tags={tags} />
       </div>
-      <Tree />
+      <Tree events={events} />
       <style jsx>{`
         div {
           display: flex;
@@ -33,10 +62,4 @@ export default function Index({ events }: { events: [] }) {
       `}</style>
     </div>
   )
-}
-
-Index.getInitialProps = () => {
-  const events = getEvents()
-  console.log(events)
-  return { events }
 }

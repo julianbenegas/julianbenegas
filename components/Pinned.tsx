@@ -1,17 +1,15 @@
 import { AiOutlinePushpin } from 'react-icons/ai'
+import { FullEvent } from '../interfaces/event'
 
-const PinnedEvent = () => (
+const PinnedEvent = ({ event }: { event: FullEvent }) => (
   <div className="container">
     <i>
       <AiOutlinePushpin />
     </i>
     <div>
       <p>October 25th, 2010</p>
-      <h1>La Derecha Diario</h1>
-      <p className="description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
-        mollitia facere ut.
-      </p>
+      <h1>{event.name}</h1>
+      <p className="description">{event.description}</p>
     </div>
     <style jsx>{`
       .container {
@@ -43,13 +41,13 @@ const PinnedEvent = () => (
   </div>
 )
 
-export default () => {
+export default ({ pinned }: { pinned: FullEvent[] }) => {
   return (
     <div>
       <h3>Pinned</h3>
-      <PinnedEvent />
-      <PinnedEvent />
-      <PinnedEvent />
+      {pinned.map(event => (
+        <PinnedEvent key={event.id} event={event} />
+      ))}
       <style jsx>{`
         h3 {
           font-size: var(--fs-xs);

@@ -4,8 +4,15 @@ import Pinned from './Pinned'
 import Tags from './Tags'
 import { useState } from 'react'
 import Social from './Social'
+import { FullEvent } from '../interfaces/event'
+import { Tag } from '../interfaces/tag'
 
-export function Nav() {
+interface NavProps {
+  pinned: FullEvent[]
+  tags: Tag[]
+}
+
+export function Nav({ pinned, tags }: NavProps) {
   return (
     <nav>
       <div className="logo">
@@ -14,8 +21,8 @@ export function Nav() {
       <div className="menu">
         <div>
           <Search />
-          <Pinned />
-          <Tags />
+          <Pinned pinned={pinned} />
+          <Tags tags={tags} />
         </div>
         <div>
           <Social />
@@ -51,11 +58,11 @@ export function Nav() {
   )
 }
 
-export function MobileNav() {
+export function MobileNav({ pinned, tags }: NavProps) {
   return (
     <nav>
       <Logo />
-      <HamburgerMenu />
+      <HamburgerMenu pinned={pinned} tags={tags} />
       <style jsx>{`
         nav {
           z-index: var(--zi-nav);
@@ -76,7 +83,7 @@ export function MobileNav() {
   )
 }
 
-function HamburgerMenu() {
+function HamburgerMenu({ pinned, tags }: { pinned: FullEvent[]; tags: Tag[] }) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -91,8 +98,8 @@ function HamburgerMenu() {
       <div className={`menu ${isOpen && 'isOpen'}`}>
         <div>
           <Search />
-          <Pinned />
-          <Tags />
+          <Pinned pinned={pinned} />
+          <Tags tags={tags} />
         </div>
         <div>
           <Social />

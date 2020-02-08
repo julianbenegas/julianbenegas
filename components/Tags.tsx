@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { Tag as TagInterface } from '../interfaces/tag'
 
-const Tag = () => (
+const Tag = ({ tag }: { tag: TagInterface }) => (
   <div className="container">
     <Link href="">
-      <a>Work</a>
+      <a>{tag.name}</a>
     </Link>
     <style jsx>{`
       .container {
@@ -20,13 +21,13 @@ const Tag = () => (
   </div>
 )
 
-export default () => {
+export default ({ tags }: { tags: TagInterface[] }) => {
   return (
     <div>
       <h3>Tags</h3>
-      <Tag />
-      <Tag />
-      <Tag />
+      {tags.map(tag => (
+        <Tag key={tag.id} tag={tag} />
+      ))}
       <style jsx>{`
         h3 {
           font-size: var(--fs-xs);

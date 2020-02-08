@@ -1,20 +1,20 @@
 import Link from 'next/link'
 import moment from 'moment'
-
-interface Event {
-  name: string
-  description: string
-  timestamp: number
-}
+import { FullEvent } from '../interfaces/event'
 
 interface EventObj {
-  event: Event
+  event: FullEvent
   index: number
   isNow: false
 }
 
 interface Now {
-  event: { name: string; description: string; timestamp: undefined }
+  event: {
+    name: string
+    description: string
+    timestamp: undefined
+    url: undefined
+  }
   index: undefined
   isNow: true
 }
@@ -31,15 +31,19 @@ const Event = ({ event, index, isNow = false }: Props) => {
   return (
     <div className="container">
       <div className="dot" />
-      <Link href="">
-        <button>
-          {event.timestamp && (
-            <a>{moment(event.timestamp).format('MMMM Do, YYYY')}</a>
-          )}
-          <h1>{event.name}</h1>
-          <p>{event.description}</p>
-        </button>
-      </Link>
+      {event.url ? (
+        <Link href={event.url}>
+          <button>
+            {event.timestamp && (
+              <a>{moment(event.timestamp).format('MMMM Do, YYYY')}</a>
+            )}
+            <h1>{event.name}</h1>
+            <p>{event.description}</p>
+          </button>
+        </Link>
+      ) : (
+        <div></div>
+      )}
       <style jsx>{`
         .container {
           display: flex;
@@ -148,69 +152,13 @@ const Event = ({ event, index, isNow = false }: Props) => {
   )
 }
 
-export default () => {
-  const events: Event[] = [
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 4
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 4
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Excepturi!',
-      timestamp: Date.now() + 4
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga.',
-      timestamp: Date.now() + 4
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 4
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 4
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 3
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 2
-    },
-    {
-      name: 'La Derecha Diario',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum cum quae deserunt! Neque rem cum ut obcaecati optio molestias, cumque fuga. Repudiandae dolore esse maxime porro illum aliquid vitae? Excepturi!',
-      timestamp: Date.now() + 1
-    }
-  ]
+export default ({ events }: { events: FullEvent[] }) => {
   return (
     <div className="container">
       <div className="tree">
         <div className="root" />
         {events.map((e, i) => (
-          <Event key={e.timestamp} index={i} event={e} isNow={false} />
+          <Event key={e.id} index={i} event={e} isNow={false} />
         ))}
         <Event
           isNow
@@ -218,7 +166,8 @@ export default () => {
           event={{
             name: 'Now.',
             description: 'All there is.',
-            timestamp: undefined
+            timestamp: undefined,
+            url: undefined
           }}
         />
       </div>
@@ -239,6 +188,7 @@ export default () => {
           flex-direction: column-reverse;
           align-items: flex-start;
           justify-content: flex-end;
+          width: 100%;
           min-height: calc(100vh - 150.2px);
         }
         .root {
