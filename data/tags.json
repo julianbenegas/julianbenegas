@@ -2,8 +2,23 @@
     "tags": [
         {
             "name": "Work",
-            "colour": "red",
+            "color": "red",
             "id": "work"
+        },
+        {
+            "name": "Economics",
+            "color": "green",
+            "id": "economics"
+        },
+        {
+            "name": "Philosophy",
+            "color": "blue",
+            "id": "philosophy"
+        },
+        {
+            "name": "Life",
+            "color": "purple",
+            "id": "life"
         }
     ]
 }

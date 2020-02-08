@@ -12,9 +12,7 @@ interface Context {
   colorMode: ColorMode
 }
 
-export const ColorModeContext = createContext<Context>({
-  colorMode: 'light'
-})
+export const ColorModeContext = createContext<Context>({ colorMode: 'light' })
 
 export default ({ children }: PropsWithChildren<{}>) => {
   const [colorMode, setColorMode] = useState<ColorMode>('light')

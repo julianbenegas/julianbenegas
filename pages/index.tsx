@@ -1,48 +1,44 @@
-import * as React from 'react'
+import { useState, useEffect } from 'react'
 import { Nav, MobileNav } from '../components/nav'
 import Tree from '../components/Tree'
 import { Event, FullEvent } from '../interfaces/event'
-import { Tag } from '../interfaces/tag'
 import { events } from '../data/events.json'
 import { tags } from '../data/tags.json'
 import { pinned } from '../data/pinned.json'
+import { useFilters } from '../context/filtersContext'
 
-export function unstable_getStaticProps() {
-  return {
-    props: {
-      events: events.map((event: Event) => ({
-        ...event,
-        url: `${new Date(event.timestamp).getFullYear()}/${event.id}`
-      })),
-      pinned: pinned.map((event: Event) => ({
-        ...event,
-        url: `${new Date(event.timestamp).getFullYear()}/${event.id}`
-      })),
-      tags
-    }
-  }
-}
+export default function Index() {
+  const allEvents = events
+    .map((event: Event) => ({
+      ...event,
+      url: `${new Date(event.timestamp).getFullYear()}/${event.id}`
+    }))
+    .sort((a, b) => (a.timestamp > b.timestamp ? -1 : 1))
 
-export default function Index({
-  events,
-  tags,
-  pinned
-}: {
-  events: FullEvent[]
-  tags: Tag[]
-  pinned: FullEvent[]
-}) {
-  console.log(events)
-  console.log(tags)
+  const [filteredEvents, setFilteredEvents] = useState<FullEvent[]>(allEvents)
+  const pinnedEvents = allEvents.filter(e => pinned.includes(e.id))
+
+  const { filters } = useFilters()
+
+  useEffect(() => {
+    if (filters.length) {
+      const filtered = allEvents.filter(
+        event =>
+          filters.filter(f => event.tags.includes(f)).length === filters.length
+      )
+      setFilteredEvents(filtered)
+    } else setFilteredEvents(allEvents)
+  }, [filters])
+
   return (
     <div>
       <div className="desktop-nav">
-        <Nav pinned={pinned} tags={tags} />
+        <Nav pinned={pinnedEvents} tags={tags} />
       </div>
       <div className="mobile-nav">
-        <MobileNav pinned={pinned} tags={tags} />
+        <MobileNav pinned={pinnedEvents} tags={tags} />
       </div>
-      <Tree events={events} />
+      <Tree events={filteredEvents} />
       <style jsx>{`
         div {
           display: flex;
