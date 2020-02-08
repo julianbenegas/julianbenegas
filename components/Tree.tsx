@@ -1,6 +1,5 @@
-import Link from 'next/link'
-import moment from 'moment'
 import { FullEvent } from '../interfaces/event'
+import { Event } from './Event'
 
 interface EventObj {
   event: FullEvent
@@ -19,9 +18,13 @@ interface Now {
   isNow: true
 }
 
-type Props = EventObj | Now
+type EventContainerProps = EventObj | Now
 
-const Event = ({ event, index, isNow = false }: Props) => {
+const EventContainer = ({
+  event,
+  index,
+  isNow = false
+}: EventContainerProps) => {
   const alignment = isNow ? 'center' : index && index % 2 ? 'right' : 'left'
 
   let textAlignment = 'center'
@@ -32,15 +35,9 @@ const Event = ({ event, index, isNow = false }: Props) => {
     <div className="container">
       <div className="dot" />
       {event.url ? (
-        <Link href={event.url}>
-          <button>
-            {event.timestamp && (
-              <a>{moment(event.timestamp).format('MMMM Do, YYYY')}</a>
-            )}
-            <h1>{event.name}</h1>
-            <p>{event.description}</p>
-          </button>
-        </Link>
+        <div className="event-container">
+          <Event event={event} />
+        </div>
       ) : (
         <div></div>
       )}
@@ -74,7 +71,7 @@ const Event = ({ event, index, isNow = false }: Props) => {
           left: 50%;
           transform: translate(-50%, 0);
         }
-        button {
+        .event-container {
           text-align: inherit;
           background: var(--background-color);
           border: none;
@@ -87,29 +84,13 @@ const Event = ({ event, index, isNow = false }: Props) => {
               : '0 26px 0'};
           cursor: pointer;
         }
-        a {
-          color: var(--teal-3);
-          font-weight: 500;
-          font-size: var(--fs-sm);
-        }
-        h1 {
-          font-size: var(--fs-xl);
-          color: var(--grey-8);
-          font-weight: 500;
-          margin: 0.25rem 0 0.1rem;
-        }
-        p {
-          font-size: var(--fs-sm);
-          color: var(--grey-6);
-          line-height: var(--lh-tight);
-        }
 
         @media screen and (max-width: 900px) {
           .container {
             justify-content: ${isNow ? 'center' : 'flex-end'};
             text-align: ${isNow ? 'center' : 'left'};
           }
-          button {
+          .event-container {
             padding: 3px ${isNow ? '0 26px 0' : '0 0 30px'};
           }
         }
@@ -122,7 +103,7 @@ const Event = ({ event, index, isNow = false }: Props) => {
               ? 'flex-start'
               : 'center'};
           }
-          button {
+          .event-container {
             padding: 3px
               ${alignment === 'right'
                 ? '0 0 30px'
@@ -130,20 +111,13 @@ const Event = ({ event, index, isNow = false }: Props) => {
                 ? '30px 0 0'
                 : '0 26px 0'};
           }
-          h1 {
-            font-size: var(--fs-lg);
-          }
-          a,
-          p {
-            font-size: var(--fs-xs);
-          }
         }
         @media screen and (max-width: 400px) {
           .container {
             justify-content: ${isNow ? 'center' : 'flex-end'};
             text-align: ${isNow ? 'center' : 'left'};
           }
-          button {
+          .event-container {
             padding: 3px ${isNow ? '0 26px 0' : '0 0 30px'};
           }
         }
@@ -157,10 +131,7 @@ export default ({ events }: { events: FullEvent[] }) => {
     <div className="container">
       <div className="tree">
         <div className="root" />
-        {events.map((e, i) => (
-          <Event key={e.id} index={i} event={e} isNow={false} />
-        ))}
-        <Event
+        <EventContainer
           isNow
           index={undefined}
           event={{
@@ -170,6 +141,9 @@ export default ({ events }: { events: FullEvent[] }) => {
             url: undefined
           }}
         />
+        {events.map((e, i) => (
+          <EventContainer key={e.id} index={i} event={e} isNow={false} />
+        ))}
       </div>
       <style jsx>{`
         .container {
@@ -185,9 +159,9 @@ export default ({ events }: { events: FullEvent[] }) => {
           text-align: center;
           position: relative;
           display: flex;
-          flex-direction: column-reverse;
+          flex-direction: column;
           align-items: flex-start;
-          justify-content: flex-end;
+          justify-content: flex-start;
           width: 100%;
           min-height: calc(100vh - 150.2px);
         }
