@@ -56,6 +56,9 @@ export default () => {
           color: var(--grey-5);
           font-size: var(--fs-sm);
         }
+        input:focus {
+          outline: none;
+        }
         p {
           color: var(--grey-9);
           font-size: var(--fs-sm);

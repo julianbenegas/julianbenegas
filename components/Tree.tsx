@@ -11,7 +11,7 @@ interface Now {
   event: {
     name: string
     description: string
-    timestamp: undefined
+    date: undefined
     url: undefined
   }
   index: undefined
@@ -157,7 +157,7 @@ export default ({ events }: { events: FullEvent[] }) => {
           event={{
             name: 'Now.',
             description: 'All there is.',
-            timestamp: undefined,
+            date: undefined,
             url: undefined
           }}
         />

@@ -5,9 +5,7 @@ import { FullEvent } from '../interfaces/event'
 export const Event = ({ event }: { event: FullEvent }) => (
   <Link href={event.url}>
     <a>
-      {event.timestamp && (
-        <span>{moment(event.timestamp).format('MMMM Do, YYYY')}</span>
-      )}
+      {event.date && <span>{moment(event.date).format('MMMM Do, YYYY')}</span>}
       <h1>{event.name}</h1>
       <p>{event.description}</p>
       <style jsx>{`

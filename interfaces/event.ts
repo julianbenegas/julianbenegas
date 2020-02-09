@@ -1,7 +1,7 @@
 export interface Event {
   name: string
   id: string
-  timestamp: number
+  date: string
   tags: string[]
   description: string
 }

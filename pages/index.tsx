@@ -6,14 +6,26 @@ import { events } from '../data/events.json'
 import { tags } from '../data/tags.json'
 import { pinned } from '../data/pinned.json'
 import { useFilters } from '../context/filtersContext'
+import moment from 'moment'
 
 export default function Index() {
   const allEvents = events
     .map((event: Event) => ({
       ...event,
-      url: `${new Date(event.timestamp).getFullYear()}/${event.id}`
+      url: `${moment(event.date)
+        .utc()
+        .year()}/${event.id}`
     }))
-    .sort((a, b) => (a.timestamp > b.timestamp ? -1 : 1))
+    .sort((a, b) =>
+      moment(a.date)
+        .utc()
+        .unix() >
+      moment(b.date)
+        .utc()
+        .unix()
+        ? -1
+        : 1
+    )
 
   const [filteredEvents, setFilteredEvents] = useState<FullEvent[]>(allEvents)
   const pinnedEvents = allEvents.filter(e => pinned.includes(e.id))

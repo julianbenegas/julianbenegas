@@ -20,7 +20,7 @@ const Tag = ({
   const colorIndex = index / totalTags
   const color = chroma.scale(['#0ec785', '#3c2bac'])(colorIndex)
 
-  const background = color.luminance(0.9).css()
+  const background = color.alpha(0.1).css()
   const text = color.css()
 
   const handleClick = () => {
@@ -39,7 +39,7 @@ const Tag = ({
           color: var(--teal-3);
           font-size: var(--fs-sm);
           font-weight: 500;
-          color: ${isActiveFilter ? background : text};
+          color: ${isActiveFilter ? 'white' : text};
           background: ${isActiveFilter ? text : background};
           padding: 2px 4px;
           border-radius: 3px;
