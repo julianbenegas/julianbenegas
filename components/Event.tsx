@@ -4,20 +4,20 @@ import { FullEvent } from '../interfaces/event'
 
 export const Event = ({ event }: { event: FullEvent }) => (
   <Link href={event.url}>
-    <button>
+    <a>
       {event.timestamp && (
-        <a>{moment(event.timestamp).format('MMMM Do, YYYY')}</a>
+        <span>{moment(event.timestamp).format('MMMM Do, YYYY')}</span>
       )}
       <h1>{event.name}</h1>
       <p>{event.description}</p>
       <style jsx>{`
-        button {
+        a {
           text-align: inherit;
           background: transparent;
           border: none;
           cursor: pointer;
         }
-        a {
+        span {
           color: var(--teal-3);
           font-weight: 500;
           font-size: var(--fs-sm);
@@ -38,12 +38,12 @@ export const Event = ({ event }: { event: FullEvent }) => (
           h1 {
             font-size: var(--fs-lg);
           }
-          a,
+          span,
           p {
             font-size: var(--fs-xs);
           }
         }
       `}</style>
-    </button>
+    </a>
   </Link>
 )
