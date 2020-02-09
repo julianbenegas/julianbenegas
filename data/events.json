@@ -5,7 +5,17 @@
             "id": "capitalism-always-wins",
             "date": "2020-02-09",
             "tags": ["economics"],
-            "description": "It's quite simple, actually. Humans act on incentives (all living things do, but we only care about human ones), and Capitalism is a system that align those perfectly."
+            "description": "It's quite simple, actually. Humans act on incentives (all living things do, but we only care about human ones), and Capitalism is a system that align those perfectly.",
+            "isLink": true,
+            "isPublished": false
+        },
+        {
+            "name": "Site in progress",
+            "id": "site-in-progress",
+            "date": "2020-02-09",
+            "description": "This site is under construction! Thanks for visiting.",
+            "isLink": false,
+            "isPublished": true
         }
     ]
 }

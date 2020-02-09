@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 
-export const P = ({ children }: PropsWithChildren<{}>) => {
+export default ({ children }: PropsWithChildren<{}>) => {
   return (
     <p>
       {children}

@@ -10,6 +10,7 @@ import moment from 'moment'
 
 export default function Index() {
   const allEvents = events
+    .filter(e => e.isPublished)
     .map((event: Event) => ({
       ...event,
       url: `${moment(event.date)
@@ -36,7 +37,7 @@ export default function Index() {
     if (filters.length) {
       const filtered = allEvents.filter(
         event =>
-          filters.filter(f => event.tags.includes(f)).length === filters.length
+          filters.filter(f => event.tags?.includes(f)).length === filters.length
       )
       setFilteredEvents(filtered)
     } else setFilteredEvents(allEvents)

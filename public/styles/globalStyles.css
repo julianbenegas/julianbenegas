@@ -99,6 +99,8 @@ a {
 }
 body {
   font-family: var(--ff-sans);
+  color: var(--grey-9);
+  background: var(--background-color);
 }
 ::selection {
   background: var(--selection-background);

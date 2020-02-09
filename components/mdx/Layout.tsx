@@ -1,6 +1,8 @@
 import { MDXProvider } from '@mdx-js/react'
-import { P, H1, H2, H3 } from './blocks'
+import P from './P'
+import { H1, H2, H3 } from './headings'
 import Logo from '../Logo'
+import { UL, OL, LI } from './list'
 
 type ComponentType =
   | 'p'
@@ -39,7 +41,10 @@ const components = {
   h1: (props: MDXProviderProps) => <H1 {...props} />,
   h2: (props: MDXProviderProps) => <H2 {...props} />,
   h3: (props: MDXProviderProps) => <H3 {...props} />,
-  p: (props: MDXProviderProps) => <P {...props} />
+  p: (props: MDXProviderProps) => <P {...props} />,
+  ul: (props: MDXProviderProps) => <UL {...props} />,
+  ol: (props: MDXProviderProps) => <OL {...props} />,
+  li: (props: MDXProviderProps) => <LI {...props} />
 }
 
 export default (props: MDXProviderProps) => (
