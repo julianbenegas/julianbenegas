@@ -39,7 +39,10 @@ const EventContainer = ({
           <Event event={event} />
         </div>
       ) : (
-        <div></div>
+        <div className="event-container">
+          <h1>Now</h1>
+          <p>All there is.</p>
+        </div>
       )}
       <style jsx>{`
         .container {
@@ -84,6 +87,17 @@ const EventContainer = ({
               : '0 26px 0'};
           cursor: pointer;
         }
+        h1 {
+          font-size: var(--fs-2xl);
+          color: var(--grey-8);
+          font-weight: 600;
+          margin: 0.25rem 0 0.1rem;
+        }
+        p {
+          font-size: var(--fs-sm);
+          color: var(--grey-6);
+          line-height: var(--lh-tight);
+        }
 
         @media screen and (max-width: 900px) {
           .container {
@@ -110,6 +124,12 @@ const EventContainer = ({
                 : alignment === 'left'
                 ? '30px 0 0'
                 : '0 26px 0'};
+          }
+          h1 {
+            font-size: var(--fs-xl);
+          }
+          p {
+            font-size: var(--fs-xs);
           }
         }
         @media screen and (max-width: 400px) {
@@ -163,6 +183,7 @@ export default ({ events }: { events: FullEvent[] }) => {
           align-items: flex-start;
           justify-content: flex-start;
           width: 100%;
+          max-width: 700px;
           min-height: calc(100vh - 150.2px);
         }
         .root {

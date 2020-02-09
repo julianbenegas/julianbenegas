@@ -25,12 +25,18 @@ export default () => {
             align-items: center;
             justify-content: center;
             width: fit-content;
+            padding: 8px;
+            border-radius: 2px;
+            background: transparent;
           }
           h1 {
             color: var(--grey-9);
             margin-left: 8px;
             font-size: var(--fs-2xl);
             line-height: 1;
+          }
+          a:hover {
+            background: #2cefb4;
           }
         `}</style>
       </a>
