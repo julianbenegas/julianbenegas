@@ -36,7 +36,7 @@ export default () => {
             line-height: 1;
           }
           a:hover {
-            background: #2cefb4;
+            background: var(--selection-background);
           }
         `}</style>
       </a>

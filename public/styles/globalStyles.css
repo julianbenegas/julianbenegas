@@ -8,6 +8,7 @@
     var(--jb-green) 0%,
     var(--jb-purple) 100%
   );
+  --selection-background: rgba(44, 239, 180, 0.7);
 
   --grey-1: hsl(197, 33%, 97%);
   --grey-2: hsl(197, 32%, 92%);
@@ -100,5 +101,6 @@ body {
   font-family: var(--ff-sans);
 }
 ::selection {
-  background: #2cefb4;
+  background: var(--selection-background);
+  color: var(--grey-9);
 }
