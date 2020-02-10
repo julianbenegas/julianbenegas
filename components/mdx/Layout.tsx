@@ -3,6 +3,9 @@ import P from './P'
 import { H1, H2, H3 } from './headings'
 import Logo from '../Logo'
 import { UL, OL, LI } from './list'
+import SEO from '../SEO'
+import { A, NextLink, LinkProps as _LinkProps } from './links'
+import Screenshot from './Screenshot'
 
 type ComponentType =
   | 'p'
@@ -35,6 +38,20 @@ export type Components = {
 export interface MDXProviderProps {
   children: React.ReactNode
   components: Components
+  title: string
+}
+
+interface LinkProps extends MDXProviderProps, _LinkProps {}
+
+interface NextLinkProps extends MDXProviderProps {
+  href: string
+  hrefAs: string
+}
+
+interface ScreenshotProps extends MDXProviderProps {
+  src: string
+  alt: string
+  caption: string
 }
 
 const components = {
@@ -44,11 +61,15 @@ const components = {
   p: (props: MDXProviderProps) => <P {...props} />,
   ul: (props: MDXProviderProps) => <UL {...props} />,
   ol: (props: MDXProviderProps) => <OL {...props} />,
-  li: (props: MDXProviderProps) => <LI {...props} />
+  li: (props: MDXProviderProps) => <LI {...props} />,
+  a: (props: LinkProps) => <A {...props} />,
+  nextlink: (props: NextLinkProps) => <NextLink {...props} />,
+  screenshot: (props: ScreenshotProps) => <Screenshot {...props} />
 }
 
 export default (props: MDXProviderProps) => (
   <div className="container">
+    <SEO title={props.title} />
     <Logo />
     <div className="content">
       <MDXProvider components={components}>

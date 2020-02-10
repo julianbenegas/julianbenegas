@@ -15,14 +15,14 @@ interface Props {
 }
 
 export default ({
-  title = 'Julián Benegas',
+  title,
   description = 'This is my personal site, where I share my thoughts and my work.',
   favicon = '/images/favicon.png',
   openGraph
 }: Props) => {
   return (
     <Head>
-      <title>{title}</title>
+      <title>{title ? `${title} | Julián Benegas` : 'Julián Benegas'}</title>
       <link rel="shortcut icon" type="image/x-icon" href={favicon} />
       <meta name="description" content={description} />
       {openGraph && (
