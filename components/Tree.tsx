@@ -85,7 +85,6 @@ const EventContainer = ({
               : alignment === 'left'
               ? '30px 0 0'
               : '0 26px 0'};
-          cursor: pointer;
         }
         h1 {
           font-size: var(--fs-2xl);

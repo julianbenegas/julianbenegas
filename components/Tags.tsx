@@ -1,6 +1,6 @@
-import { Tag as TagInterface } from '../interfaces/tag'
 import chroma from 'chroma-js'
 import { useFilters, FilterMethod } from '../context/filtersContext'
+import { useColorMode } from '../context/colorModeContext'
 
 const Tag = ({
   tag,
@@ -10,28 +10,31 @@ const Tag = ({
   addFilter,
   removeFilter
 }: {
-  tag: TagInterface
+  tag: string
   index: number
   totalTags: number
   isActiveFilter: boolean
   addFilter?: FilterMethod
   removeFilter?: FilterMethod
 }) => {
+  const { colorMode } = useColorMode()
   const colorIndex = index / totalTags
-  const color = chroma.scale(['#0ec785', '#3c2bac'])(colorIndex)
+  const green = colorMode === 'dark' ? '#17D0B8' : '#129E8C'
+  const purple = colorMode === 'dark' ? '#A2B0FF' : '#4B60D6'
+  const color = chroma.scale([green, purple])(colorIndex)
 
   const background = color.alpha(0.1).css()
   const text = color.css()
 
   const handleClick = () => {
     if (isActiveFilter) {
-      removeFilter && removeFilter({ type: 'tag', value: tag.id })
-    } else addFilter && addFilter({ type: 'tag', value: tag.id })
+      removeFilter && removeFilter({ type: 'tag', value: tag })
+    } else addFilter && addFilter({ type: 'tag', value: tag })
   }
 
   return (
     <button onClick={handleClick}>
-      {tag.name}
+      {tag}
       <style jsx>{`
         button {
           display: block;
@@ -39,7 +42,11 @@ const Tag = ({
           color: var(--teal-3);
           font-size: var(--fs-sm);
           font-weight: 500;
-          color: ${isActiveFilter ? 'white' : text};
+          color: ${isActiveFilter
+            ? colorMode === 'dark'
+              ? 'black'
+              : 'white'
+            : text};
           background: ${isActiveFilter ? text : background};
           padding: 2px 4px;
           border-radius: 3px;
@@ -58,7 +65,7 @@ const Tag = ({
   )
 }
 
-export default ({ tags }: { tags: TagInterface[] }) => {
+export default ({ tags }: { tags: string[] }) => {
   const { filters, addFilter, removeFilter } = useFilters()
 
   return (
@@ -66,11 +73,11 @@ export default ({ tags }: { tags: TagInterface[] }) => {
       <h3>Tags</h3>
       {tags.map((tag, i) => (
         <Tag
-          key={tag.id}
+          key={tag}
           tag={tag}
           index={i}
           totalTags={tags.length}
-          isActiveFilter={filters.includes(tag.id)}
+          isActiveFilter={filters.includes(tag)}
           addFilter={addFilter}
           removeFilter={removeFilter}
         />

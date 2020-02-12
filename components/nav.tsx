@@ -5,11 +5,10 @@ import Tags from './Tags'
 import { useState } from 'react'
 import Social from './Social'
 import { FullEvent } from '../interfaces/event'
-import { Tag } from '../interfaces/tag'
 
 interface NavProps {
   pinned: FullEvent[]
-  tags: Tag[]
+  tags: string[]
 }
 
 export function Nav({ pinned, tags }: NavProps) {
@@ -83,7 +82,13 @@ export function MobileNav({ pinned, tags }: NavProps) {
   )
 }
 
-function HamburgerMenu({ pinned, tags }: { pinned: FullEvent[]; tags: Tag[] }) {
+function HamburgerMenu({
+  pinned,
+  tags
+}: {
+  pinned: FullEvent[]
+  tags: string[]
+}) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (

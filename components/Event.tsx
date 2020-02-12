@@ -8,7 +8,9 @@ export const Event = ({ event }: { event: FullEvent }) => (
       <Link href={event.url}>
         <a>
           {event.date && (
-            <span>{moment(event.date).format('MMMM Do, YYYY')}</span>
+            <span>
+              {moment(event.date, 'YYYY-MM-DD').format('MMMM Do, YYYY')}
+            </span>
           )}
           <h1>{event.name}</h1>
           <p>{event.description}</p>
@@ -17,7 +19,9 @@ export const Event = ({ event }: { event: FullEvent }) => (
     ) : (
       <a>
         {event.date && (
-          <span>{moment(event.date).format('MMMM Do, YYYY')}</span>
+          <span>
+            {moment(event.date, 'YYYY-MM-DD').format('MMMM Do, YYYY')}
+          </span>
         )}
         <h1>{event.name}</h1>
         <p>{event.description}</p>
@@ -39,7 +43,7 @@ export const Event = ({ event }: { event: FullEvent }) => (
         font-size: var(--fs-xl);
         color: var(--grey-8);
         font-weight: 500;
-        margin: 0.25rem 0 0.1rem;
+        padding: 0.25rem 0 0.1rem;
       }
       p {
         font-size: var(--fs-sm);

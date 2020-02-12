@@ -1,36 +1,40 @@
 import { useState, useEffect } from 'react'
 import { Nav, MobileNav } from '../components/nav'
 import Tree from '../components/Tree'
-import { Event, FullEvent } from '../interfaces/event'
+import { FullEvent } from '../interfaces/event'
 import { events } from '../data/events.json'
-import { tags } from '../data/tags.json'
-import { pinned } from '../data/pinned.json'
 import { useFilters } from '../context/filtersContext'
 import moment from 'moment'
 
 export default function Index() {
-  const allEvents = events
-    .filter(e => e.isPublished)
-    .map((event: Event) => ({
-      ...event,
-      url: `${moment(event.date)
-        .utc()
-        .year()}/${event.id}`
-    }))
-    .sort((a, b) =>
-      moment(a.date)
-        .utc()
-        .unix() >
-      moment(b.date)
-        .utc()
-        .unix()
-        ? -1
-        : 1
-    )
+  let tags: string[] = []
+  let allEvents: FullEvent[] = []
+  let pinnedEvents: FullEvent[] = []
+
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i]
+    if (event.isPublished) {
+      const fullEvent = {
+        ...event,
+        url: `${moment.utc(event.date, 'YYYY-MM-DD').year()}/${event.id}`
+      }
+      allEvents.push(fullEvent)
+      // Check for tags
+      if (event.tags?.length) {
+        const toAdd = event.tags.filter(t => !tags.includes(t))
+        tags.push(...toAdd)
+      }
+      // Check if isPinned
+      if (event.isPinned) pinnedEvents.push(fullEvent)
+    }
+  }
+
+  // Sort em
+  tags = tags.sort((a, b) => (a > b ? 1 : -1))
+  allEvents = allEvents.sort((a, b) => (a.date > b.date ? -1 : 1))
+  pinnedEvents = pinnedEvents.sort((a, b) => (a.date > b.date ? -1 : 1))
 
   const [filteredEvents, setFilteredEvents] = useState<FullEvent[]>(allEvents)
-  const pinnedEvents = allEvents.filter(e => pinned.includes(e.id))
-
   const { filters } = useFilters()
 
   useEffect(() => {

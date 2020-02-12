@@ -1,20 +1,21 @@
 {
     "events": [
         {
-            "name": "Why Capitalism always wins",
-            "id": "capitalism-always-wins",
-            "date": "2020-02-09",
-            "tags": ["economics"],
-            "description": "It's quite simple, actually. Humans act on incentives (all living things do, but we only care about human ones), and Capitalism is a system that align those perfectly.",
-            "isLink": true,
-            "isPublished": false
-        },
-        {
             "name": "The Simplest Way to Build Dark Mode With React and CSS",
             "id": "react-dark-mode",
             "date": "2020-02-11",
-            "tags": ["economics"],
+            "tags": ["React"],
             "description": "We all love dark mode. This post shows how to implement a simple solution to support it in a React app.",
+            "isLink": true,
+            "isPublished": true,
+            "isPinned": true
+        },
+        {
+            "name": "Why Capitalism always wins",
+            "id": "capitalism-always-wins",
+            "date": "2020-02-09",
+            "tags": ["Economics"],
+            "description": "It's quite simple, actually. Humans act on incentives (all living things do, but we only care about human ones), and Capitalism is a system that align those perfectly.",
             "isLink": true,
             "isPublished": true
         },
