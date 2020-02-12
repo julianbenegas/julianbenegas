@@ -21,7 +21,7 @@ export const H2 = ({ children }: PropsWithChildren<{}>) => {
       <style jsx>{`
         h2 {
           color: var(--grey-9);
-          margin: 1rem 0 0.5rem;
+          margin: 1rem 0 0.75rem;
         }
       `}</style>
     </h2>

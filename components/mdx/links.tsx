@@ -15,7 +15,7 @@ export const A = (props: LinkProps) => (
     </i>
     <style jsx>{`
       a {
-        color: #0070f3;
+        color: var(--link-color);
       }
       a:hover {
         text-decoration: underline;
@@ -40,7 +40,7 @@ export const NextLink = ({ href, hrefAs = href, children }: NextLinkProps) => (
       {children}
       <style jsx>{`
         a {
-          color: #0070f3;
+          color: var(--link-color);
         }
         a:hover {
           text-decoration: underline;

@@ -10,6 +10,15 @@
             "isPublished": false
         },
         {
+            "name": "The Simplest Way to Build Dark Mode With React and CSS",
+            "id": "react-dark-mode",
+            "date": "2020-02-11",
+            "tags": ["economics"],
+            "description": "We all love dark mode. This post shows how to implement a simple solution to support it in a React app.",
+            "isLink": true,
+            "isPublished": true
+        },
+        {
             "name": "Site in progress",
             "id": "site-in-progress",
             "date": "2020-02-09",

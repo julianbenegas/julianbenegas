@@ -6,6 +6,8 @@ import { UL, OL, LI } from './list'
 import SEO from '../SEO'
 import { A, NextLink, LinkProps as _LinkProps } from './links'
 import Screenshot from './Screenshot'
+import CodeSandbox from './CodeSandbox'
+import { Code, InlineCode } from './code'
 
 type ComponentType =
   | 'p'
@@ -38,7 +40,7 @@ export type Components = {
 export interface MDXProviderProps {
   children: React.ReactNode
   components: Components
-  title: string
+  pagetitle: string
 }
 
 interface LinkProps extends MDXProviderProps, _LinkProps {}
@@ -54,6 +56,15 @@ interface ScreenshotProps extends MDXProviderProps {
   caption: string
 }
 
+interface CodeSandboxProps extends MDXProviderProps {
+  src: string
+  height: string
+}
+
+interface CodeProps extends MDXProviderProps {
+  className: string
+}
+
 const components = {
   h1: (props: MDXProviderProps) => <H1 {...props} />,
   h2: (props: MDXProviderProps) => <H2 {...props} />,
@@ -64,12 +75,15 @@ const components = {
   li: (props: MDXProviderProps) => <LI {...props} />,
   a: (props: LinkProps) => <A {...props} />,
   nextlink: (props: NextLinkProps) => <NextLink {...props} />,
-  screenshot: (props: ScreenshotProps) => <Screenshot {...props} />
+  screenshot: (props: ScreenshotProps) => <Screenshot {...props} />,
+  codesandbox: (props: CodeSandboxProps) => <CodeSandbox {...props} />,
+  code: (props: CodeProps) => <Code {...props} />,
+  ic: (props: MDXProviderProps) => <InlineCode {...props} />
 }
 
 export default (props: MDXProviderProps) => (
   <div className="container">
-    <SEO title={props.title} />
+    <SEO title={props.pagetitle} />
     <Logo />
     <div className="content">
       <MDXProvider components={components}>
