@@ -35,7 +35,6 @@ export const LI = ({ children }: PropsWithChildren<{}>) => (
       li {
         color: var(--grey-9);
         margin-bottom: 0.5rem;
-        padding-left: 14px;
         line-height: 1.5;
       }
     `}</style>

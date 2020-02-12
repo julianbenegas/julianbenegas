@@ -1,0 +1,113 @@
+import Layout from "../../components/mdx/Layout"
+export default ({ children }) => <Layout pagetitle='The Best Way to Use Firebase In A React Application'>{children}</Layout>
+
+# The Best Way to Use Firebase In A React Application
+
+I used [Firebase](https://firebase.google.com) a lot. It empowered me to build fully fledged applications: 
+
+- with authentication
+- with a database
+- with a storage bucket
+
+It was pretty easy with Firebsae, and I'm grateful that such service exists. What I can do today with Firebase would've been impossible to do 20 years ago with my same team (just me).
+
+Project after project I improved my integration and now I'm quite happy with how I handle it. Let's dive into it.
+
+## Grabbing client credentials
+
+To use Firebase, you must initialize the Firebase application. To do so, you must have your project's credentials, which can be found on the Project Settings part of the [Firebase Console](https://console.firebase.google.com). I usually save those in <ic>credentials/client.js</ic>
+```javascript
+// credentials/client.js
+
+module.exports = {
+    apiKey: 'API_KEY',
+    authDomain: '[PROJECT_ID].firebaseapp.com',
+    databaseURL: 'https://[PROJECT_ID].firebaseio.com',
+    projectId: '[PROJECT_ID]',
+    storageBucket: '[PROJECT_ID].appspot.com',
+    messagingSenderId: '*****',
+    appId: '*****',
+    measurementId: '*****'
+}
+```
+
+Quick fact: It doesn't matter if the API Key is not passed as an environment variable. This Key is public, and anyone using your app can find it by digging a bit in the Network section of the Dev Tools. The way you handle security is through Security Rules. More on this [here](https://stackoverflow.com/a/37484053/10787298).
+
+## Initializing the app
+
+Time to initialize the app. What you'll usually want is to access the firebase app in many different places in your react app, so we can't just initialize it every single time, on every component. We'll do so in the Context. Here's the full thing:
+
+```javascript
+// context/firebaseContext.js
+
+import { useState, createContext, useEffect } from 'react'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
+import 'firebase/analytics'
+
+// Your credentials
+import clientCredentials from '../credentials/client'
+
+export const FirebaseContext = createContext()
+
+export default ({ children }) => {
+
+    // The whole app
+    const [firebaseApp, setFirebaseApp] = useState()
+    // Just the DB
+    const [db, setDb] = useState()
+    // Just the Auth
+    const [auth, setAuth] = useState()
+    // BONUS! Current user
+    const [user, setUser] = useState(null)
+    const [loadingUser, setLoadingUser] = useState(true)
+
+    useEffect(() => {
+    // Initialize Firebase
+    // This checks if the app is already initialized
+    if (!firebaseApp && !firebase.apps.length) {
+        firebase.initializeApp(clientCredentials)
+        // Analytics
+        if ('measurementId' in clientCredentials) firebase.analytics()
+        setFirebaseApp(firebase)
+        setDb(firebase.firestore())
+        setAuth(firebase.auth())
+        // Listen authenticated user
+        firebase.auth().onAuthStateChanged(async user => {
+        try {
+            if (user) {
+            // User is signed in.
+            const { uid, displayName, email, photoURL } = user
+            setUser({ uid, displayName, email, photoURL })
+            setLoadingUser(false)
+            } else {
+            setUser(null)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+        })
+    }
+    }, [])
+
+    return (
+    <FirebaseContext.Provider
+        value={{ firebaseApp, db, auth, user, setUser, loadingUser }}
+    >
+        {children}
+    </FirebaseContext.Provider>
+    )
+}
+
+export const useFirebase = () => useContext(FirebaseContext)
+```
+
+In there, we are initializing the app, saving it in the context provider's local state, listening to the authenticated user (bonus!) and saving that aswell.
+
+After that, we create a custom hook shorthand to <ic>useFirebase</ic>.
+
+The only thing tha's left is to wrap our top level component in the exported provider and that's it!
+
+Thanks for reading. Be well.

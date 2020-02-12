@@ -34,6 +34,7 @@ export default () => {
           display: flex;
           align-items: center;
           margin: 0 0 1.5rem;
+          cursor: text;
         }
         i {
           color: var(--grey-4);

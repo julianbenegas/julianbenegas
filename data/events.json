@@ -1,10 +1,19 @@
 {
     "events": [
         {
+            "name": "The Best Way to Use Firebase In A React Application",
+            "id": "react-firebase",
+            "date": "2020-02-12",
+            "tags": ["React", "Tutorial"],
+            "description": "Project after project I improved my integration and now I'm quite happy with how I handle it. Let's dive into it.",
+            "isLink": true,
+            "isPublished": true
+        },
+        {
             "name": "The Simplest Way to Build Dark Mode With React and CSS",
             "id": "react-dark-mode",
             "date": "2020-02-11",
-            "tags": ["React"],
+            "tags": ["React", "Tutorial"],
             "description": "We all love dark mode. This post shows how to implement a simple solution to support it in a React app.",
             "isLink": true,
             "isPublished": true,
