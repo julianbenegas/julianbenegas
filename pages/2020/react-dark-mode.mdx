@@ -122,9 +122,9 @@ div[data-colormode='dark'] {
 }
 ```
 
-See what I did there? My 9 greys are sort of symettrical, in the sense that from 1 to 4 they work great on a dark background, and from 6 to 9 they do so on a light background. So the only thing I have to do if I change my background to a dark one is invert their values! So, <ic>--grey-1</ic>, on dark mode, has the value of <ic>--grey-9</ic> and so on and so forth.
+See what I did there? My 9 greys are sort of symmetrical, in the sense that from 1 to 4 they work great on a dark background, and from 6 to 9 they do so on a light background. So the only thing I have to do if I change my background to a dark one is invert their values! So, <ic>--grey-1</ic> on dark mode gets the value of <ic>--grey-9</ic> and so on and so forth.
 
-Of course it is not necessary to have 9 shades of grey, but the concept is that when <ic>[data-colormode='dark']</ic> you'll redefine the CSS props you need to redefine for them to work on dark mode.
+Of course it is not necessary to have 9 shades of grey, but the concept is that when <ic>[data-colormode='dark']</ic> you'll redefine the colors defined on your CSS props for them to work on dark mode. And that's it.
 
 ## Persisting it in localStorage
 
@@ -169,7 +169,7 @@ export const useColorMode = () => useContext(ColorModeContext);
 
 ## Bonus
 
-One thing I prefer is instead of setting up button that the user has to press, using <ic>@media (prefers-color-scheme: dark)</ic> to automatically set the color mode. This is how this site works, and I feel it's much better like that. After all, all our apps are part of an Operating System, so they should feel consistent. It's easier even:
+One thing I prefer: instead of setting up a button that the user has to press, using <ic>@media (prefers-color-scheme: dark)</ic> we can get to know what the user already prefers. This is how this site works, and I feel it's much better. After all, all our apps are part of an OS, so they should feel consistent. It's easier even:
 
 ```javascript
 // context/colorModeContext.js
