@@ -71,21 +71,21 @@
 
 /* DARK MODE */
 div[data-colormode='dark'] {
-  --grey-9: hsl(197, 33%, 97%);
-  --grey-8: hsl(197, 32%, 92%);
-  --grey-7: hsl(197, 27%, 87%);
-  --grey-6: hsl(197, 14%, 70%);
-  --grey-5: hsl(197, 8%, 45%);
-  --grey-4: hsl(197, 13%, 29%);
-  --grey-3: hsl(197, 20%, 19%);
-  --grey-2: hsl(197, 12%, 12%);
+  --grey-9: white;
+  --grey-8: hsl(197, 33%, 97%);
+  --grey-7: hsl(197, 32%, 92%);
+  --grey-6: hsl(197, 27%, 87%);
+  --grey-5: hsl(197, 14%, 70%);
+  --grey-4: hsl(197, 8%, 45%);
+  --grey-3: hsl(197, 13%, 29%);
+  --grey-2: hsl(197, 20%, 19%);
   --grey-1: hsl(197, 12%, 12%);
+
+  --grey-0: hsl(197, 26%, 7%);
 
   --teal-3: hsl(197, 100%, 84%);
   --teal-2: hsl(197, 61%, 37%);
   --teal-1: hsl(197, 100%, 25%);
-
-  --grey-0: hsl(197, 26%, 7%);
 
   --link-color: #55adff;
 
