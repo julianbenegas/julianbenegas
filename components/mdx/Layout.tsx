@@ -8,6 +8,7 @@ import { A, NextLink, LinkProps as _LinkProps } from './links'
 import Screenshot from './Screenshot'
 import CodeSandbox from './CodeSandbox'
 import { Code, InlineCode } from './code'
+import Quote from './Quote'
 
 type ComponentType =
   | 'p'
@@ -78,7 +79,8 @@ const components = {
   screenshot: (props: ScreenshotProps) => <Screenshot {...props} />,
   codesandbox: (props: CodeSandboxProps) => <CodeSandbox {...props} />,
   code: (props: CodeProps) => <Code {...props} />,
-  ic: (props: MDXProviderProps) => <InlineCode {...props} />
+  ic: (props: MDXProviderProps) => <InlineCode {...props} />,
+  blockquote: (props: MDXProviderProps) => <Quote {...props} />
 }
 
 export default (props: MDXProviderProps) => (
