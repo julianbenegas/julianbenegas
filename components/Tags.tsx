@@ -87,7 +87,7 @@ export default ({ tags }: { tags: string[] }) => {
           font-size: var(--fs-xs);
           text-transform: uppercase;
           color: var(--grey-6);
-          margin: 0.85em 0;
+          margin: 1.25rem 0 0.85rem;
         }
       `}</style>
     </div>
