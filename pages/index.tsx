@@ -57,7 +57,7 @@ export default function Index() {
           event.description.toLowerCase().includes(lowerCased) ||
           event.displayDate.toLowerCase().includes(lowerCased) ||
           event.tags
-            ?.join()
+            ?.join(' ')
             .toLowerCase()
             .includes(lowerCased)
       )
