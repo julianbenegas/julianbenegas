@@ -11,7 +11,7 @@ export default ({ pinned }: { pinned: FullEvent[] }) => {
           <i>
             <AiOutlinePushpin />
           </i>
-          <Event event={event} />
+          <Event event={event} isInPinned={true} />
         </div>
       ))}
       <style jsx>{`

@@ -1,9 +1,17 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { MdSearch } from 'react-icons/md'
+import { useFilters } from '../context/filtersContext'
 
 export default () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+
+  const [searchString, setSearchString] = useState<string>('')
+  const { addFilter } = useFilters()
+
+  useEffect(() => {
+    addFilter && addFilter({ type: 'words', value: searchString })
+  }, [searchString])
 
   const handleClick = () => inputRef?.current?.focus()
 
@@ -24,6 +32,8 @@ export default () => {
         onFocus={handleFocus}
         autoComplete="off"
         placeholder="Search"
+        onChange={e => setSearchString(e.currentTarget.value)}
+        value={searchString}
       />
       <style jsx>{`
         div {

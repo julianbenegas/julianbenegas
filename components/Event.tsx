@@ -1,30 +1,27 @@
 import Link from 'next/link'
-import moment from 'moment'
 import { FullEvent } from '../interfaces/event'
 
-export const Event = ({ event }: { event: FullEvent }) => (
+export const Event = ({
+  event,
+  isInPinned = false
+}: {
+  event: FullEvent
+  isInPinned?: boolean
+}) => (
   <>
     {event.isLink ? (
       <Link href={event.url}>
         <a>
-          {event.date && (
-            <span>
-              {moment(event.date, 'YYYY-MM-DD').format('MMMM Do, YYYY')}
-            </span>
-          )}
+          {event.date && <span>{event.displayDate}</span>}
           <h1>{event.name}</h1>
-          <p>{event.description}</p>
+          {!isInPinned && <p>{event.description}</p>}
         </a>
       </Link>
     ) : (
       <a>
-        {event.date && (
-          <span>
-            {moment(event.date, 'YYYY-MM-DD').format('MMMM Do, YYYY')}
-          </span>
-        )}
+        {event.date && <span>{event.displayDate}</span>}
         <h1>{event.name}</h1>
-        <p>{event.description}</p>
+        {!isInPinned && <p>{event.description}</p>}
       </a>
     )}
     <style jsx>{`
@@ -33,14 +30,17 @@ export const Event = ({ event }: { event: FullEvent }) => (
         background: transparent;
         border: none;
         cursor: ${event.isLink ? 'pointer' : 'default'};
+        display: flex;
+        flex-direction: column;
       }
       span {
         color: var(--teal-3);
         font-weight: 500;
         font-size: var(--fs-sm);
+        font-size: ${isInPinned ? 'var(--fs-xs)' : 'var(--fs-sm)'};
       }
       h1 {
-        font-size: var(--fs-xl);
+        font-size: ${isInPinned ? 'var(--fs-md)' : 'var(--fs-xl)'};
         color: var(--grey-8);
         font-weight: 500;
         padding: 0.25rem 0 0.1rem;

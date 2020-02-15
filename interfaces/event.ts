@@ -11,4 +11,5 @@ export interface Event {
 
 export interface FullEvent extends Event {
   url: string
+  displayDate: string
 }

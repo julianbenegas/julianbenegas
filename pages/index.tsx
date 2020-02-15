@@ -16,7 +16,8 @@ export default function Index() {
     if (event.isPublished) {
       const fullEvent = {
         ...event,
-        url: `${moment.utc(event.date, 'YYYY-MM-DD').year()}/${event.id}`
+        url: `${moment.utc(event.date, 'YYYY-MM-DD').year()}/${event.id}`,
+        displayDate: moment(event.date, 'YYYY-MM-DD').format('MMMM Do, YYYY')
       }
       allEvents.push(fullEvent)
       // Check for tags
@@ -38,14 +39,32 @@ export default function Index() {
   const { filters } = useFilters()
 
   useEffect(() => {
-    if (filters.length) {
-      const filtered = allEvents.filter(
+    // Check for tag filters
+    let filtered: FullEvent[] = allEvents
+    console.log(filters)
+    if (filters.tags.length) {
+      filtered = filtered.filter(
         event =>
-          filters.filter(f => event.tags?.includes(f)).length === filters.length
+          filters.tags.filter(f => event.tags?.includes(f)).length ===
+          filters.tags.length
       )
-      setFilteredEvents(filtered)
-    } else setFilteredEvents(allEvents)
+    }
+    console.log(filtered)
+    // Check for word filters
+    if (filters.words.length) {
+      const lowerCased = filters.words.toLowerCase()
+      filtered = filtered.filter(
+        event =>
+          event.name.toLowerCase().includes(lowerCased) ||
+          event.description.toLowerCase().includes(lowerCased) ||
+          event.displayDate.toLowerCase().includes(lowerCased)
+      )
+    }
+    console.log(filtered)
+    setFilteredEvents(filtered)
   }, [filters])
+
+  console.log(filteredEvents)
 
   return (
     <div>

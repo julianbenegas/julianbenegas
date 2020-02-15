@@ -77,7 +77,7 @@ export default ({ tags }: { tags: string[] }) => {
           tag={tag}
           index={i}
           totalTags={tags.length}
-          isActiveFilter={filters.includes(tag)}
+          isActiveFilter={filters?.tags?.includes(tag)}
           addFilter={addFilter}
           removeFilter={removeFilter}
         />

@@ -1,28 +1,44 @@
 import { useState, createContext, PropsWithChildren, useContext } from 'react'
 
+interface Filters {
+  tags: string[]
+  words: string
+}
+
 export type FilterMethod = ({
   type,
   value
 }: {
-  type: string
+  type: 'tag' | 'words'
   value: string
 }) => void
 
 export type FilterContextType = {
-  filters: string[]
+  filters: Filters
   addFilter?: FilterMethod
   removeFilter?: FilterMethod
 }
 
-export const FiltersContext = createContext<FilterContextType>({ filters: [] })
+export const FiltersContext = createContext<FilterContextType>({
+  filters: { tags: [], words: '' }
+})
 
 export default ({ children }: PropsWithChildren<{}>) => {
-  const [filters, setFilters] = useState<string[]>([])
+  const [filters, setFilters] = useState<Filters>({ tags: [], words: '' })
 
-  const addFilter = ({ type, value }: { type: string; value: string }) => {
+  const addFilter = ({
+    type,
+    value
+  }: {
+    type: 'tag' | 'words'
+    value: string
+  }) => {
     switch (type) {
       case 'tag':
-        setFilters([...filters, value])
+        setFilters({ ...filters, tags: [...filters.tags, value] })
+        break
+      case 'words':
+        setFilters({ ...filters, words: value })
         break
       default:
         break
@@ -32,7 +48,10 @@ export default ({ children }: PropsWithChildren<{}>) => {
   const removeFilter = ({ type, value }: { type: string; value: string }) => {
     switch (type) {
       case 'tag':
-        setFilters(filters.filter(f => f !== value))
+        setFilters({ ...filters, tags: filters.tags.filter(f => f !== value) })
+        break
+      case 'words':
+        setFilters({ ...filters, words: '' })
         break
       default:
         break
