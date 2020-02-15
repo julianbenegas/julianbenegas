@@ -1,6 +1,15 @@
 {
     "events": [
         {
+            "name": "La Derecha Diario",
+            "id": "la-derecha-diario",
+            "date": "2020-02-24",
+            "tags": ["Work"],
+            "description": "A newspaper that came to turn the tables around.",
+            "isLink": true,
+            "isPublished": false
+        },
+        {
             "name": "The Best Way to Use Firebase In A React Application",
             "id": "react-firebase",
             "date": "2020-02-12",

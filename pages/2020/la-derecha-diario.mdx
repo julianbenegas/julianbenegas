@@ -3,4 +3,40 @@ export default ({ children }) => <Layout pagetitle='La Derecha Diario'>{children
 
 # La Derecha Diario
 
-## H2
+A newspaper that came to turn the tables around.
+
+La Derecha Diario is a right wing, argentinian, news site that started out as a Twitter account and quickly gained thousands of followers. Why? Because they strive for truth. No burocracy, no lobbying, no contradictory interests; just one pursuit.
+
+## Their Story
+
+Argentina is in a bad situation. Economically, politically, socially. It has been this way (getting better sporadically, getting worse most of the time) for almost 100 years. With the rise of social media platforms, mainly Twitter, came the rise of more independant voices sharing their thoughts in the political scenario. This was huge.
+
+[Juan Doe](https://twitter.com/jdoedoe101101) is one of those voices. He's gained quite a following these past years for his straight and blunt opinions, for his clarity and wit.
+
+Being quite frustrated with the current media voices and seeing the need people had for someone that told the truth, he started a new project: La Derecha Diario. In just a couple of months they've been able to grow their [Twitter following](https://twitter.com/laderechadiario) to 50k +.
+
+## Our Work
+
+I reached out to him via Twitter DM, offering my services. I had just finished a project and was quite exited by what they were doing. After some talk, I joined the team.
+
+I iterated the design in Figma for a couple of weeks before writing any code. The first part was slow (mainly because it was right between holidays!), but then we moved fast. I worked alongside another developer and we wrote the initial code in ~ a month.
+
+The current stack is:
+
+- [NextJS](https://nextjs.org/)
+- Deployed with [ZEIT Now](https://zeit.co/now)
+- [Firebase](https://firebase.google.com)
+
+And we are quite happy with it.
+
+## The Toughest Part
+
+I'd say the toughtest part was writing all the admin part of the site. Like what the admins can see, how the editors create an article, how the front page is managed. It was huge. There were various levels of user privileges, tables, actions, filters...
+
+I'll admit that my preferred work is on the front-end, and although the admin <i>is</i> front-end, it's the part that feels the most like back-end.
+
+The thing we had to really think about was how we'd structure the data in Firebase. FB charges you by document read (and other stuff also, but reads are the most used action on a news site), so we had to make sure that users could get by reading the least amount of documents possible. That meant duplicating data through our Firestore and that's perfectly fine.
+
+## Some Screenshots
+
+<footer title="La Derecha Diario" />
