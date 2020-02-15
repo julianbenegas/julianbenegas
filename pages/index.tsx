@@ -41,7 +41,6 @@ export default function Index() {
   useEffect(() => {
     // Check for tag filters
     let filtered: FullEvent[] = allEvents
-    console.log(filters)
     if (filters.tags.length) {
       filtered = filtered.filter(
         event =>
@@ -49,7 +48,6 @@ export default function Index() {
           filters.tags.length
       )
     }
-    console.log(filtered)
     // Check for word filters
     if (filters.words.length) {
       const lowerCased = filters.words.toLowerCase()
@@ -57,14 +55,15 @@ export default function Index() {
         event =>
           event.name.toLowerCase().includes(lowerCased) ||
           event.description.toLowerCase().includes(lowerCased) ||
-          event.displayDate.toLowerCase().includes(lowerCased)
+          event.displayDate.toLowerCase().includes(lowerCased) ||
+          event.tags
+            ?.join()
+            .toLowerCase()
+            .includes(lowerCased)
       )
     }
-    console.log(filtered)
     setFilteredEvents(filtered)
   }, [filters])
-
-  console.log(filteredEvents)
 
   return (
     <div>
