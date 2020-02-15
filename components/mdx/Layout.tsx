@@ -9,6 +9,7 @@ import Screenshot from './Screenshot'
 import CodeSandbox from './CodeSandbox'
 import { Code, InlineCode } from './code'
 import Quote from './Quote'
+import Footer from './Footer'
 
 type ComponentType =
   | 'p'
@@ -66,6 +67,11 @@ interface CodeProps extends MDXProviderProps {
   className: string
 }
 
+interface FooterProps extends MDXProviderProps {
+  title: string
+  message: string
+}
+
 const components = {
   h1: (props: MDXProviderProps) => <H1 {...props} />,
   h2: (props: MDXProviderProps) => <H2 {...props} />,
@@ -80,7 +86,8 @@ const components = {
   codesandbox: (props: CodeSandboxProps) => <CodeSandbox {...props} />,
   code: (props: CodeProps) => <Code {...props} />,
   ic: (props: MDXProviderProps) => <InlineCode {...props} />,
-  blockquote: (props: MDXProviderProps) => <Quote {...props} />
+  blockquote: (props: MDXProviderProps) => <Quote {...props} />,
+  footer: (props: FooterProps) => <Footer {...props} />
 }
 
 export default (props: MDXProviderProps) => (
