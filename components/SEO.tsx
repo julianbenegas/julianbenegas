@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { twitterUsername } from '../util/constants'
 
 interface OpenGraph {
   title: string
@@ -14,11 +15,19 @@ interface Props {
   openGraph?: OpenGraph
 }
 
+const defaultOpenGraph: OpenGraph = {
+  title: 'Julián Benegas',
+  description:
+    'This is my personal site, where I share my thoughts and my work.',
+  url: 'https://julianbenegas.now.sh/',
+  image: 'https://julianbenegas.now.sh/images/logo@1x.png'
+}
+
 export default ({
   title,
   description = 'This is my personal site, where I share my thoughts and my work.',
   favicon = '/images/favicon.png',
-  openGraph
+  openGraph = defaultOpenGraph
 }: Props) => {
   return (
     <Head>
@@ -34,7 +43,7 @@ export default ({
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Julián Benegas" />
           <meta name="twitter:card" content={openGraph.description}></meta>
-          <meta name="twitter:site" content="@julianbenegas8"></meta>
+          <meta name="twitter:site" content={`@${twitterUsername}`}></meta>
         </>
       )}
     </Head>

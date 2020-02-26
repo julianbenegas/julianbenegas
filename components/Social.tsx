@@ -1,4 +1,5 @@
 import { FiGithub, FiTwitter, FiMail } from 'react-icons/fi'
+import { twitterUsername } from '../util/constants'
 
 export default () => {
   return (
@@ -11,7 +12,7 @@ export default () => {
         <FiMail />
       </a>
       <a
-        href="https://twitter.com/julianbenegas8"
+        href={`https://twitter.com/${twitterUsername}`}
         target="_blank"
         rel="noopener noreferrer"
       >

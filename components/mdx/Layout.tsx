@@ -11,6 +11,7 @@ import { Code, InlineCode } from './code'
 import Quote from './Quote'
 import Footer from './Footer'
 import Tweet from './Tweet'
+import { useRouter } from 'next/router'
 
 type ComponentType =
   | 'p'
@@ -44,6 +45,8 @@ export interface MDXProviderProps {
   children: React.ReactNode
   components: Components
   pagetitle: string
+  description: string
+  image: string
 }
 
 interface LinkProps extends MDXProviderProps, _LinkProps {}
@@ -96,32 +99,42 @@ const components = {
   tweet: (props: TweetProps) => <Tweet {...props} />
 }
 
-export default (props: MDXProviderProps) => (
-  <div className="container">
-    <SEO title={props.pagetitle} />
-    <Logo />
-    <div className="content">
-      <MDXProvider components={components}>
-        <main {...props}></main>
-      </MDXProvider>
-    </div>
-    <style jsx>{`
-      .container {
-        padding: 40px;
-        min-height: 100vh;
-        background: var(--background-color);
-      }
-      .content {
-        padding: 100px 0;
-        max-width: 700px;
-        margin: auto;
-      }
+export default (props: MDXProviderProps) => {
+  const router = useRouter()
+  const og = {
+    title: props.pagetitle,
+    description: props.description,
+    image: `https://julianbenegas.now.sh${props.image}`,
+    url: `https://julianbenegas.now.sh/${router.asPath}`
+  }
 
-      @media screen and (max-width: 620px) {
+  return (
+    <div className="container">
+      <SEO title={props.pagetitle} openGraph={og} />
+      <Logo />
+      <div className="content">
+        <MDXProvider components={components}>
+          <main {...props}></main>
+        </MDXProvider>
+      </div>
+      <style jsx>{`
         .container {
-          padding: 20px;
+          padding: 40px;
+          min-height: 100vh;
+          background: var(--background-color);
         }
-      }
-    `}</style>
-  </div>
-)
+        .content {
+          padding: 100px 0;
+          max-width: 700px;
+          margin: auto;
+        }
+
+        @media screen and (max-width: 620px) {
+          .container {
+            padding: 20px;
+          }
+        }
+      `}</style>
+    </div>
+  )
+}

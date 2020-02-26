@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { twitterUsername } from '../../util/constants'
 
 export default ({
   message = 'Thanks for reading. Julián.',
@@ -14,7 +15,7 @@ export default ({
       <p>{message}</p>
       <a
         className="twitter-share-button"
-        href={`https://twitter.com/intent/tweet?text=${title}&url=https://julianbenegas.now.sh${router.route}&via=julianbenegas8`}
+        href={`https://twitter.com/intent/tweet?text=${title}&url=https://julianbenegas.now.sh${router.route}&via=${twitterUsername}`}
         data-size="large"
         target="_blank"
         rel="noopener noreferrer"
