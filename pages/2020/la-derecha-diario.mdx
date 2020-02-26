@@ -3,9 +3,13 @@ export default ({ children }) => <Layout pagetitle='La Derecha Diario'>{children
 
 # La Derecha Diario
 
-A newspaper that came to turn the tables around.
+https://derechadiario.com.ar/
 
-La Derecha Diario is a right wing, argentinian, news site that started out as a Twitter account and quickly gained thousands of followers. Why? Because they strive for truth. No burocracy, no lobbying, no contradictory interests; just one pursuit.
+A digital newspaper that doesn't compromise on Truth.
+
+<screenshot src="/event-photos/ldd/home.png" caption="Dark Mode: ☑️" />
+
+La Derecha Diario is a right wing, Argentinian, news site, that started out as a Twitter account and quickly gained thousands of followers.
 
 ## Their Story
 
@@ -13,13 +17,19 @@ Argentina is in a bad situation. Economically, politically, socially. It has bee
 
 [Juan Doe](https://twitter.com/jdoedoe101101) is one of those voices. He's gained quite a following these past years for his straight and blunt opinions, for his clarity and wit.
 
-Being quite frustrated with the current media voices and seeing the need people had for someone that told the truth, he started a new project: La Derecha Diario. In just a couple of months they've been able to grow their [Twitter following](https://twitter.com/laderechadiario) to 50k +.
+Being quite frustrated with the current media voices and seeing the need people had for someone that told the truth, he and his tight-knit team started a new project: La Derecha Diario. In just a couple of months they've been able to grow their [Twitter following](https://twitter.com/laderechadiario) to 45k +.
+
+It was an absolute pleasure to work with these guys. The service they are doing for Argentina is amazing. Let's get to the dev stuff though.
 
 ## Our Work
 
 I reached out to him via Twitter DM, offering my services. I had just finished a project and was quite exited by what they were doing. After some talk, I joined the team.
 
+<screenshot src="/event-photos/ldd/enter.png" caption="Sign in / sign up is a modal. Who wants to go to another page to sign in?" />
+
 I iterated the design in Figma for a couple of weeks before writing any code. The first part was slow (mainly because it was right between holidays!), but then we moved fast. I worked alongside another developer and we wrote the initial code in ~ a month.
+
+<screenshot src="/event-photos/ldd/article.png" />
 
 The current stack is:
 
@@ -29,14 +39,35 @@ The current stack is:
 
 And we are quite happy with it.
 
-## The Toughest Part
+## The Toughest Parts
 
-I'd say the toughtest part was writing all the admin part of the site. Like what the admins can see, how the editors create an article, how the front page is managed. It was huge. There were various levels of user privileges, tables, actions, filters...
+I'd say the toughtest part was writing all the admin parts of the site (like what the admins can see, how the editors create an article, how the front page is managed...). There were various levels of user privileges, tables, actions, filters. Boring stuff that had to be dealt with delicately.
 
-I'll admit that my preferred work is on the front-end, and although the admin <i>is</i> front-end, it's the part that feels the most like back-end.
+<screenshot src="/event-photos/ldd/admin.png" caption="Custom table component (that I'll reuse everywhere cause it was lots of work)" />
 
-The thing we had to really think about was how we'd structure the data in Firebase. FB charges you by document read (and other stuff also, but reads are the most used action on a news site), so we had to make sure that users could get by reading the least amount of documents possible. That meant duplicating data through our Firestore and that's perfectly fine.
+Another challenge was creating the data structure. We used Firebase's Firestore. I don't have trouble with it being no-SQL because I never really worked a lot with an SQL database, but the challenge was keeping it cheap. 
 
-## Some Screenshots
+FB charges you by document read (and other stuff also, but reads are the most used action on a news site), so we had to make sure that users could get by reading the least amount of documents possible. That meant duplicating data through our Firestore and that was perfectly fine. Our Firestore usage is currently quite low for the amount of users we are serving, so that's neat.
+
+<screenshot src="/event-photos/ldd/section.png" />
+
+## What I Learned
+
+Huh. I learned a bunch in this project. I'd only made a couple of little projects before this, so it was the first <b>big</b> one.
+
+I learned:
+
+- Firebase more deeply: Storage, functions, cron jobs...
+- React Context API
+- Open Graph Protocol
+- Deeper understanding of SSR (server-side rendering) vs SSG (static-site generation). SSR was needed for this, because content is highly dynamic and real-time (can't build on every article crud). What abot CSR (client side rendering)? Awful for SEO.
+- Zeit SPR. Amazing technology.
+- Open Weather Map API. Super easy and free.
+- Keyboard shortcuts with Mousetrap. This was fun!
+- ...and so much more!
+
+Juan and his team trusted us with this project, and we are quite happy with the result. Readers are happy also, so that's good.
+
+<tweet src="https://twitter.com/laderechadiario/status/1231354288561147905" />
 
 <footer title="La Derecha Diario" />
