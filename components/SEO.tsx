@@ -42,8 +42,9 @@ export default ({
           <meta property="og:image" content={openGraph.image} />
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Julián Benegas" />
-          <meta name="twitter:card" content={openGraph.description}></meta>
+          <meta name="twitter:card" content="summary_large_image"></meta>
           <meta name="twitter:site" content={`@${twitterUsername}`}></meta>
+          <meta name="twitter:creator" content={`@${twitterUsername}`}></meta>
         </>
       )}
     </Head>
