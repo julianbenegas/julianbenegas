@@ -3,11 +3,11 @@
         {
             "name": "La Derecha Diario",
             "id": "la-derecha-diario",
-            "date": "2020-02-24",
+            "date": "2020-02-22",
             "tags": ["Work"],
-            "description": "A newspaper that came to turn the tables around.",
+            "description": "A digital newspaper that doesn't compromise on Truth.",
             "isLink": true,
-            "isPublished": false
+            "isPublished": true
         },
         {
             "name": "The Best Way to Use Firebase In A React Application",

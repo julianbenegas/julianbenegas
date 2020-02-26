@@ -24,7 +24,7 @@
   --teal-2: hsl(197, 61%, 37%);
   --teal-3: hsl(197, 100%, 25%);
 
-  --link-color: #0070f3;
+  --link-color: var(--teal-3);
 
   --background-color: white;
 
@@ -87,7 +87,7 @@ div[data-colormode='dark'] {
   --teal-2: hsl(197, 61%, 37%);
   --teal-1: hsl(197, 100%, 25%);
 
-  --link-color: #55adff;
+  --link-color: #ade8ff;
 
   --background-color: var(--grey-0);
 }
