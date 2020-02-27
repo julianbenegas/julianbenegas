@@ -8,7 +8,7 @@ export default ({ children }: PropsWithChildren<{}>) => {
         p {
           color: var(--grey-9);
           margin-bottom: 1.5rem;
-          line-height: var(--lh-normal);
+          line-height: var(--lh-relaxed);
         }
       `}</style>
     </p>

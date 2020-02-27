@@ -1,3 +1,5 @@
+@import url('https://rsms.me/inter/inter.css');
+
 :root {
   /* COLORS */
 
@@ -29,9 +31,9 @@
   --background-color: white;
 
   /* FONTS */
-  --ff-sans: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+  --ff-sans: 'Inter', Roboto, -apple-system, system-ui, BlinkMacSystemFont,
+    'Segoe UI', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --ff-serif: Georgia, serif;
   --ff-mono: Menlo, Monaco, 'Courier New', monospace;
 

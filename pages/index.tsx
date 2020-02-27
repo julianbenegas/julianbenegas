@@ -5,6 +5,7 @@ import { FullEvent } from '../interfaces/event'
 import { events } from '../data/events.json'
 import { useFilters } from '../context/filtersContext'
 import moment from 'moment'
+import SEO from '../components/SEO'
 
 export default function Index() {
   let tags: string[] = []
@@ -67,6 +68,7 @@ export default function Index() {
 
   return (
     <div>
+      <SEO />
       <div className="desktop-nav">
         <Nav pinned={pinnedEvents} tags={tags} />
       </div>
