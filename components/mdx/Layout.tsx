@@ -105,7 +105,7 @@ export default (props: MDXProviderProps) => {
     title: props.pagetitle,
     description: props.description,
     image: `https://julianbenegas.now.sh${props.image}`,
-    url: `https://julianbenegas.now.sh/${router.asPath}`
+    url: `https://julianbenegas.now.sh${router.asPath}`
   }
 
   return (

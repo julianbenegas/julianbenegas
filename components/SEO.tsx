@@ -6,6 +6,7 @@ interface OpenGraph {
   description: string
   url: string
   image: string
+  twitterImage?: string
 }
 
 interface Props {
@@ -45,6 +46,9 @@ export default ({
           <meta name="twitter:card" content="summary_large_image"></meta>
           <meta name="twitter:site" content={`@${twitterUsername}`}></meta>
           <meta name="twitter:creator" content={`@${twitterUsername}`}></meta>
+          {openGraph.twitterImage && (
+            <meta name="twitter:image" content={openGraph.twitterImage}></meta>
+          )}
         </>
       )}
     </Head>
