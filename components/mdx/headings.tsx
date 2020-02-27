@@ -17,7 +17,7 @@ export const H1 = ({ children }: PropsWithChildren<{}>) => {
       {children}
       <style jsx>{`
         h1 {
-          font-size: var(--fs-6xl);
+          font-size: var(--fs-5xl);
           color: var(--grey-9);
           margin: 5rem 0 2rem;
           cursor: pointer;
