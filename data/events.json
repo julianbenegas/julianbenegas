@@ -7,7 +7,8 @@
             "tags": ["Work"],
             "description": "A digital newspaper that doesn't compromise on Truth.",
             "isLink": true,
-            "isPublished": true
+            "isPublished": true,
+            "isPinned": true
         },
         {
             "name": "The Best Way to Use Firebase In A React Application",
@@ -19,7 +20,7 @@
             "isPublished": true
         },
         {
-            "name": "The Simplest Way to Build Dark Mode With React and CSS",
+            "name": "Simple Dark Mode With React and CSS",
             "id": "react-dark-mode",
             "date": "2020-02-11",
             "tags": ["React", "Tutorial"],

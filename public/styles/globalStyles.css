@@ -83,7 +83,7 @@ div[data-colormode='dark'] {
   --grey-2: hsl(197, 20%, 19%);
   --grey-1: hsl(197, 12%, 12%);
 
-  --grey-0: hsl(197, 26%, 7%);
+  --grey-0: #02040a;
 
   --teal-3: hsl(197, 100%, 84%);
   --teal-2: hsl(197, 61%, 37%);
