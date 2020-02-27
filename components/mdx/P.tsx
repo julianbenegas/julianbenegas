@@ -7,7 +7,7 @@ export default ({ children }: PropsWithChildren<{}>) => {
       <style jsx>{`
         p {
           color: var(--grey-9);
-          margin-bottom: 1.5rem;
+          margin-bottom: 2rem;
           line-height: var(--lh-relaxed);
         }
       `}</style>

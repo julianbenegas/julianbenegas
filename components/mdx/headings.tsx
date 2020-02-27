@@ -17,9 +17,9 @@ export const H1 = ({ children }: PropsWithChildren<{}>) => {
       {children}
       <style jsx>{`
         h1 {
-          font-size: var(--fs-4xl);
+          font-size: var(--fs-6xl);
           color: var(--grey-9);
-          margin: 2rem 0 1.25rem;
+          margin: 5rem 0 2rem;
           cursor: pointer;
         }
       `}</style>
@@ -42,9 +42,9 @@ export const H2 = ({ children }: PropsWithChildren<{}>) => {
       {children}
       <style jsx>{`
         h2 {
-          font-size: var(--fs-3xl);
+          font-size: var(--fs-4xl);
           color: var(--grey-9);
-          margin: 1.5rem 0 1rem;
+          margin: 4rem 0 2rem;
           cursor: pointer;
         }
       `}</style>
@@ -67,9 +67,9 @@ export const H3 = ({ children }: PropsWithChildren<{}>) => {
       {children}
       <style jsx>{`
         h3 {
-          font-size: var(--fs-2xl);
+          font-size: var(--fs-3xl);
           color: var(--grey-9);
-          margin-bottom: 1.25rem;
+          margin: 3rem 0 1.25rem;
           cursor: pointer;
         }
       `}</style>
