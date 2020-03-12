@@ -23,11 +23,10 @@ export default ({
         Share on Twitter
       </a>
       <style jsx>{`
-        footer {
-        }
         p {
           color: var(--grey-9);
           margin: 40px 0 20px;
+          font-size: 18px;
         }
         a {
           padding: 6px 12px;
