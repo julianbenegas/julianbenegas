@@ -38,6 +38,11 @@ export const LI = ({ children }: PropsWithChildren<{}>) => (
         line-height: 1.5;
         font-size: 18px;
       }
+      @media screen and (max-width: 700px) {
+        li {
+          font-size: 16px;
+        }
+      }
     `}</style>
   </li>
 )

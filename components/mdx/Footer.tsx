@@ -34,6 +34,11 @@ export default ({
           background: hsl(203, 89%, 53%);
           color: white;
         }
+        @media screen and (max-width: 700px) {
+          p {
+            font-size: 16px;
+          }
+        }
       `}</style>
     </footer>
   )
