@@ -147,12 +147,13 @@ function HamburgerMenu({
         .menu {
           transition: all 0.3s;
           z-index: var(--zi-nav);
-          height: 0;
           position: fixed;
           top: 64px;
           left: 0;
           right: 0;
+          bottom: calc(100vh - 64px);
           width: 100vw;
+          max-height: calc(100vh - 64px);
           background: var(--grey-1);
           padding: 0 20px;
           overflow-y: auto;
@@ -161,8 +162,8 @@ function HamburgerMenu({
           justify-content: space-between;
         }
         .menu.isOpen {
-          height: calc(100vh - 64px);
           overflow-y: auto;
+          bottom: 0;
         }
       `}</style>
     </nav>
