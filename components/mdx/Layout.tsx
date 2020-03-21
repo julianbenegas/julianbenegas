@@ -96,7 +96,17 @@ const components = {
   ic: (props: MDXProviderProps) => <InlineCode {...props} />,
   blockquote: (props: MDXProviderProps) => <Quote {...props} />,
   footer: (props: FooterProps) => <Footer {...props} />,
-  tweet: (props: TweetProps) => <Tweet {...props} />
+  tweet: (props: TweetProps) => <Tweet {...props} />,
+  hr: (props: MDXProviderProps) => (
+    <hr
+      {...props}
+      style={{
+        border: 'none',
+        borderBottom: '1px solid var(--grey-3)',
+        margin: '64px 0'
+      }}
+    />
+  )
 }
 
 export default (props: MDXProviderProps) => {

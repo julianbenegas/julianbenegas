@@ -1,5 +1,5 @@
 import { FiGithub, FiTwitter, FiMail } from 'react-icons/fi'
-import { twitterUsername } from '../util/constants'
+import { twitterUsername } from '../lib/constants'
 
 export default () => {
   return (

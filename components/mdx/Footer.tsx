@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { twitterUsername } from '../../util/constants'
+import { twitterUsername } from '../../lib/constants'
 
 export default ({
   message = 'Thanks for reading. Julián.',

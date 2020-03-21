@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { twitterUsername } from '../util/constants'
+import { twitterUsername } from '../lib/constants'
 
 interface OpenGraph {
   title: string
