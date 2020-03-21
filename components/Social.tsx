@@ -1,4 +1,5 @@
 import { FiGithub, FiTwitter, FiMail } from 'react-icons/fi'
+import { FaDribbble } from 'react-icons/fa'
 import { twitterUsername } from '../lib/constants'
 
 export default () => {
@@ -24,6 +25,13 @@ export default () => {
         rel="noopener noreferrer"
       >
         <FiGithub />
+      </a>
+      <a
+        href="https://dribbble.com/julianbenegas"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaDribbble />
       </a>
       <style jsx>{`
         div {
