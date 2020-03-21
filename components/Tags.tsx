@@ -27,9 +27,8 @@ const Tag = ({
   const text = color.css()
 
   const handleClick = () => {
-    if (isActiveFilter) {
-      removeFilter && removeFilter({ type: 'tag', value: tag })
-    } else addFilter && addFilter({ type: 'tag', value: tag })
+    if (isActiveFilter) removeFilter?.({ type: 'tag', value: tag })
+    else addFilter?.({ type: 'tag', value: tag })
   }
 
   return (
@@ -77,7 +76,7 @@ export default ({ tags }: { tags: string[] }) => {
           tag={tag}
           index={i}
           totalTags={tags.length}
-          isActiveFilter={filters?.tags?.includes(tag)}
+          isActiveFilter={filters?.tags?.includes(tag.toLowerCase())}
           addFilter={addFilter}
           removeFilter={removeFilter}
         />

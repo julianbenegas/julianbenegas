@@ -1,4 +1,11 @@
-import { useState, createContext, PropsWithChildren, useContext } from 'react'
+import {
+  useState,
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect
+} from 'react'
+import { useRouter } from 'next/router'
 
 interface Filters {
   tags: string[]
@@ -24,7 +31,23 @@ export const FiltersContext = createContext<FilterContextType>({
 })
 
 export default ({ children }: PropsWithChildren<{}>) => {
-  const [filters, setFilters] = useState<Filters>({ tags: [], words: '' })
+  const router = useRouter()
+  const {
+    tags: tagsFromQuery,
+    search: searchFromQuery
+  }: { tags?: string; search?: string } = router.query
+
+  const [filters, setFilters] = useState<Filters>({
+    tags: tagsFromQuery ? [...tagsFromQuery?.split(',')] : [],
+    words: searchFromQuery ? searchFromQuery.toLowerCase() : ''
+  })
+
+  useEffect(() => {
+    let initialFilters: Filters = { tags: [], words: '' }
+    if (tagsFromQuery) initialFilters.tags = tagsFromQuery.split(',')
+    if (searchFromQuery) initialFilters.words = searchFromQuery.toLowerCase()
+    setFilters(initialFilters)
+  }, [tagsFromQuery, searchFromQuery])
 
   const addFilter = ({
     type,
@@ -35,10 +58,10 @@ export default ({ children }: PropsWithChildren<{}>) => {
   }) => {
     switch (type) {
       case 'tag':
-        setFilters({ ...filters, tags: [...filters.tags, value] })
+        setFilters({ ...filters, tags: [...filters.tags, value.toLowerCase()] })
         break
       case 'words':
-        setFilters({ ...filters, words: value })
+        if (!Array.isArray(value)) setFilters({ ...filters, words: value })
         break
       default:
         break
@@ -48,7 +71,10 @@ export default ({ children }: PropsWithChildren<{}>) => {
   const removeFilter = ({ type, value }: { type: string; value: string }) => {
     switch (type) {
       case 'tag':
-        setFilters({ ...filters, tags: filters.tags.filter(f => f !== value) })
+        setFilters({
+          ...filters,
+          tags: filters.tags.filter(f => f !== value.toLowerCase())
+        })
         break
       case 'words':
         setFilters({ ...filters, words: '' })

@@ -10,7 +10,6 @@ import SEO from '../components/SEO'
 export default function Index() {
   let tags: string[] = []
   let allEvents: FullEvent[] = []
-  let pinnedEvents: FullEvent[] = []
 
   for (let i = 0; i < events.length; i++) {
     const event = events[i]
@@ -26,15 +25,12 @@ export default function Index() {
         const toAdd = event.tags.filter(t => !tags.includes(t))
         tags.push(...toAdd)
       }
-      // Check if isPinned
-      if (event.isPinned) pinnedEvents.push(fullEvent)
     }
   }
 
   // Sort em
   tags = tags.sort((a, b) => (a > b ? 1 : -1))
   allEvents = allEvents.sort((a, b) => (a.date > b.date ? -1 : 1))
-  pinnedEvents = pinnedEvents.sort((a, b) => (a.date > b.date ? -1 : 1))
 
   const [filteredEvents, setFilteredEvents] = useState<FullEvent[]>(allEvents)
   const { filters } = useFilters()
@@ -45,8 +41,9 @@ export default function Index() {
     if (filters.tags.length) {
       filtered = filtered.filter(
         event =>
-          filters.tags.filter(f => event.tags?.includes(f)).length ===
-          filters.tags.length
+          filters.tags.filter(f =>
+            event.tags?.map(t => t.toLowerCase()).includes(f)
+          ).length === filters.tags.length
       )
     }
     // Check for word filters
@@ -70,10 +67,10 @@ export default function Index() {
     <div>
       <SEO />
       <div className="desktop-nav">
-        <Nav pinned={pinnedEvents} tags={tags} />
+        <Nav tags={tags} />
       </div>
       <div className="mobile-nav">
-        <MobileNav pinned={pinnedEvents} tags={tags} />
+        <MobileNav tags={tags} />
       </div>
       <Tree events={filteredEvents} />
       <style jsx>{`

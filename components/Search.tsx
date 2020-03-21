@@ -6,11 +6,15 @@ export default () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
+  const { filters, addFilter } = useFilters()
   const [searchString, setSearchString] = useState<string>('')
-  const { addFilter } = useFilters()
 
   useEffect(() => {
-    addFilter && addFilter({ type: 'words', value: searchString })
+    if (filters.words !== searchString) setSearchString(filters.words)
+  }, [filters])
+
+  useEffect(() => {
+    addFilter?.({ type: 'words', value: searchString })
   }, [searchString])
 
   const handleClick = () => inputRef?.current?.focus()

@@ -48,7 +48,8 @@ export const Code = ({
         customStyle={{
           margin: '20px 0',
           padding: '20px',
-          boxShadow: 'var(--bs-lg)',
+          background: 'var(--grey-1)',
+          borderRadius: '8px',
           fontFamily: 'var(--ff-mono)',
           fontSize: 'var(--fs-sm)'
         }}

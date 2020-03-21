@@ -50,7 +50,7 @@ const EventContainer = ({
           width: 100%;
           position: relative;
           text-align: ${textAlignment};
-          margin-bottom: 20px;
+          margin-bottom: 64px;
           z-index: ${isNow ? '10' : 'initial'};
           justify-content: ${alignment === 'right'
             ? 'flex-end'
