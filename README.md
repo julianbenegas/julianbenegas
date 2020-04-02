@@ -4,6 +4,4 @@
 - Deployed with [ZEIT Now](https://zeit.co/now).
 - [MDX](https://mdxjs.com/) for writing.
 
-Toast
-
-Hey ma
+Test
