@@ -25,7 +25,6 @@ export default () => {
             align-items: center;
             justify-content: center;
             width: fit-content;
-            padding: 8px;
             border-radius: 2px;
             background: transparent;
           }

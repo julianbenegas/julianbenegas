@@ -2,7 +2,6 @@
 import { jsx, Flex } from 'theme-ui'
 import { FullEvent } from '../interfaces/event'
 import { Event } from './Event'
-import { oneOff } from '../lib/themeOneOff'
 
 interface EventObj {
   event: FullEvent
@@ -65,19 +64,14 @@ const EventContainer = ({
     >
       <div
         sx={{
-          minWidth: oneOff('space', 'dot'),
-          maxWidth: oneOff('space', 'dot'),
-          width: oneOff('space', 'dot'),
-          minHeight: oneOff('space', 'dot'),
-          maxHeight: oneOff('space', 'dot'),
-          height: oneOff('space', 'dot'),
           border: 'dot',
           bg: 'teal.2',
           borderRadius: '50%',
           zIndex: 10,
           position: 'absolute',
           left: ' 50%',
-          transform: 'translate(-50%, 0)'
+          transform: 'translate(-50%, 0)',
+          variant: 'layout.dot'
         }}
       />
       {event.url ? (

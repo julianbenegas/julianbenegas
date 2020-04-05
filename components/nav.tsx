@@ -5,7 +5,6 @@ import Search from './Search'
 import Tags from './Tags'
 import { useState } from 'react'
 import Social from './Social'
-import { oneOff } from '../lib/themeOneOff'
 
 interface NavProps {
   tags: string[]
@@ -16,14 +15,13 @@ export function Nav({ tags }: NavProps) {
     <nav
       sx={{
         height: '100vh',
-        minWidth: oneOff('space', 'sidebarWidth'),
-        width: oneOff('space', 'sidebarWidth'),
-        bg: 'gray.0',
+        bg: 'muted',
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'center',
         flexDirection: 'column',
-        pt: 4
+        pt: 4,
+        variant: 'layout.sidebar'
       }}
     >
       <div sx={{ px: 4, pb: 3, width: '100%' }}>
@@ -54,26 +52,24 @@ export function Nav({ tags }: NavProps) {
 
 export function MobileNav({ tags }: NavProps) {
   return (
-    <nav>
+    <Flex
+      sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        width: '100vw',
+        height: 5,
+        bg: 'muted',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        p: 3,
+        zIndex: 'nav'
+      }}
+    >
       <Logo />
       <HamburgerMenu tags={tags} />
-      <style jsx>{`
-        nav {
-          z-index: var(--zi-nav);
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          width: 100vw;
-          height: 64px;
-          background: var(--grey-1);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 20px;
-        }
-      `}</style>
-    </nav>
+    </Flex>
   )
 }
 
@@ -84,12 +80,60 @@ function HamburgerMenu({ tags }: { tags: string[] }) {
     <nav>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`${isOpen && 'isOpen'}`}
+        sx={{
+          width: '24px',
+          height: '24px',
+          padding: '4px',
+          position: 'relative',
+          border: 'none',
+          bg: 'muted'
+        }}
       >
-        <span />
-        <span />
+        <span
+          sx={{
+            height: '1px',
+            width: '100%',
+            position: 'absolute',
+            bg: 'text',
+            left: '0',
+            transition: 'all 0.1s',
+            top: isOpen ? '11px' : '8px',
+            transform: (isOpen && 'rotate(45deg)') || ''
+          }}
+        />
+        <span
+          sx={{
+            height: '1px',
+            width: '100%',
+            position: 'absolute',
+            bg: 'text',
+            left: '0',
+            transition: 'all 0.1s',
+            top: isOpen ? '11px' : '16px',
+            transform: (isOpen && 'rotate(-45deg)') || ''
+          }}
+        />
       </button>
-      <div className={`menu ${isOpen && 'isOpen'}`}>
+      <Flex
+        className={`menu ${isOpen && 'isOpen'}`}
+        sx={{
+          transition: 'all 0.3s',
+          position: 'fixed',
+          top: 5,
+          left: '0',
+          right: '0',
+          width: '100vw',
+          maxHeight: (theme) => `calc(100vh - ${theme.space[5]}px)`,
+          bg: 'muted',
+          px: 3,
+          overflowY: 'auto',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          zIndex: 'nav',
+          bottom: (theme) =>
+            isOpen ? '0' : `calc(100vh - ${theme.space[5]}px)`
+        }}
+      >
         <div>
           <Search />
           <Tags tags={tags} />
@@ -97,63 +141,7 @@ function HamburgerMenu({ tags }: { tags: string[] }) {
         <div>
           <Social />
         </div>
-      </div>
-      <style jsx>{`
-        nav {
-          z-index: var(--zi-nav);
-        }
-        button {
-          width: 24px;
-          height: 24px;
-          padding: 4px;
-          position: relative;
-          border: none;
-          background: var(--grey-1);
-        }
-        button span {
-          height: 1px;
-          width: 100%;
-          position: absolute;
-          background: var(--grey-9);
-          left: 0;
-          transition: all 0.1s;
-        }
-        button span:nth-child(1) {
-          top: 8px;
-        }
-        button span:nth-child(2) {
-          top: 16px;
-        }
-        button.isOpen span:nth-child(1) {
-          top: 11px;
-          transform: rotate(45deg);
-        }
-        button.isOpen span:nth-child(2) {
-          top: 11px;
-          transform: rotate(-45deg);
-        }
-        .menu {
-          transition: all 0.3s;
-          z-index: var(--zi-nav);
-          position: fixed;
-          top: 64px;
-          left: 0;
-          right: 0;
-          bottom: calc(100vh - 64px);
-          width: 100vw;
-          max-height: calc(100vh - 64px);
-          background: var(--grey-1);
-          padding: 0 20px;
-          overflow-y: auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-        .menu.isOpen {
-          overflow-y: auto;
-          bottom: 0;
-        }
-      `}</style>
+      </Flex>
     </nav>
   )
 }

@@ -18,11 +18,11 @@ const teal = [
 
 export default {
   colors: {
-    text: gray[9],
+    text: gray[8],
     background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
-    muted: '#f6f6f6',
+    primary: 'hsl(197, 100%, 25%)',
+    secondary: '#0ec785',
+    muted: 'hsl(197, 33%, 97%)',
     gray,
     'jb-green': '#0ec785',
     'jb-purple': '#3c2bac',
@@ -36,7 +36,7 @@ export default {
     link: teal[2],
     modes: {
       dark: {
-        text: gray[8],
+        text: 'white',
         background: '#fff',
         primary: '#07c',
         secondary: '#30c',
@@ -84,6 +84,12 @@ export default {
     dot: '6px solid white'
   },
   breakpoints: ['400px', '620px', '900px', '1200px'],
+  zIndices: {
+    nav: 100
+  },
+  // ---------
+  // VARIANTS
+  // ---------
   text: {
     smallSubtitle: {
       fontSize: [0, 1],
@@ -94,6 +100,21 @@ export default {
       fontSize: [3, 4],
       color: 'gray.8',
       margin: '0.25rem 0 0.1rem'
+    }
+  },
+  layout: {
+    sidebar: {
+      width: '320px',
+      minWidth: '320px',
+      zIndex: 'nav'
+    },
+    dot: {
+      minWidth: '26px',
+      maxWidth: '26px',
+      width: '26px',
+      minHeight: '26px',
+      maxHeight: '26px',
+      height: '26px'
     }
   }
 }
