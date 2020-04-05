@@ -85,21 +85,28 @@ export default {
   },
   breakpoints: ['400px', '620px', '900px', '1200px'],
   zIndices: {
-    nav: 100
+    nav: 100,
+    root: 1
   },
   // ---------
   // VARIANTS
   // ---------
   text: {
-    smallSubtitle: {
+    eventDescription: {
       fontSize: [0, 1],
-      color: 'gray.5',
+      color: 'gray.4',
       lineHeight: 'descriptions'
     },
     eventHeading: {
       fontSize: [3, 4],
-      color: 'gray.8',
+      fontWeight: '600',
+      color: 'text',
       margin: '0.25rem 0 0.1rem'
+    },
+    eventDate: {
+      color: 'primary',
+      fontWeight: '500',
+      fontSize: [0, 1]
     }
   },
   layout: {

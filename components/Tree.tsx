@@ -113,7 +113,7 @@ const EventContainer = ({
           }}
         >
           <h1 sx={{ variant: 'text.eventHeading' }}>Now</h1>
-          <p sx={{ variant: 'text.smallSubtitle' }}>All there is.</p>
+          <p sx={{ variant: 'text.eventDescription' }}>All there is.</p>
         </div>
       )}
     </Flex>
@@ -122,9 +122,44 @@ const EventContainer = ({
 
 export default ({ events }: { events: FullEvent[] }) => {
   return (
-    <div className="container">
-      <div className="tree">
-        <div className="root" />
+    <Flex
+      sx={{
+        height: '100vh',
+        overflowY: 'auto',
+        p: '150.2px 10% 0',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        pl: ['0', '5%', '0', '10%'],
+        pr: [null, null, '5%', '10%'],
+        py: '150.2px 0',
+        ml: ['-60%', '0', '-20%', '0'],
+        width: ['160%', '100%']
+      }}
+    >
+      <Flex
+        sx={{
+          textAlign: 'center',
+          position: 'relative',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
+          width: '100%',
+          maxWidth: 8,
+          minHeight: 'calc(100vh - 150.2px)'
+        }}
+      >
+        <div
+          sx={{
+            height: '100%',
+            width: '4px',
+            bg: 'gray.2',
+            top: '0',
+            zIndex: 'root',
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)'
+          }}
+        />
         <EventContainer
           isNow
           index={undefined}
@@ -138,66 +173,7 @@ export default ({ events }: { events: FullEvent[] }) => {
         {events.map((e, i) => (
           <EventContainer key={e.id} index={i} event={e} isNow={false} />
         ))}
-      </div>
-      <style jsx>{`
-        .container {
-          width: 100%;
-          height: 100vh;
-          overflow-y: scroll;
-          padding: 150.2px 10% 0;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-        }
-        .tree {
-          text-align: center;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-start;
-          width: 100%;
-          max-width: 700px;
-          min-height: calc(100vh - 150.2px);
-        }
-        .root {
-          height: 100%;
-          width: 4px;
-          background: var(--grey-3);
-          top: 0;
-          z-index: 1;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-
-        @media screen and (max-width: 900px) {
-          .container {
-            padding-left: 0;
-            margin-left: -20%;
-            padding-right: 5%;
-          }
-        }
-        @media screen and (max-width: 620px) {
-          .container {
-            margin-left: 0;
-            padding: 100px 5% 0;
-          }
-        }
-        @media screen and (max-width: 400px) {
-          .container {
-            padding-left: 0;
-            margin-left: -60%;
-            padding-right: 5%;
-            width: 160%;
-          }
-        }
-        @media screen and (min-width: 1500px) {
-          .container {
-            padding: 150.2px 20% 0;
-          }
-        }
-      `}</style>
-    </div>
+      </Flex>
+    </Flex>
   )
 }

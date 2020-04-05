@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, Flex } from 'theme-ui'
 import Link from 'next/link'
 import { FullEvent } from '../interfaces/event'
 
@@ -11,58 +13,40 @@ export const Event = ({
   <>
     {event.isLink ? (
       <Link href={event.url}>
-        <a>
-          {event.date && <span>{event.displayDate}</span>}
-          <h1>{event.name}</h1>
-          {!isInPinned && <p>{event.description}</p>}
-        </a>
+        <Flex
+          as="a"
+          sx={{
+            cursor: 'pointer',
+            textAlign: 'inherit',
+            flexDirection: 'column',
+            ':hover': {
+              '& h1': {
+                textDecoration: 'underline'
+              }
+            }
+          }}
+        >
+          {event.date && (
+            <span sx={{ variant: 'text.eventDate' }}>{event.displayDate}</span>
+          )}
+          <h1 sx={{ variant: 'text.eventHeading' }}>{event.name}</h1>
+          {!isInPinned && (
+            <p sx={{ variant: 'text.eventDescription' }}>{event.description}</p>
+          )}
+        </Flex>
       </Link>
     ) : (
-      <a>
-        {event.date && <span>{event.displayDate}</span>}
-        <h1>{event.name}</h1>
-        {!isInPinned && <p>{event.description}</p>}
-      </a>
+      <Flex as="a" sx={{ textAlign: 'inherit', flexDirection: 'column' }}>
+        {event.date && (
+          <span sx={{ color: 'primary', fontWeight: '500', fontSize: [0, 1] }}>
+            {event.displayDate}
+          </span>
+        )}
+        <h1 sx={{ variant: 'text.eventHeading' }}>{event.name}</h1>
+        {!isInPinned && (
+          <p sx={{ variant: 'text.eventDescription' }}>{event.description}</p>
+        )}
+      </Flex>
     )}
-    <style jsx>{`
-      a {
-        text-align: inherit;
-        background: transparent;
-        border: none;
-        cursor: ${event.isLink ? 'pointer' : 'default'};
-        display: flex;
-        flex-direction: column;
-      }
-      span {
-        color: var(--teal-3);
-        font-weight: 500;
-        font-size: var(--fs-sm);
-        font-size: ${isInPinned ? 'var(--fs-xs)' : 'var(--fs-sm)'};
-      }
-      h1 {
-        font-size: ${isInPinned ? 'var(--fs-md)' : 'var(--fs-xl)'};
-        color: var(--grey-8);
-        font-weight: 500;
-        padding: 0.25rem 0 0.1rem;
-      }
-      p {
-        font-size: var(--fs-sm);
-        color: var(--grey-6);
-        line-height: var(--lh-tight);
-      }
-      a:hover h1 {
-        text-decoration: ${event.isLink ? 'underline' : 'none'};
-      }
-
-      @media screen and (max-width: 620px) {
-        h1 {
-          font-size: var(--fs-lg);
-        }
-        span,
-        p {
-          font-size: var(--fs-xs);
-        }
-      }
-    `}</style>
   </>
 )

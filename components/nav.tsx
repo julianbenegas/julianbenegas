@@ -115,7 +115,6 @@ function HamburgerMenu({ tags }: { tags: string[] }) {
         />
       </button>
       <Flex
-        className={`menu ${isOpen && 'isOpen'}`}
         sx={{
           transition: 'all 0.3s',
           position: 'fixed',
