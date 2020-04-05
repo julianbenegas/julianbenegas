@@ -20,7 +20,7 @@ export default ({ children }: PropsWithChildren<{}>) => {
   useEffect(() => {
     const prefersDarkMode = window?.matchMedia('(prefers-color-scheme: dark)')
       ?.matches
-    if (prefersDarkMode && colorMode !== 'dark') setColorMode('dark')
+    if (prefersDarkMode && colorMode !== 'dark') setColorMode('light')
     else if (colorMode !== 'light') setColorMode('light')
   }, [])
 

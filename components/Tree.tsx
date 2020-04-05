@@ -1,5 +1,8 @@
+/** @jsx jsx */
+import { jsx, Flex } from 'theme-ui'
 import { FullEvent } from '../interfaces/event'
 import { Event } from './Event'
+import { oneOff } from '../lib/themeOneOff'
 
 interface EventObj {
   event: FullEvent
@@ -27,121 +30,99 @@ const EventContainer = ({
 }: EventContainerProps) => {
   const alignment = isNow ? 'center' : index && index % 2 ? 'right' : 'left'
 
-  let textAlignment = 'center'
-  if (alignment === 'left') textAlignment = 'right'
-  else if (alignment === 'right') textAlignment = 'left'
+  const textAlignment =
+    alignment === 'left' ? 'right' : alignment === 'right' ? 'left' : 'center'
 
   return (
-    <div className="container">
-      <div className="dot" />
-      {event.url ? (
-        <div className="event-container">
-          <Event event={event} />
-        </div>
-      ) : (
-        <div className="event-container">
-          <h1>Now</h1>
-          <p>All there is.</p>
-        </div>
-      )}
-      <style jsx>{`
-        .container {
-          display: flex;
-          width: 100%;
-          position: relative;
-          text-align: ${textAlignment};
-          margin-bottom: 64px;
-          z-index: ${isNow ? '10' : 'initial'};
-          justify-content: ${alignment === 'right'
+    <Flex
+      sx={{
+        width: '100%',
+        position: 'relative',
+        textAlign: [
+          isNow ? 'center' : 'left',
+          textAlignment,
+          isNow ? 'center' : 'left',
+          textAlignment
+        ],
+        marginBottom: 4,
+        zIndex: isNow ? '10' : 'initial',
+        justifyContent: [
+          isNow ? 'center' : 'flex-end',
+          alignment === 'right'
             ? 'flex-end'
             : alignment === 'left'
             ? 'flex-start'
-            : 'center'};
-          align-items: ${isNow ? 'flex-end' : 'initial'};
-        }
-        .dot {
-          min-width: 24px;
-          max-width: 24px;
-          width: 24px;
-          min-height: 24px;
-          max-height: 24px;
-          height: 24px;
-          border: 6px solid var(--background-color);
-          background: var(--teal-3);
-          border-radius: 50%;
-          z-index: 10;
-          position: absolute;
-          left: 50%;
-          transform: translate(-50%, 0);
-        }
-        .event-container {
-          text-align: inherit;
-          background: var(--background-color);
-          border: none;
-          max-width: 50%;
-          padding: 3px
-            ${alignment === 'right'
-              ? '0 0 30px'
-              : alignment === 'left'
-              ? '30px 0 0'
-              : '0 26px 0'};
-        }
-        h1 {
-          font-size: var(--fs-2xl);
-          color: var(--grey-8);
-          font-weight: 600;
-          margin: 0.25rem 0 0.1rem;
-        }
-        p {
-          font-size: var(--fs-sm);
-          color: var(--grey-6);
-          line-height: var(--lh-tight);
-        }
-
-        @media screen and (max-width: 900px) {
-          .container {
-            justify-content: ${isNow ? 'center' : 'flex-end'};
-            text-align: ${isNow ? 'center' : 'left'};
-          }
-          .event-container {
-            padding: 3px ${isNow ? '0 26px 0' : '0 0 30px'};
-          }
-        }
-        @media screen and (max-width: 620px) {
-          .container {
-            text-align: ${textAlignment};
-            justify-content: ${alignment === 'right'
-              ? 'flex-end'
-              : alignment === 'left'
-              ? 'flex-start'
-              : 'center'};
-          }
-          .event-container {
-            padding: 3px
-              ${alignment === 'right'
-                ? '0 0 30px'
+            : 'center',
+          isNow ? 'center' : 'flex-end',
+          alignment === 'right'
+            ? 'flex-end'
+            : alignment === 'left'
+            ? 'flex-start'
+            : 'center'
+        ],
+        alignItems: isNow ? 'flex-end' : 'initial'
+      }}
+    >
+      <div
+        sx={{
+          minWidth: oneOff('space', 'dot'),
+          maxWidth: oneOff('space', 'dot'),
+          width: oneOff('space', 'dot'),
+          minHeight: oneOff('space', 'dot'),
+          maxHeight: oneOff('space', 'dot'),
+          height: oneOff('space', 'dot'),
+          border: 'dot',
+          bg: 'teal.2',
+          borderRadius: '50%',
+          zIndex: 10,
+          position: 'absolute',
+          left: ' 50%',
+          transform: 'translate(-50%, 0)'
+        }}
+      />
+      {event.url ? (
+        <div
+          sx={{
+            textAlign: 'inherit',
+            bg: 'background',
+            maxWidth: '50%',
+            p: [
+              `3px ${isNow ? '0 26px 0' : '0 0 30px'}`,
+              alignment === 'right'
+                ? '3px 0 0 30px'
                 : alignment === 'left'
-                ? '30px 0 0'
-                : '0 26px 0'};
-          }
-          h1 {
-            font-size: var(--fs-xl);
-          }
-          p {
-            font-size: var(--fs-xs);
-          }
-        }
-        @media screen and (max-width: 400px) {
-          .container {
-            justify-content: ${isNow ? 'center' : 'flex-end'};
-            text-align: ${isNow ? 'center' : 'left'};
-          }
-          .event-container {
-            padding: 3px ${isNow ? '0 26px 0' : '0 0 30px'};
-          }
-        }
-      `}</style>
-    </div>
+                ? '3px 30px 0 0'
+                : '3px 0 26px 0',
+              `3px ${isNow ? '0 26px 0' : '0 0 30px'}`,
+              alignment === 'right'
+                ? '3px 0 0 30px'
+                : alignment === 'left'
+                ? '3px 30px 0 0'
+                : '3px 0 26px 0'
+            ]
+          }}
+        >
+          <Event event={event} />
+        </div>
+      ) : (
+        <div
+          sx={{
+            textAlign: 'inherit',
+            bg: 'background',
+            maxWidth: '50%',
+            p:
+              alignment === 'right'
+                ? '3px 0 0 30px'
+                : alignment === 'left'
+                ? '3px 30px 0 0'
+                : '3px 0 26px 0'
+          }}
+        >
+          <h1 sx={{ variant: 'text.eventHeading' }}>Now</h1>
+          <p sx={{ variant: 'text.smallSubtitle' }}>All there is.</p>
+        </div>
+      )}
+    </Flex>
   )
 }
 

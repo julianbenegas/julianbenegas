@@ -3,6 +3,8 @@ import ColorModeProvider from '../context/colorModeContext'
 import FiltersProvider from '../context/filtersContext'
 import GA from '../components/GA'
 import { useEffect } from 'react'
+import { ThemeProvider } from 'theme-ui'
+import theme from '../theme'
 
 export default ({ Component, pageProps }: any) => {
   useEffect(() => {
@@ -10,7 +12,7 @@ export default ({ Component, pageProps }: any) => {
     // Taken from https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/javascript-api
     // And from https://stackoverflow.com/a/22078264/10787298
     // @ts-ignore
-    window.twttr = (function(d, s, id) {
+    window.twttr = (function (d, s, id) {
       var js,
         fjs = d.getElementsByTagName(s)[0],
         // @ts-ignore
@@ -24,7 +26,7 @@ export default ({ Component, pageProps }: any) => {
       fjs.parentNode.insertBefore(js, fjs)
       t._e = []
       // @ts-ignore
-      t.ready = function(f) {
+      t.ready = function (f) {
         t._e.push(f)
       }
       return t
@@ -35,7 +37,9 @@ export default ({ Component, pageProps }: any) => {
     <ColorModeProvider>
       <FiltersProvider>
         <GA />
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </FiltersProvider>
     </ColorModeProvider>
   )

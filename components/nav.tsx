@@ -1,8 +1,11 @@
+/** @jsx jsx */
+import { jsx, Flex } from 'theme-ui'
 import Logo from './Logo'
 import Search from './Search'
 import Tags from './Tags'
 import { useState } from 'react'
 import Social from './Social'
+import { oneOff } from '../lib/themeOneOff'
 
 interface NavProps {
   tags: string[]
@@ -10,11 +13,33 @@ interface NavProps {
 
 export function Nav({ tags }: NavProps) {
   return (
-    <nav>
-      <div className="logo">
+    <nav
+      sx={{
+        height: '100vh',
+        minWidth: oneOff('space', 'sidebarWidth'),
+        width: oneOff('space', 'sidebarWidth'),
+        bg: 'gray.0',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'column',
+        pt: 4
+      }}
+    >
+      <div sx={{ px: 4, pb: 3, width: '100%' }}>
         <Logo />
       </div>
-      <div className="menu">
+      <Flex
+        sx={{
+          px: 4,
+          overflow: 'hidden',
+          height: 'calc(100vh - 64px)',
+          overflowY: 'auto',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: '100%'
+        }}
+      >
         <div>
           <Search />
           <Tags tags={tags} />
@@ -22,33 +47,7 @@ export function Nav({ tags }: NavProps) {
         <div>
           <Social />
         </div>
-      </div>
-      <style jsx>{`
-        nav {
-          height: 100vh;
-          min-width: 320px;
-          width: 320px;
-          background: var(--grey-1);
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          padding: 40px 0 0;
-          z-index: var(--zi-nav);
-        }
-        .logo {
-          padding: 0 40px 20px;
-        }
-        .menu {
-          background: var(--grey-1);
-          overflow: hidden;
-          padding: 0 40px;
-          height: calc(100vh - 64px);
-          overflow-y: auto;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-      `}</style>
+      </Flex>
     </nav>
   )
 }
