@@ -50,7 +50,6 @@ const Tag = ({
           padding: 2px 4px;
           border-radius: 3px;
           border: 1px solid ${isActiveFilter ? text : background};
-          cursor: pointer;
         }
         button:hover {
           border: 1px solid ${text};
