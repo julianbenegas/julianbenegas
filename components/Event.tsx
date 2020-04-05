@@ -50,6 +50,9 @@ export const Event = ({
         color: var(--grey-6);
         line-height: var(--lh-tight);
       }
+      a:hover h1 {
+        text-decoration: ${event.isLink ? 'underline' : 'none'};
+      }
 
       @media screen and (max-width: 620px) {
         h1 {
