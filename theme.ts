@@ -24,12 +24,12 @@ export default {
     secondary: '#0ec785',
     muted: 'hsl(197, 33%, 97%)',
     gray,
-    'jb-green': '#0ec785',
-    'jb-purple': '#3c2bac',
-    'jb-gradient': `linear-gradient(
+    green: '#0ec785',
+    purple: '#3c2bac',
+    gradient: `linear-gradient(
       135deg,
-      var(--jb-green) 0%,
-      var(--jb-purple) 100%
+      #0ec785 0%,
+      #3c2bac 100%
     )`,
     selection: 'rgba(44, 239, 180, 0.7)',
     teal,
@@ -44,10 +44,10 @@ export default {
         gray,
         'jb-green': '#0ec785',
         'jb-purple': '#3c2bac',
-        'jb-gradient': `linear-gradient(
+        gradient: `linear-gradient(
       135deg,
-      var(--jb-green) 0%,
-      var(--jb-purple) 100%
+      #0ec785 0%,
+      #3c2bac 100%
     )`,
         selection: 'rgba(44, 239, 180, 0.7)',
         teal,
@@ -56,10 +56,6 @@ export default {
     }
   },
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  spaceOneOffs: {
-    sidebarWidth: 320,
-    dot: 26
-  },
   sizes: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
     body: `'Inter', Roboto, -apple-system, system-ui, BlinkMacSystemFont,
@@ -72,7 +68,8 @@ export default {
   fontWeights: {
     body: 400,
     heading: 700,
-    bold: 700
+    bold: 700,
+    semi: 500
   },
   lineHeights: {
     body: 1.5,
@@ -88,6 +85,19 @@ export default {
     nav: 100,
     root: 1
   },
+  shadows: {
+    sm: '0 1px 2px 0 rgba(0, 0, 0, 0.04)',
+    default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+    md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+    lg: `0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    xl: `0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04)`,
+    '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+    inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+    outline: '0 0 0 3px rgba(66, 153, 225, 0.5)'
+  },
+  radii: {},
   // ---------
   // VARIANTS
   // ---------
@@ -110,6 +120,13 @@ export default {
     }
   },
   layout: {
+    flex: {
+      center: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }
+    },
     sidebar: {
       width: '320px',
       minWidth: '320px',
@@ -122,6 +139,17 @@ export default {
       minHeight: '26px',
       maxHeight: '26px',
       height: '26px'
+    }
+  },
+  misc: {
+    logo: {
+      background: `linear-gradient(
+        135deg,
+        #0ec785 0%,
+        #3c2bac 100%
+      )`,
+      width: '20px',
+      height: '20px'
     }
   }
 }

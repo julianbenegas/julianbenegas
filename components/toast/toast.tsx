@@ -1,14 +1,9 @@
 import toaster from 'toasted-notes'
 import Toast from './ToastComponent'
 
-export default (status: string, title = '', description = '') => {
+export default (status: string, title = '') => {
   toaster.notify(({ onClose }) => (
-    <Toast
-      onClose={onClose}
-      title={title}
-      description={description}
-      status={status}
-    />
+    <Toast onClose={onClose} title={title} status={status} />
   ))
   return
 }
