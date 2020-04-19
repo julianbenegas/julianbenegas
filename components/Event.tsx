@@ -42,7 +42,7 @@ export const Event = ({
       h1 {
         font-size: ${isInPinned ? 'var(--fs-md)' : 'var(--fs-xl)'};
         color: var(--grey-8);
-        font-weight: 500;
+        font-weight: 600;
         padding: 0.25rem 0 0.1rem;
       }
       p {
