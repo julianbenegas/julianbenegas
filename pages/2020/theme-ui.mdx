@@ -1,0 +1,165 @@
+import Layout from '../../components/mdx/Layout'
+export default ({ children }) => (
+  <Layout pagetitle="Theme-UI: An Overview">{children}</Layout>
+)
+
+# Theme-UI: An Overview
+
+> "Theme UI is a library for creating themeable user interfaces based on constraint-based design principles." — [Website](https://theme-ui.com/)
+
+If you don't know anything about Theme-UI, check out their [Getting Started guide](https://theme-ui.com/getting-started).
+
+# Why
+
+I won't be able to explain it better than the creator itself, so checkout _[Two Steps Forward, One Step Back](https://jxnblk.com/blog/two-steps-forward/),_ by the amazing [@jxnblk](https://twitter.com/jxnblk)
+
+**tl;dr**? [Go read it](https://jxnblk.com/blog/two-steps-forward/).
+
+# vs TailwindCSS
+
+From [Two Steps Forward, One Step Back](https://jxnblk.com/blog/two-steps-forward/)_:_
+
+"Rather than memorizing hundreds of class selectors that only represent a subset of the CSS language, or a handful of style props, Theme UI gives you a **superset of CSS** that can be applied to any element with its `sx` prop. Theme-based values can be applied to common CSS properties for things like typography, color, and layout, and any bespoke, one-off styles can be added where needed, serving as an *escape hatch*."
+
+"**Utility CSS creates a subset of CSS, with a custom syntax. The `sx` prop is a superset of CSS that uses standard syntax."**
+
+Tailwind's syntax is far from being standard, and that makes its learning curve much steeper. If you are not a Tailwind pro, you'll need to be close to the documentation for some time until you learn all of their custom syntax (`flex-col` instead of `flex-column`, why?).
+
+Moreover, **Tailwind doesn't cover all of css**. It simply doesn't. Take, for example, an absolutely positioned element, with sort of hard-coded inset values. With Tailwind, **you simply can't do it, unless you extend your theme**. But extending your theme for one-off values is awful! You'll probably never see a codebase that uses only Tailwind. You'll find yourself maybe adding inline-styles (not cool) or going for a more holistic system such as [css-modules](https://www.notion.so/basementstudio/CSS-Modules-187d688691b044209effcdbdebd996a3).
+
+Tailwind's support for pseudo classes is quite basic, and enough for most of the use cases. But when you need something a bit more complex, such as: "on focus, change the color of a child element", you're out. Theme-UI handles it elegantly:
+
+```Javascript
+<div
+    sx={{
+        ':focus': {
+            a: { color: 'accent.purple' }
+        }
+    }}
+>
+// more markup here...
+```
+
+Lastly, Tailwind doesn't handle multiple color modes out of the box. If you want dark mode, you'll need to change all classNames (yes, change all classNames), instead of the standard "going to the source and changing the value of the theme". There is a [plugin](https://github.com/ChanceArthur/tailwindcss-dark-mode) (which I've not used and don't know how it works), but it seems that _that_ is the right way to do it? No reference to it can be found in their docs.
+
+Tailwind optimizes for speed, and if that's what you want most of all, then it's a good choice. Theme-UI offers a more holistic approach that can cover more edge use cases, with a more elegant api.
+
+# vs CSS Modules
+
+I love CSS modules. I think is much better than Tailwind (sorry tailwind) because it has no tradeoffs in relation to css, and it's syntax is as standard as it gets.
+
+The things that makes me prefer Theme-UI over CSS modules are:
+
+- I really like the neatness of Theme-UI. All your styles remain close to your element (and in Javascript), and you don't have to worry about naming things.
+- A much better handling of dynamic and functional values. With css-modules you'll need to make a change of classes. With theme-ui, you do it all from Javascript. Moreover, you can leverage Javascript and use functional values
+
+```Javascript
+<div className="anotherElem" />
+
+<div>
+    <button
+        sx={{
+            width: () => `${document.querySelector('.anotherElem').offsetHeight}px`
+        }}
+    >
+        As wide as another element's height</button>
+</div>
+```
+
+- Although you _can_ define your whole theme using css custom props, you can't define "grouped css props". Theme-ui uses Variants for this (more on this [below](https://www.notion.so/julianbenegas/Theme-UI-An-Overview-4452ee3da8e741d69d6892dd78ac5db4#05598b9aff0c4c498cf29d31494d77e3)). It doesn't move the needle that much, but I like that feature **a lot**.
+- Cool features such as responsive values.
+
+```Javascript
+// Use an array to reference responsive, min-width, media queries.
+<button sx={{ px: [3, 5, 6] }}>Hija</button>
+
+// You can also use standard syntax.
+<button sx={{
+    '@media screen and (min-width: 428px)' {
+        px: 3
+    },
+    px: 5
+}}>Hija</button>
+```
+
+With CSS Modules it's a matter of personal preference. Do you like your css in another file, or closer to your element? Do you like writing camel case and object syntax, or regular css? Etc...
+
+# Variants
+
+Theme-ui also offers more advanced features. [Exported from the library,](https://theme-ui.com/components) you get primitive components such as `<Flex />` `<Button />`, etc...
+
+These components not only get their styles from the standard `sx` prop, but also from variants you define in your `theme.js`. For example:
+
+```Javascript
+/** @jsx jsx */
+import { jsx, Flex, Button } from 'theme-ui'
+
+export default () => (
+    <Flex variant="layouts.standardFlex">
+        <Button variant="secondary">Learn more</Button>
+        <Button variant="primary">Start for free</Button>
+    </Flex>
+)
+```
+
+This is a powerful feature. You get dozens of primitive components out of the box, and you can mantain their styles in **one place**: the `theme.js` file.
+
+You can also use those variants in your normal html elements, with the `variant` key inside the `sx` prop.
+
+```Javascript
+/** @jsx jsx */
+import { jsx, Button } from 'theme-ui'
+
+export default () => (
+    <div sx={{ variant="layouts.standardFlex" }}>
+        <button sx={{ variant="buttons.secondary" }}>Learn more</button>
+        <button sx={{ variant="buttons.primary" }}>Start for free</button>
+    </div>
+)
+```
+
+# The Cons
+
+The main issue with Theme-UI is that it's quite young, and it doesn't have as much of a community as other libraries do. It hasn't reached v1 yet. If this is too much of a risk to take, then Theme-UI is not for you.
+
+Another con is that, with all the styles and markup in the same place, it _can_ get quite crowded. The obvious solution to this is to create reusable components, but sometimes we don't do that, and readability is maybe sacrificed. I still think it'll never be as bad as:
+
+```Javascript
+// From [Tailwind UI](https://tailwindui.com/components/marketing/sections/heroes)
+
+<div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+    <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
+        <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <a href="#">
+            <img class="h-8 w-auto sm:h-10" src="/img/logos/workflow-mark-on-white.svg" alt="" />
+            </a>
+            <div class="-mr-2 flex items-center md:hidden">
+            <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            </div>
+        </div>
+        </div>
+        <div class="hidden md:block md:ml-10 md:pr-4">
+        <a href="#" class="font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Product</a>
+        <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Features</a>
+        <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Marketplace</a>
+        <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition duration-150 ease-in-out">Company</a>
+        <a href="#" class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out">Log in</a>
+        </div>
+    </nav>
+</div>
+```
+
+Finally, performance might be a con. I'm saying "might" because I haven't actually benchmarked it, and am quite ignorant in this sense. I suspect it's not as performant as css modules (more things happening in the JS side)? Don't really know, but I wanted to leave this as a possible caveat.
+
+# Conclusion
+
+I think it's clear that I don't like TailwindCSS (I really like their default theme, though, and Steve Schoger is kind of my idol). If you want more standard "css goes in a `.css`", CSS Modules is a fine choice.
+
+If you want an elegant API, expressive theming and constraints, easy syntax without sacrificing workflow speed, or simply love it's name, go with Theme-UI.
+
+Although young, **the core is there**.

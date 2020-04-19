@@ -1,51 +1,61 @@
 {
-    "events": [
-        {
-            "name": "La Derecha Diario",
-            "id": "la-derecha-diario",
-            "date": "2020-02-22",
-            "tags": ["Work"],
-            "description": "A digital newspaper that doesn't compromise on Truth.",
-            "isLink": true,
-            "isPublished": true,
-            "isPinned": true
-        },
-        {
-            "name": "The Best Way to Use Firebase In A React Application",
-            "id": "react-firebase",
-            "date": "2020-02-12",
-            "tags": ["React", "Tutorial"],
-            "description": "Project after project I improved my integration and now I'm quite happy with how I handle it. Let's dive into it.",
-            "isLink": true,
-            "isPublished": true
-        },
-        {
-            "name": "Simple Dark Mode With React and CSS",
-            "id": "react-dark-mode",
-            "date": "2020-02-11",
-            "tags": ["React", "Tutorial"],
-            "description": "We all love dark mode. This post shows how to implement a simple solution to support it in a React app.",
-            "isLink": true,
-            "isPublished": true,
-            "isPinned": true
-        },
-        {
-            "name": "Why Capitalism always wins",
-            "id": "capitalism-always-wins",
-            "date": "2020-02-09",
-            "tags": ["Economics"],
-            "description": "It's quite simple, actually. Humans act on incentives (all living things do, but we only care about human ones), and capitalism is the system that aligns those perfectly.",
-            "isLink": true,
-            "isPublished": true,
-            "isPinned": true
-        },
-        {
-            "name": "Site in progress",
-            "id": "site-in-progress",
-            "date": "2020-02-09",
-            "description": "This site is under construction! Thanks for visiting.",
-            "isLink": false,
-            "isPublished": true
-        }
-    ]
+  "events": [
+    {
+      "name": "Theme-UI: An Overview",
+      "id": "theme-ui",
+      "date": "2020-04-19",
+      "tags": ["react"],
+      "description": "A quick overview of Theme-UI, with a couple of comparisons.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
+      "name": "La Derecha Diario",
+      "id": "la-derecha-diario",
+      "date": "2020-02-22",
+      "tags": ["Work"],
+      "description": "A digital newspaper that doesn't compromise on Truth.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
+      "name": "The Best Way to Use Firebase In A React Application",
+      "id": "react-firebase",
+      "date": "2020-02-12",
+      "tags": ["React", "Tutorial"],
+      "description": "Project after project I improved my integration and now I'm quite happy with how I handle it. Let's dive into it.",
+      "isLink": true,
+      "isPublished": true
+    },
+    {
+      "name": "Simple Dark Mode With React and CSS",
+      "id": "react-dark-mode",
+      "date": "2020-02-11",
+      "tags": ["React", "Tutorial"],
+      "description": "We all love dark mode. This post shows how to implement a simple solution to support it in a React app.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
+      "name": "Why Capitalism always wins",
+      "id": "capitalism-always-wins",
+      "date": "2020-02-09",
+      "tags": ["Economics"],
+      "description": "It's quite simple, actually. Humans act on incentives (all living things do, but we only care about human ones), and capitalism is the system that aligns those perfectly.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
+      "name": "Site in progress",
+      "id": "site-in-progress",
+      "date": "2020-02-09",
+      "description": "This site is under construction! Thanks for visiting.",
+      "isLink": false,
+      "isPublished": true
+    }
+  ]
 }

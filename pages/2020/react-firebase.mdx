@@ -1,5 +1,9 @@
-import Layout from "../../components/mdx/Layout"
-export default ({ children }) => <Layout pagetitle='The Best Way to Use Firebase In A React Application'>{children}</Layout>
+import Layout from '../../components/mdx/Layout'
+export default ({ children }) => (
+  <Layout pagetitle="The Best Way to Use Firebase In A React Application">
+    {children}
+  </Layout>
+)
 
 # The Best Way to Use Firebase In A React Application
 
@@ -7,7 +11,7 @@ export default ({ children }) => <Layout pagetitle='The Best Way to Use Firebase
 
 ---
 
-I used [Firebase](https://firebase.google.com) a lot. It empowered me to build fully fledged applications: 
+I used [Firebase](https://firebase.google.com) a lot. It empowered me to build fully fledged applications:
 
 - with authentication
 - with a database
@@ -20,18 +24,19 @@ Project after project I improved my integration and now I'm quite happy with how
 ## Grabbing client credentials
 
 To use Firebase, you must initialize the Firebase application. To do so, you must have your project's credentials, which can be found on the Project Settings part of the [Firebase Console](https://console.firebase.google.com). I usually save those in <ic>credentials/client.js</ic>
+
 ```javascript
 // credentials/client.js
 
 module.exports = {
-    apiKey: 'API_KEY',
-    authDomain: '[PROJECT_ID].firebaseapp.com',
-    databaseURL: 'https://[PROJECT_ID].firebaseio.com',
-    projectId: '[PROJECT_ID]',
-    storageBucket: '[PROJECT_ID].appspot.com',
-    messagingSenderId: '*****',
-    appId: '*****',
-    measurementId: '*****'
+  apiKey: 'API_KEY',
+  authDomain: '[PROJECT_ID].firebaseapp.com',
+  databaseURL: 'https://[PROJECT_ID].firebaseio.com',
+  projectId: '[PROJECT_ID]',
+  storageBucket: '[PROJECT_ID].appspot.com',
+  messagingSenderId: '*****',
+  appId: '*****',
+  measurementId: '*****'
 }
 ```
 
@@ -57,52 +62,51 @@ import clientCredentials from '../credentials/client'
 export const FirebaseContext = createContext()
 
 export default ({ children }) => {
+  // The whole app
+  const [firebaseApp, setFirebaseApp] = useState()
+  // Just the DB
+  const [db, setDb] = useState()
+  // Just the Auth
+  const [auth, setAuth] = useState()
+  // BONUS! Current user
+  const [user, setUser] = useState(null)
+  const [loadingUser, setLoadingUser] = useState(true)
 
-    // The whole app
-    const [firebaseApp, setFirebaseApp] = useState()
-    // Just the DB
-    const [db, setDb] = useState()
-    // Just the Auth
-    const [auth, setAuth] = useState()
-    // BONUS! Current user
-    const [user, setUser] = useState(null)
-    const [loadingUser, setLoadingUser] = useState(true)
-
-    useEffect(() => {
+  useEffect(() => {
     // Initialize Firebase
     // This checks if the app is already initialized
     if (!firebaseApp && !firebase.apps.length) {
-        firebase.initializeApp(clientCredentials)
-        // Analytics
-        if ('measurementId' in clientCredentials) firebase.analytics()
-        setFirebaseApp(firebase)
-        setDb(firebase.firestore())
-        setAuth(firebase.auth())
-        // Listen authenticated user
-        firebase.auth().onAuthStateChanged(async user => {
+      firebase.initializeApp(clientCredentials)
+      // Analytics
+      if ('measurementId' in clientCredentials) firebase.analytics()
+      setFirebaseApp(firebase)
+      setDb(firebase.firestore())
+      setAuth(firebase.auth())
+      // Listen authenticated user
+      firebase.auth().onAuthStateChanged(async (user) => {
         try {
-            if (user) {
+          if (user) {
             // User is signed in.
             const { uid, displayName, email, photoURL } = user
             setUser({ uid, displayName, email, photoURL })
             setLoadingUser(false)
-            } else {
+          } else {
             setUser(null)
-            }
+          }
         } catch (error) {
-            console.error(error)
+          console.error(error)
         }
-        })
+      })
     }
-    }, [])
+  }, [])
 
-    return (
+  return (
     <FirebaseContext.Provider
-        value={{ firebaseApp, db, auth, user, setUser, loadingUser }}
+      value={{ firebaseApp, db, auth, user, setUser, loadingUser }}
     >
-        {children}
+      {children}
     </FirebaseContext.Provider>
-    )
+  )
 }
 
 export const useFirebase = () => useContext(FirebaseContext)
