@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { MDXProvider } from '@mdx-js/react'
 import P from './P'
 import { H1, H2, H3 } from './headings'
@@ -120,32 +122,14 @@ export default (props: MDXProviderProps) => {
   }
 
   return (
-    <div className="container">
+    <div sx={{ p: 4, minHeight: '100vh', bg: 'background' }}>
       <SEO title={props.pagetitle} openGraph={og} />
       <Logo />
-      <div className="content">
+      <div sx={{ py: 5, variant: 'layout.maxWidthContainer' }}>
         <MDXProvider components={components}>
           <main {...props}></main>
         </MDXProvider>
       </div>
-      <style jsx>{`
-        .container {
-          padding: 40px;
-          min-height: 100vh;
-          background: var(--background-color);
-        }
-        .content {
-          padding: 100px 0;
-          max-width: 700px;
-          margin: auto;
-        }
-
-        @media screen and (max-width: 620px) {
-          .container {
-            padding: 20px;
-          }
-        }
-      `}</style>
     </div>
   )
 }

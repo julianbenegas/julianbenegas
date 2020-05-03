@@ -1,48 +1,14 @@
 import { PropsWithChildren } from 'react'
+import { Styled } from 'theme-ui'
 
 export const UL = ({ children }: PropsWithChildren<{}>) => (
-  <ul>
-    {children}
-    <style jsx>{`
-      ul {
-        margin: 0 0 20px 0;
-        padding: 0;
-        position: relative;
-        left: 22px;
-      }
-    `}</style>
-  </ul>
+  <Styled.ul>{children}</Styled.ul>
 )
 
 export const OL = ({ children }: PropsWithChildren<{}>) => (
-  <ol>
-    {children}
-    <style jsx>{`
-      ol {
-        margin: 0 0 20px 0;
-        padding: 0;
-        position: relative;
-        left: 22px;
-      }
-    `}</style>
-  </ol>
+  <Styled.ol>{children}</Styled.ol>
 )
 
 export const LI = ({ children }: PropsWithChildren<{}>) => (
-  <li>
-    {children}
-    <style jsx>{`
-      li {
-        color: var(--grey-9);
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-        font-size: 18px;
-      }
-      @media screen and (max-width: 700px) {
-        li {
-          font-size: 16px;
-        }
-      }
-    `}</style>
-  </li>
+  <Styled.li>{children}</Styled.li>
 )

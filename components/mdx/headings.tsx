@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, Styled } from 'theme-ui'
 import { PropsWithChildren, MouseEvent } from 'react'
 import Router, { useRouter } from 'next/router'
 import _kebab from 'lodash/kebabCase'
@@ -13,17 +15,9 @@ export const H1 = ({ children }: PropsWithChildren<{}>) => {
   }
 
   return (
-    <h1 id={id} onClick={handleClick}>
+    <Styled.h1 id={id} onClick={handleClick} sx={{ cursor: 'pointer' }}>
       {children}
-      <style jsx>{`
-        h1 {
-          font-size: var(--fs-5xl);
-          color: var(--grey-9);
-          margin: 5rem 0 2rem;
-          cursor: pointer;
-        }
-      `}</style>
-    </h1>
+    </Styled.h1>
   )
 }
 
@@ -38,17 +32,9 @@ export const H2 = ({ children }: PropsWithChildren<{}>) => {
   }
 
   return (
-    <h2 id={id} onClick={handleClick}>
+    <Styled.h2 id={id} onClick={handleClick} sx={{ cursor: 'pointer' }}>
       {children}
-      <style jsx>{`
-        h2 {
-          font-size: var(--fs-4xl);
-          color: var(--grey-9);
-          margin: 4rem 0 2rem;
-          cursor: pointer;
-        }
-      `}</style>
-    </h2>
+    </Styled.h2>
   )
 }
 
@@ -63,16 +49,8 @@ export const H3 = ({ children }: PropsWithChildren<{}>) => {
   }
 
   return (
-    <h3 id={id} onClick={handleClick}>
+    <Styled.h3 id={id} onClick={handleClick} sx={{ cursor: 'pointer' }}>
       {children}
-      <style jsx>{`
-        h3 {
-          font-size: var(--fs-3xl);
-          color: var(--grey-9);
-          margin: 3rem 0 1.25rem;
-          cursor: pointer;
-        }
-      `}</style>
-    </h3>
+    </Styled.h3>
   )
 }

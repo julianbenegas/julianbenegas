@@ -4,7 +4,7 @@ import FiltersProvider from '../context/filtersContext'
 import GA from '../components/GA'
 import { useEffect } from 'react'
 import { ThemeProvider } from 'theme-ui'
-import theme from '../theme'
+import { theme } from '../theme'
 
 export default ({ Component, pageProps }: any) => {
   useEffect(() => {

@@ -34,7 +34,7 @@ export const Code = ({
       return fallbackCopyTextToClipboard(text)
     }
     navigator.clipboard.writeText(text)
-    toast('success', 'Copied')
+    toast('success', 'Copied to clipboard!')
   }
 
   return (

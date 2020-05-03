@@ -24,6 +24,7 @@ export default ({ src }: { src: string }) => {
           margin: auto;
           display: flex;
           justify-content: center;
+          margin-bottom: 1rem;
         }
       `}</style>
     </div>

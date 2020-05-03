@@ -1,3 +1,5 @@
+import { Theme } from 'theme-ui'
+
 const gray = [
   'hsl(197, 33%, 97%)',
   'hsl(197, 32%, 92%)',
@@ -16,7 +18,13 @@ const teal = [
   'hsl(197, 100%, 25%)'
 ]
 
-export default {
+interface CustomTheme extends Theme {
+  text: any
+  layout: any
+  misc: any
+}
+
+export const theme: CustomTheme = {
   colors: {
     text: gray[8],
     background: '#fff',
@@ -72,7 +80,7 @@ export default {
     semi: 500
   },
   lineHeights: {
-    body: 1.5,
+    body: 1.65,
     heading: 1.125,
     descriptions: 1.25
   },
@@ -139,6 +147,10 @@ export default {
       minHeight: '26px',
       maxHeight: '26px',
       height: '26px'
+    },
+    maxWidthContainer: {
+      maxWidth: '700px',
+      mx: 'auto'
     }
   },
   misc: {
@@ -150,6 +162,55 @@ export default {
       )`,
       width: '20px',
       height: '20px'
+    }
+  },
+  // ---------
+  // STYLES
+  // ---------
+  styles: {
+    p: {
+      color: 'gray.6',
+      lineHeight: 'body',
+      mb: 3,
+      fontSize: 2
+    },
+    h1: {
+      color: 'gray.7',
+      fontSize: [4, 4, 5],
+      mt: [4, 4, 5],
+      mb: 3
+    },
+    h2: {
+      color: 'gray.7',
+      fontSize: [3, 3, 4],
+      mt: [4, 4, 5],
+      mb: 3
+    },
+    h3: {
+      color: 'gray.7',
+      fontSize: ['18px', '18px', 3],
+      mt: [4, 4, 5],
+      mb: 3
+    },
+    ul: {
+      ml: 3,
+      p: 0,
+      position: 'relative',
+      left: '16px',
+      mb: 3
+    },
+    ol: {
+      ml: 3,
+      p: 0,
+      position: 'relative',
+      left: '16px',
+      mb: 3
+    },
+    li: {
+      color: 'gray.6',
+      lineHeight: 'body',
+      mb: 1,
+      fontSize: 2
     }
   }
 }

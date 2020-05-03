@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx, Styled } from 'theme-ui'
 import { useRouter } from 'next/router'
 import { twitterUsername } from '../../lib/constants'
 
@@ -12,7 +14,7 @@ export default ({
 
   return (
     <footer>
-      <p>{message}</p>
+      <Styled.p>{message}</Styled.p>
       <a
         className="twitter-share-button"
         href={`https://twitter.com/intent/tweet?text=${title}&url=https://julianbenegas.now.sh${router.route}&via=${twitterUsername}`}
@@ -23,11 +25,6 @@ export default ({
         Share on Twitter
       </a>
       <style jsx>{`
-        p {
-          color: var(--grey-9);
-          margin: 40px 0 20px;
-          font-size: 18px;
-        }
         a {
           padding: 6px 12px;
           border-radius: 6px;
