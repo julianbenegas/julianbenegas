@@ -29,7 +29,6 @@ export default () => {
         <MdSearch />
       </i>
       <input
-        type="search"
         id="search"
         ref={inputRef}
         onBlur={handleBlur}
