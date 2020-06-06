@@ -65,6 +65,7 @@ export default () => {
           line-height: 1;
           width: 100%;
           background: var(--background-color);
+          line-height: 18px;
         }
         input::placeholder {
           color: var(--grey-5);
