@@ -1,15 +1,13 @@
 import { useRouter } from 'next/router'
 import { twitterUsername } from '../../lib/constants'
 
-const Footer = (
-  {
-    message = 'Thanks for reading.',
-    title
-  }: {
-    message: string
-    title: string
-  }
-) => {
+const Footer = ({
+  message = 'Thanks for reading.',
+  title
+}: {
+  message: string
+  title: string
+}) => {
   const router = useRouter()
 
   return (
@@ -38,12 +36,12 @@ const Footer = (
         }
         @media screen and (max-width: 700px) {
           p {
-            font-size: 16px;
+            font-size: 14px;
           }
         }
       `}</style>
     </footer>
   )
-};
+}
 
-export default Footer;
+export default Footer

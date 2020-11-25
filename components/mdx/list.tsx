@@ -36,11 +36,11 @@ export const LI = ({ children }: PropsWithChildren<{}>) => (
         color: var(--grey-9);
         margin-bottom: 0.5rem;
         line-height: 1.5;
-        font-size: 18px;
+        font-size: 16px;
       }
       @media screen and (max-width: 700px) {
         li {
-          font-size: 16px;
+          font-size: 14px;
         }
       }
     `}</style>

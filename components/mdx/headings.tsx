@@ -21,6 +21,7 @@ export const H1 = ({ children }: PropsWithChildren<{}>) => {
           color: var(--grey-9);
           margin: 5rem 0 2rem;
           cursor: pointer;
+          display: inline-block;
         }
       `}</style>
     </h1>
@@ -46,6 +47,7 @@ export const H2 = ({ children }: PropsWithChildren<{}>) => {
           color: var(--grey-9);
           margin: 4rem 0 2rem;
           cursor: pointer;
+          display: inline-block;
         }
       `}</style>
     </h2>
@@ -71,6 +73,7 @@ export const H3 = ({ children }: PropsWithChildren<{}>) => {
           color: var(--grey-9);
           margin: 3rem 0 1.25rem;
           cursor: pointer;
+          display: inline-block;
         }
       `}</style>
     </h3>
