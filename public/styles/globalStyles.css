@@ -72,7 +72,7 @@
 }
 
 /* DARK MODE */
-div[data-colormode='dark'] {
+[data-theme='dark'] {
   --grey-9: white;
   --grey-8: hsl(197, 33%, 97%);
   --grey-7: hsl(197, 32%, 92%);

@@ -131,11 +131,10 @@ export default (props: MDXProviderProps) => {
       <style jsx>{`
         .container {
           padding: 40px;
-          min-height: 100vh;
           background: var(--background-color);
         }
         .content {
-          padding: 100px 0;
+          padding: 100px 0 0;
           max-width: 700px;
           margin: auto;
         }

@@ -78,7 +78,7 @@ const EventContainer = ({
           text-align: inherit;
           background: var(--background-color);
           border: none;
-          max-width: 50%;
+          width: 50%;
           padding: 3px
             ${alignment === 'right'
               ? '0 0 30px'

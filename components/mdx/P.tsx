@@ -7,13 +7,13 @@ export default ({ children }: PropsWithChildren<{}>) => {
       <style jsx>{`
         p {
           color: var(--grey-9);
-          margin-bottom: 2rem;
+          margin-bottom: 1rem;
           line-height: var(--lh-relaxed);
-          font-size: 18px;
+          font-size: 16px;
         }
         @media screen and (max-width: 700px) {
           p {
-            font-size: 16px;
+            font-size: 14px;
           }
         }
       `}</style>

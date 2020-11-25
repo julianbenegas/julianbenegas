@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { twitterUsername } from '../../lib/constants'
 
 export default ({
-  message = 'Thanks for reading. Julián.',
+  message = 'Thanks for reading.',
   title
 }: {
   message: string
@@ -26,7 +26,7 @@ export default ({
         p {
           color: var(--grey-9);
           margin: 40px 0 20px;
-          font-size: 18px;
+          font-size: 16px;
         }
         a {
           padding: 6px 12px;

@@ -1,6 +1,6 @@
 import chroma from 'chroma-js'
 import { useFilters, FilterMethod } from '../context/filtersContext'
-import { useColorMode } from '../context/colorModeContext'
+import { useTheme } from 'next-themes'
 
 const Tag = ({
   tag,
@@ -17,10 +17,10 @@ const Tag = ({
   addFilter?: FilterMethod
   removeFilter?: FilterMethod
 }) => {
-  const { colorMode } = useColorMode()
+  const { theme } = useTheme()
   const colorIndex = index / totalTags
-  const green = colorMode === 'dark' ? '#17D0B8' : '#129E8C'
-  const purple = colorMode === 'dark' ? '#A2B0FF' : '#4B60D6'
+  const green = theme === 'dark' ? '#17D0B8' : '#129E8C'
+  const purple = theme === 'dark' ? '#A2B0FF' : '#4B60D6'
   const color = chroma.scale([green, purple])(colorIndex)
 
   const background = color.alpha(0.1).css()
@@ -42,7 +42,7 @@ const Tag = ({
           font-size: var(--fs-sm);
           font-weight: 500;
           color: ${isActiveFilter
-            ? colorMode === 'dark'
+            ? theme === 'dark'
               ? 'black'
               : 'white'
             : text};

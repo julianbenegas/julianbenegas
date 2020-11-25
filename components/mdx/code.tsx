@@ -4,9 +4,9 @@ import {
   atomOneLight
 } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import { ReactNode } from 'react'
-import { useColorMode } from '../../context/colorModeContext'
 import { FiCopy } from 'react-icons/fi'
 import toast from '../toast/toast'
+import { useTheme } from 'next-themes'
 
 export const Code = ({
   children,
@@ -15,7 +15,7 @@ export const Code = ({
   children: ReactNode
   className: string
 }) => {
-  const { colorMode } = useColorMode()
+  const { theme } = useTheme()
 
   function fallbackCopyTextToClipboard(text: string) {
     const textArea = document.createElement('textarea')
@@ -44,7 +44,7 @@ export const Code = ({
       </button>
       <SyntaxHighlighter
         language={className.split('language-')[1]}
-        style={colorMode === 'dark' ? atomOneDark : atomOneLight}
+        style={theme === 'dark' ? atomOneDark : atomOneLight}
         customStyle={{
           margin: '20px 0',
           padding: '20px',

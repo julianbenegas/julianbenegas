@@ -4,8 +4,8 @@ import Tree from '../components/Tree'
 import { FullEvent } from '../interfaces/event'
 import { events } from '../data/events.json'
 import { useFilters } from '../context/filtersContext'
-import moment from 'moment'
 import SEO from '../components/SEO'
+import { format } from 'date-fns'
 
 export default function Index() {
   let tags: string[] = []
@@ -14,15 +14,16 @@ export default function Index() {
   for (let i = 0; i < events.length; i++) {
     const event = events[i]
     if (event.isPublished) {
+      const date = new Date(event.date)
       const fullEvent = {
         ...event,
-        url: `${moment.utc(event.date, 'YYYY-MM-DD').year()}/${event.id}`,
-        displayDate: moment(event.date, 'YYYY-MM-DD').format('MMMM Do, YYYY')
+        url: `/${date.getFullYear()}/${event.id}`,
+        displayDate: format(date, 'MMMM do, yyyy')
       }
       allEvents.push(fullEvent)
       // Check for tags
       if (event.tags?.length) {
-        const toAdd = event.tags.filter(t => !tags.includes(t))
+        const toAdd = event.tags.filter((t) => !tags.includes(t))
         tags.push(...toAdd)
       }
     }
@@ -40,9 +41,9 @@ export default function Index() {
     let filtered: FullEvent[] = allEvents
     if (filters.tags.length) {
       filtered = filtered.filter(
-        event =>
-          filters.tags.filter(f =>
-            event.tags?.map(t => t.toLowerCase()).includes(f)
+        (event) =>
+          filters.tags.filter((f) =>
+            event.tags?.map((t) => t.toLowerCase()).includes(f)
           ).length === filters.tags.length
       )
     }
@@ -50,14 +51,11 @@ export default function Index() {
     if (filters.words.length) {
       const lowerCased = filters.words.toLowerCase()
       filtered = filtered.filter(
-        event =>
+        (event) =>
           event.name.toLowerCase().includes(lowerCased) ||
           event.description.toLowerCase().includes(lowerCased) ||
           event.displayDate.toLowerCase().includes(lowerCased) ||
-          event.tags
-            ?.join(' ')
-            .toLowerCase()
-            .includes(lowerCased)
+          event.tags?.join(' ').toLowerCase().includes(lowerCased)
       )
     }
     setFilteredEvents(filtered)

@@ -1,8 +1,8 @@
+import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
-import { useColorMode } from '../../context/colorModeContext'
 
 export default ({ src }: { src: string }) => {
-  const { colorMode } = useColorMode()
+  const { theme } = useTheme()
 
   useEffect(() => {
     //@ts-ignore
@@ -13,7 +13,7 @@ export default ({ src }: { src: string }) => {
     <div>
       <blockquote
         className="twitter-tweet"
-        data-theme={colorMode === 'dark' ? 'dark' : 'light'}
+        data-theme={theme === 'dark' ? 'dark' : 'light'}
       >
         <p lang="es" dir="ltr">
           <a href={src}></a>

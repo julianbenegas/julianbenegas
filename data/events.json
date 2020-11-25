@@ -1,6 +1,26 @@
 {
   "events": [
     {
+      "name": "Sinusoid",
+      "id": "sinusoid",
+      "date": "2020-11-24",
+      "tags": [],
+      "description": "To acknowledge the trap.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
+      "name": "Flow",
+      "id": "flow",
+      "date": "2020-11-20",
+      "tags": [],
+      "description": "To perform well.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
       "name": "No, it's not about the journey",
       "id": "aim",
       "date": "2020-05-14",
