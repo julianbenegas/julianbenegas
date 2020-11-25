@@ -1,4 +1,4 @@
-import '../public/styles/globalStyles.css'
+import '../styles/globalStyles.css'
 import FiltersProvider from '../context/filtersContext'
 import GA from '../components/GA'
 import { useEffect } from 'react'
