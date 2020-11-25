@@ -30,7 +30,7 @@ export const FiltersContext = createContext<FilterContextType>({
   filters: { tags: [], words: '' }
 })
 
-const FiltersContext = ({ children }: PropsWithChildren<{}>) => {
+const FiltersContextProvider = ({ children }: PropsWithChildren<{}>) => {
   const router = useRouter()
   const {
     tags: tagsFromQuery,
@@ -73,7 +73,7 @@ const FiltersContext = ({ children }: PropsWithChildren<{}>) => {
       case 'tag':
         setFilters({
           ...filters,
-          tags: filters.tags.filter(f => f !== value.toLowerCase())
+          tags: filters.tags.filter((f) => f !== value.toLowerCase())
         })
         break
       case 'words':
@@ -89,8 +89,8 @@ const FiltersContext = ({ children }: PropsWithChildren<{}>) => {
       {children}
     </FiltersContext.Provider>
   )
-};
+}
 
-export default FiltersContext;
+export default FiltersContextProvider
 
 export const useFilters = () => useContext<FilterContextType>(FiltersContext)
