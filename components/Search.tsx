@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { MdSearch } from 'react-icons/md'
 import { useFilters } from '../context/filtersContext'
 
-export default () => {
+const Search = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -88,4 +88,6 @@ export default () => {
       `}</style>
     </div>
   )
-}
+};
+
+export default Search;

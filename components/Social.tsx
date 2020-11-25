@@ -2,7 +2,7 @@ import { FiGithub, FiTwitter, FiMail } from 'react-icons/fi'
 import { FaDribbble } from 'react-icons/fa'
 import { twitterUsername } from '../lib/constants'
 
-export default () => {
+const Social = () => {
   return (
     <div>
       <a
@@ -47,4 +47,6 @@ export default () => {
       `}</style>
     </div>
   )
-}
+};
+
+export default Social;

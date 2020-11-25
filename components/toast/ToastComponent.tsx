@@ -4,7 +4,7 @@ interface Props {
   description: string
 }
 
-export default ({ status, title, description }: Props) => {
+const ToastComponent = ({ status, title, description }: Props) => {
   let background
   let color
   switch (status) {
@@ -69,4 +69,6 @@ export default ({ status, title, description }: Props) => {
       `}</style>
     </div>
   )
-}
+};
+
+export default ToastComponent;

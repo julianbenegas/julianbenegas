@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes'
 import { useEffect } from 'react'
 
-export default ({ src }: { src: string }) => {
+const Tweet = ({ src }: { src: string }) => {
   const { theme } = useTheme()
 
   useEffect(() => {
@@ -28,4 +28,6 @@ export default ({ src }: { src: string }) => {
       `}</style>
     </div>
   )
-}
+};
+
+export default Tweet;

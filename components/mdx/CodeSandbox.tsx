@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default ({ src, height = '600px' }: { src: string; height: string }) => {
+const CodeSandbox = ({ src, height = '600px' }: { src: string; height: string }) => {
   const [showSandbox, setShowSandbox] = useState<boolean>(false)
 
   const treatedSrc = src.split('?').length
@@ -72,4 +72,6 @@ export default ({ src, height = '600px' }: { src: string; height: string }) => {
       `}</style>
     </div>
   )
-}
+};
+
+export default CodeSandbox;

@@ -63,7 +63,7 @@ const Tag = ({
   )
 }
 
-export default ({ tags }: { tags: string[] }) => {
+const Tags = ({ tags }: { tags: string[] }) => {
   const { filters, addFilter, removeFilter } = useFilters()
 
   return (
@@ -90,4 +90,6 @@ export default ({ tags }: { tags: string[] }) => {
       `}</style>
     </div>
   )
-}
+};
+
+export default Tags;

@@ -145,7 +145,7 @@ const EventContainer = ({
   )
 }
 
-export default ({ events }: { events: FullEvent[] }) => {
+const Tree = ({ events }: { events: FullEvent[] }) => {
   return (
     <div className="container">
       <div className="tree">
@@ -225,4 +225,6 @@ export default ({ events }: { events: FullEvent[] }) => {
       `}</style>
     </div>
   )
-}
+};
+
+export default Tree;

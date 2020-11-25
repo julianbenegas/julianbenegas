@@ -13,7 +13,7 @@ const GradientSVG = () => (
   </div>
 )
 
-export default () => {
+const Logo = () => {
   return (
     <Link href="/">
       <a>
@@ -42,4 +42,6 @@ export default () => {
       </a>
     </Link>
   )
-}
+};
+
+export default Logo;

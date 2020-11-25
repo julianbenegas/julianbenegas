@@ -6,13 +6,15 @@ interface Props {
   height?: string
 }
 
-export default ({
-  src,
-  alt,
-  caption,
-  width = '100%',
-  height = 'auto'
-}: Props) => {
+const Screenshot = (
+  {
+    src,
+    alt,
+    caption,
+    width = '100%',
+    height = 'auto'
+  }: Props
+) => {
   return (
     <figure>
       <img src={src} alt={alt} />
@@ -42,4 +44,6 @@ export default ({
       `}</style>
     </figure>
   )
-}
+};
+
+export default Screenshot;

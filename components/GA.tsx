@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default () => {
+const GA = () => {
   return (
     <Head>
       {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
@@ -19,4 +19,6 @@ export default () => {
       ></script>
     </Head>
   )
-}
+};
+
+export default GA;

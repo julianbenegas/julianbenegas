@@ -24,12 +24,14 @@ const defaultOpenGraph: OpenGraph = {
   image: 'https://julianbenegas.now.sh/images/logo@1x.png'
 }
 
-export default ({
-  title,
-  description = 'This is my personal site, where I share my thoughts and my work.',
-  favicon = '/images/favicon.png',
-  openGraph = defaultOpenGraph
-}: Props) => {
+const SEO = (
+  {
+    title,
+    description = 'This is my personal site, where I share my thoughts and my work.',
+    favicon = '/images/favicon.png',
+    openGraph = defaultOpenGraph
+  }: Props
+) => {
   return (
     <Head>
       <title>{title ? `${title} | Julián Benegas` : 'Julián Benegas'}</title>
@@ -54,4 +56,6 @@ export default ({
       <script async src="https://cdn.splitbee.io/sb.js" />
     </Head>
   )
-}
+};
+
+export default SEO;

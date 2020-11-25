@@ -109,7 +109,7 @@ const components = {
   )
 }
 
-export default (props: MDXProviderProps) => {
+const Layout = (props: MDXProviderProps) => {
   const router = useRouter()
   const og = {
     title: props.pagetitle,
@@ -147,4 +147,6 @@ export default (props: MDXProviderProps) => {
       `}</style>
     </div>
   )
-}
+};
+
+export default Layout;

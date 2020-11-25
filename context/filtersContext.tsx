@@ -30,7 +30,7 @@ export const FiltersContext = createContext<FilterContextType>({
   filters: { tags: [], words: '' }
 })
 
-export default ({ children }: PropsWithChildren<{}>) => {
+const FiltersContext = ({ children }: PropsWithChildren<{}>) => {
   const router = useRouter()
   const {
     tags: tagsFromQuery,
@@ -89,6 +89,8 @@ export default ({ children }: PropsWithChildren<{}>) => {
       {children}
     </FiltersContext.Provider>
   )
-}
+};
+
+export default FiltersContext;
 
 export const useFilters = () => useContext<FilterContextType>(FiltersContext)
