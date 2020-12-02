@@ -6,6 +6,7 @@ import { events } from '../data/events.json'
 import { useFilters } from '../context/filtersContext'
 import SEO from '../components/SEO'
 import { format } from 'date-fns'
+import { getDateFromInput } from '../lib/time-helpers'
 
 export default function Index() {
   let tags: string[] = []
@@ -14,7 +15,7 @@ export default function Index() {
   for (let i = 0; i < events.length; i++) {
     const event = events[i]
     if (event.isPublished) {
-      const date = new Date(event.date)
+      const date = getDateFromInput(event.date)
       const fullEvent = {
         ...event,
         url: `/${date.getFullYear()}/${event.id}`,

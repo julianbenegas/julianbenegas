@@ -1,6 +1,16 @@
 {
   "events": [
     {
+      "name": "On Technique",
+      "id": "on-technique",
+      "date": "2020-12-01",
+      "tags": ["Contemplations"],
+      "description": "Playing golf today, I tried something new. I completely forgot about technique, and focused only on the objective. Boom. Great flow, great ball striking. As good as ever.",
+      "isLink": true,
+      "isPublished": true,
+      "isPinned": true
+    },
+    {
       "name": "Sinusoid",
       "id": "sinusoid",
       "date": "2020-11-24",

@@ -3,24 +3,14 @@ import Router, { useRouter } from 'next/router'
 import _kebab from 'lodash/kebabCase'
 
 export const H1 = ({ children }: PropsWithChildren<{}>) => {
-  const router = useRouter()
-  const id = _kebab(typeof children === 'string' ? children : 'undefined')
-
-  const handleClick = (e: MouseEvent<HTMLHeadingElement>) => {
-    const { id } = e.currentTarget
-    const asPath = `${router.asPath.split('#')[0]}#${id}`
-    Router.replace(router.pathname, asPath)
-  }
-
   return (
-    <h1 id={id} onClick={handleClick}>
+    <h1>
       {children}
       <style jsx>{`
         h1 {
           font-size: var(--fs-4xl);
           color: var(--grey-9);
           margin: 5rem 0 2rem;
-          cursor: pointer;
           display: inline-block;
         }
       `}</style>
