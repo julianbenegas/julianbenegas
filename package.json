@@ -15,7 +15,7 @@
     "chroma-js": "^2.1.0",
     "date-fns": "^2.16.1",
     "isomorphic-unfetch": "3.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "next": "^10.0.3",
     "next-themes": "^0.0.10",
     "react": "^17.0.1",
