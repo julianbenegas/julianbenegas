@@ -5,14 +5,20 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "postinstall": "basehub"
   },
   "dependencies": {
+    "basehub": "^1.2.14",
+    "clsx": "^2.0.0",
+    "geist": "^1.2.0",
     "next": "^14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
