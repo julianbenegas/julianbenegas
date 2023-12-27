@@ -8,4 +8,13 @@ module.exports = {
   images: {
     remotePatterns: [{ hostname: 'basehub.earth' }],
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/posts',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
 }

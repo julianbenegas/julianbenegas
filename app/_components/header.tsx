@@ -1,13 +1,18 @@
 import { basehub } from 'basehub'
 import { RichText } from 'basehub/react'
 import clsx from 'clsx'
+import { draftMode } from 'next/headers'
 
 export const Header = async ({
   variant = 'normal',
 }: {
   variant?: 'minimal' | 'normal'
 }) => {
-  const { index } = await basehub({ next: { revalidate: 60 } }).query({
+  const { isEnabled: isDraftMode } = draftMode()
+  const { index } = await basehub({
+    next: { revalidate: 60 },
+    draft: isDraftMode,
+  }).query({
     index: {
       avatar: {
         url: {

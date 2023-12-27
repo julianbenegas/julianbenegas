@@ -3,9 +3,14 @@ import { RichText } from 'basehub/react'
 import { Section } from './_components/section'
 import Link from 'next/link'
 import { Header } from './_components/header'
+import { draftMode } from 'next/headers'
 
 const HomePage = async () => {
-  const { index } = await basehub({ next: { revalidate: 60 } }).query({
+  const { isEnabled: isDraftMode } = draftMode()
+  const { index } = await basehub({
+    next: { revalidate: 60 },
+    draft: isDraftMode,
+  }).query({
     index: {
       onMyRadarSection: {
         sectionHeader: {

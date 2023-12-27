@@ -14,7 +14,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
   })
 
   return {
-    title: settings.meta.title,
+    title: {
+      template: `%s | ${settings.meta.title}`,
+      default: settings.meta.title,
+    },
     description: settings.meta.description,
   }
 }

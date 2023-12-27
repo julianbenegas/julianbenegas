@@ -1,11 +1,54 @@
 import { basehub } from 'basehub'
 import { RichText } from 'basehub/react'
+import { Metadata } from 'next'
+import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Header } from '~/app/_components/header'
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> => {
+  const { isEnabled: isDraftMode } = draftMode()
+  const data = await basehub({
+    next: { revalidate: 60 },
+    draft: isDraftMode,
+  }).query({
+    index: {
+      postsSection: {
+        posts: {
+          __args: {
+            filter: {
+              _sys_slug: { eq: params.slug },
+            },
+          },
+          items: {
+            _title: true,
+            date: true,
+            body: {
+              plainText: true,
+            },
+          },
+        },
+      },
+    },
+  })
+
+  const post = data.index.postsSection.posts.items[0]
+
+  if (!post) notFound()
+
+  return {
+    title: post._title,
+    description: post.body.plainText.split(' ').slice(0, 24).join(' ') + '...',
+  }
+}
+
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: 'no-store' }).query({
+  const { isEnabled: isDraftMode } = draftMode()
+  const data = await basehub({ cache: 'no-store', draft: isDraftMode }).query({
     index: {
       postsSection: {
         posts: {
@@ -27,7 +70,11 @@ export const generateStaticParams = async () => {
 }
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
-  const data = await basehub({ next: { revalidate: 60 } }).query({
+  const { isEnabled: isDraftMode } = draftMode()
+  const data = await basehub({
+    next: { revalidate: 60 },
+    draft: isDraftMode,
+  }).query({
     index: {
       postsSection: {
         posts: {
