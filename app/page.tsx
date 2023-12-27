@@ -4,6 +4,8 @@ import { Section } from './_components/section'
 import Link from 'next/link'
 import { Header } from './_components/header'
 import { draftMode } from 'next/headers'
+import { ViewsFragment } from './_components/views-fragment'
+import { Suspense } from 'react'
 
 const HomePage = async () => {
   const { isEnabled: isDraftMode } = draftMode()
@@ -103,8 +105,11 @@ const HomePage = async () => {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric',
-                  })}{' '}
-                  · 548 Views
+                  })}
+                  <Suspense fallback={null}>
+                    {' '}
+                    · <ViewsFragment postId={post._id} /> Views
+                  </Suspense>
                 </p>
               </Link>
             )

@@ -2,9 +2,9 @@
  * @type {import('next').NextConfig}
  */
 module.exports = {
-  // experimental: {
-  //   ppr: true
-  // }
+  experimental: {
+    ppr: true,
+  },
   images: {
     remotePatterns: [{ hostname: 'basehub.earth' }],
   },

@@ -5,6 +5,9 @@ import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Header } from '~/app/_components/header'
+import { PostFooter } from './footer'
+import { ViewsFragment } from '~/app/_components/views-fragment'
+import { Suspense } from 'react'
 
 export const generateMetadata = async ({
   params,
@@ -47,8 +50,7 @@ export const generateMetadata = async ({
 }
 
 export const generateStaticParams = async () => {
-  const { isEnabled: isDraftMode } = draftMode()
-  const data = await basehub({ cache: 'no-store', draft: isDraftMode }).query({
+  const data = await basehub({ cache: 'no-store' }).query({
     index: {
       postsSection: {
         posts: {
@@ -84,6 +86,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
             },
           },
           items: {
+            _id: true,
             _title: true,
             date: true,
             body: {
@@ -91,6 +94,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                 content: true,
               },
             },
+            xPost: true,
           },
         },
       },
@@ -114,13 +118,17 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
-            })}{' '}
-            · 548 Views
+            })}
+            <Suspense fallback={null}>
+              {' '}
+              · <ViewsFragment postId={post._id} increment /> Views
+            </Suspense>
           </p>
         </div>
         <div className="prose prose-invert text-dark-gray12 mt-8">
           <RichText>{post.body.json.content}</RichText>
         </div>
+        <PostFooter xPostURL={post.xPost} />
       </div>
     </main>
   )
