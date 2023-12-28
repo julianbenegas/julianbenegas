@@ -6,6 +6,13 @@ import { Header } from './_components/header'
 import { draftMode } from 'next/headers'
 import { ViewsFragment } from './_components/views-fragment'
 import { Suspense } from 'react'
+import clsx from 'clsx'
+import {
+  FaceIcon,
+  GlobeIcon,
+  Link2Icon,
+  ReaderIcon,
+} from '@radix-ui/react-icons'
 
 const HomePage = async () => {
   const { isEnabled: isDraftMode } = draftMode()
@@ -27,6 +34,9 @@ const HomePage = async () => {
           items: {
             _id: true,
             _title: true,
+            label: true,
+            type: true,
+            href: true,
           },
         },
       },
@@ -67,16 +77,65 @@ const HomePage = async () => {
           ) : null
         }
       >
-        {index.onMyRadarSection.links.items.map((post) => {
-          return (
-            <a
-              key={post._id}
-              className="py-1.5 leading-none px-2.5 rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6"
-            >
-              {post._title}
-            </a>
-          )
-        })}
+        <div className="flex gap-2 flex-wrap justify-center max-w-2xl">
+          {index.onMyRadarSection.links.items.map((post) => {
+            const El = post.href ? 'a' : 'p'
+            const props = post.href
+              ? {
+                  href: post.href,
+                  className: 'hover:bg-dark-gray5 transition-colors',
+                  target: '_blank',
+                  rel: 'noopener',
+                }
+              : {}
+
+            let icon: React.ReactNode = null
+            switch (post.type) {
+              case 'Habit':
+                icon = <FaceIcon />
+                break
+              case 'Reading List':
+                icon = <ReaderIcon />
+                break
+              case 'Link':
+                icon = <Link2Icon />
+                break
+              case 'X Post':
+                icon = <GlobeIcon />
+                icon = (
+                  <svg
+                    viewBox="0 0 21.57 19.5"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-3 h-3 flex"
+                  >
+                    <path
+                      d="M16.99 0h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L3.736 19.5H.426l7.73-8.835L0 0h6.826l4.713 6.231L16.99 0Zm-1.161 17.52h1.833L5.83 1.876H3.863L15.829 17.52Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                )
+                break
+
+              default:
+                break
+            }
+
+            return (
+              <El
+                key={post._id}
+                {...props}
+                className={clsx(
+                  props.className,
+                  'py-1.5 select-none flex gap-1.5 items-center leading-none px-2.5 rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6'
+                )}
+              >
+                {icon && <span>{icon}</span>}
+                {post.label}
+              </El>
+            )
+          })}
+        </div>
       </Section>
       <Section
         title={index.postsSection.header.title}

@@ -110,7 +110,7 @@ export const InnerPageHeader = async () => {
   })
 
   return (
-    <header className="flex items-center gap-4 justify-between px-4 py-2 border-b border-dark-gray4 sticky top-0 bg-dark-gray1">
+    <header className="flex items-center gap-4 justify-between px-3 py-2 border-b border-dark-gray4 sticky top-0 bg-dark-gray1">
       <Link className="flex items-center gap-2 group" href="/">
         <img
           src={data.index.avatar.url}
@@ -119,8 +119,8 @@ export const InnerPageHeader = async () => {
           height={data.index.avatar.height}
           className="rounded-full border border-dark-gray6 w-6 h-6"
         />
-        <div className="flex flex-col gap-1.5 text-center">
-          <h1 className="text-sm text-dark-gray11 group-hover:text-dark-gray12 transition-colors">
+        <div className="sm:flex hidden flex-col gap-1.5 text-center">
+          <h1 className="text-sm text-dark-gray12 transition-colors">
             {data.index.title}
           </h1>
         </div>
