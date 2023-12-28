@@ -38,6 +38,7 @@ export const GET = async () => {
     .toBuffer()
 
   return new Response(buffer, {
+    status: 200,
     headers: {
       'Content-Type': 'image/png',
     },

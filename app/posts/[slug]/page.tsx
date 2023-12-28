@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Header } from '~/app/_components/header'
+import { Header, InnerPageHeader } from '~/app/_components/header'
 import { PostFooter } from './footer'
 import { ViewsFragment } from '~/app/_components/views-fragment'
 import { Suspense } from 'react'
@@ -78,6 +78,18 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
     draft: isDraftMode,
   }).query({
     index: {
+      avatar: {
+        url: {
+          __args: {
+            width: 300,
+            height: 300,
+          },
+        },
+        alt: true,
+        width: true,
+        height: true,
+      },
+      title: true,
       postsSection: {
         posts: {
           __args: {
@@ -106,36 +118,53 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
   if (!post) notFound()
 
   return (
-    <main className="py-20 px-5 flex flex-col gap-8 items-center">
-      <Link href="/" aria-label="back home">
-        <Header variant="minimal" />
-      </Link>
-      <div className="max-w-2xl">
-        <div className="text-center flex flex-col gap-3">
-          <h1 className="text-3xl font-bold text-center">{post._title}</h1>
-          <p className="text-sm text-dark-gray10">
-            {new Date(post.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-            <Suspense fallback={null}>
-              {' '}
-              ·{' '}
-              <ViewsFragment
-                postId={post._id}
-                increment={process.env.NODE_ENV !== 'development'}
-              />{' '}
-              Views
-            </Suspense>
-          </p>
+    <>
+      <InnerPageHeader />
+      <main className="py-20 px-5 flex flex-col gap-8 items-center">
+        <div className="max-w-2xl">
+          <div className="flex flex-col gap-3">
+            <h1 className="text-3xl font-bold">{post._title}</h1>
+            <div className="flex items-center gap-2">
+              {/* <Link href="/" className="flex items-center gap-2">
+                <img
+                  src={data.index.avatar.url}
+                  alt={data.index.avatar.alt ?? ''}
+                  width={data.index.avatar.width}
+                  height={data.index.avatar.height}
+                  className="rounded-full border border-dark-gray6 w-6 h-6"
+                />
+                <div className="flex flex-col gap-1.5 text-center">
+                  <h1 className="text-sm text-dark-gray10">
+                    {data.index.title}
+                  </h1>
+                </div>
+              </Link>{' '}
+              <span className="text-sm text-dark-gray10">|</span> */}
+              <p className="text-sm text-dark-gray10">
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+                <Suspense fallback={null}>
+                  {' '}
+                  ·{' '}
+                  <ViewsFragment
+                    postId={post._id}
+                    increment={process.env.NODE_ENV !== 'development'}
+                  />{' '}
+                  Views
+                </Suspense>
+              </p>
+            </div>
+          </div>
+          <div className="prose prose-invert text-dark-gray11 mt-8">
+            <RichText>{post.body.json.content}</RichText>
+          </div>
+          <PostFooter xPostURL={post.xPost} />
         </div>
-        <div className="prose prose-invert text-dark-gray11 mt-8">
-          <RichText>{post.body.json.content}</RichText>
-        </div>
-        <PostFooter xPostURL={post.xPost} />
-      </div>
-    </main>
+      </main>
+    </>
   )
 }
 
