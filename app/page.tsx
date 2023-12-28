@@ -97,7 +97,7 @@ const HomePage = async () => {
                 href={`/posts/${post._slug}`}
               >
                 <h3 className="font-medium">{post._title}</h3>
-                <p className="text-sm text-dark-gray11 line-clamp-3">
+                <p className="text-sm text-dark-gray10 line-clamp-3">
                   {post.body.plainText.split(' ').slice(0, 48).join(' ')}
                 </p>
                 <p className="text-sm text-dark-gray10">

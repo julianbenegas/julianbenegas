@@ -29,6 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable} bg-black text-white`}>
+      <head>
+        <link rel="icon" href="/icon" sizes="any" />
+      </head>
       <body>{children}</body>
     </html>
   )

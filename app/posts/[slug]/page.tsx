@@ -121,11 +121,16 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
             })}
             <Suspense fallback={null}>
               {' '}
-              · <ViewsFragment postId={post._id} increment /> Views
+              ·{' '}
+              <ViewsFragment
+                postId={post._id}
+                increment={process.env.NODE_ENV !== 'development'}
+              />{' '}
+              Views
             </Suspense>
           </p>
         </div>
-        <div className="prose prose-invert text-dark-gray12 mt-8">
+        <div className="prose prose-invert text-dark-gray11 mt-8">
           <RichText>{post.body.json.content}</RichText>
         </div>
         <PostFooter xPostURL={post.xPost} />
