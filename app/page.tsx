@@ -65,7 +65,7 @@ const HomePage = async () => {
   })
 
   return (
-    <main className="py-20 px-5 flex flex-col gap-16 items-center">
+    <main className="pt-20 pb-10 px-5 flex flex-col gap-16 items-center">
       <Header />
       <Section
         title={index.onMyRadarSection.sectionHeader.title}

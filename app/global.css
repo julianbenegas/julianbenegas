@@ -12,3 +12,7 @@ html {
   -moz-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+::selection {
+  background-color: theme('colors.dark.gray5');
+}

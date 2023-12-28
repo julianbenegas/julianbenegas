@@ -9,6 +9,8 @@ module.exports = {
       sans: ['var(--font-geist-sans)'],
     },
     colors: {
+      white: '#fff',
+      black: '#000',
       ...gray,
       ...orange,
       dark: {

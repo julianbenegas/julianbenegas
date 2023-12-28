@@ -159,7 +159,24 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
             </div>
           </div>
           <div className="prose prose-invert text-dark-gray11 mt-8">
-            <RichText>{post.body.json.content}</RichText>
+            <RichText
+              components={{
+                a: (props) => {
+                  const isExternal = props.href.startsWith('/') === false
+                  return (
+                    <Link
+                      {...props}
+                      className="not-prose text-dark-gray12 border-b border-dark-gray8 hover:border-dark-gray11 transition-colors"
+                      {...(isExternal
+                        ? { target: '_blank', rel: 'noopener' }
+                        : {})}
+                    />
+                  )
+                },
+              }}
+            >
+              {post.body.json.content}
+            </RichText>
           </div>
           <PostFooter xPostURL={post.xPost} />
         </div>

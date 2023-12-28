@@ -66,7 +66,18 @@ export const Header = async ({
         </h1>
         {variant === 'normal' && (
           <div className="text-sm text-dark-gray10">
-            <RichText>{index.bio.json.content}</RichText>
+            <RichText
+              components={{
+                a: (props) => (
+                  <a
+                    {...props}
+                    className="underline hover:text-dark-gray11 transition-colors"
+                  />
+                ),
+              }}
+            >
+              {index.bio.json.content}
+            </RichText>
           </div>
         )}
       </div>
