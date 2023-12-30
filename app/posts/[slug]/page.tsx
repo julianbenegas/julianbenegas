@@ -131,13 +131,11 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <InnerPageHeader />
-      <main className="py-20 px-5 flex flex-col gap-8 items-center">
-        <div className="max-w-2xl">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-3xl font-bold">{post._title}</h1>
-            <div className="flex items-center gap-2">
-              {/* <Link href="/" className="flex items-center gap-2">
+      <div className="max-w-2xl">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-3xl font-bold">{post._title}</h1>
+          <div className="flex items-center gap-2">
+            {/* <Link href="/" className="flex items-center gap-2">
                 <img
                   src={data.index.avatar.url}
                   alt={data.index.avatar.alt ?? ''}
@@ -152,64 +150,63 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                 </div>
               </Link>{' '}
               <span className="text-sm text-dark-gray10">|</span> */}
-              <p className="text-sm text-dark-gray10">
-                {new Date(post.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-                <Suspense fallback={null}>
-                  {' '}
-                  ·{' '}
-                  <ViewsFragment
-                    postId={post._id}
-                    increment={process.env.NODE_ENV !== 'development'}
-                  />{' '}
-                  Views
-                </Suspense>
-              </p>
-            </div>
+            <p className="text-sm text-dark-gray10">
+              {new Date(post.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+              <Suspense fallback={null}>
+                {' '}
+                ·{' '}
+                <ViewsFragment
+                  postId={post._id}
+                  increment={process.env.NODE_ENV !== 'development'}
+                />{' '}
+                Views
+              </Suspense>
+            </p>
           </div>
-          <div className="prose prose-invert text-dark-gray11 mt-8">
-            <RichText
-              // blocks={post.body.json.blocks}
-              components={{
-                a: (props) => {
-                  const isExternal = props.href.startsWith('/') === false
-                  return (
-                    <Link
-                      {...props}
-                      className="not-prose text-dark-gray12 border-b border-dark-gray8 hover:border-dark-gray11 transition-colors"
-                      {...(isExternal
-                        ? { target: '_blank', rel: 'noopener' }
-                        : {})}
-                    />
-                  )
-                },
-                hr: () => (
-                  <p className="my-10 select-none text-center text-dark-gray10 tracking-widest">
-                    ﹡﹡﹡
-                  </p>
-                ),
-                blockquote: ({ children }) => {
-                  return (
-                    <blockquote className="border-l-[3px] border-dark-gray7 pl-4 not-prose my-8 italic text-[1.1em] text-dark-gray12">
-                      {children}
-                    </blockquote>
-                  )
-                },
-                // PopoverComponent_mark: ({ children, ...rest }) => {
-                //   console.log(rest)
-                //   return <strong>custom block— {children}</strong>
-                // },
-              }}
-            >
-              {post.body.json.content}
-            </RichText>
-          </div>
-          <PostFooter xPostURL={post.xPost} />
         </div>
-      </main>
+        <div className="prose prose-invert text-dark-gray11 mt-8">
+          <RichText
+            // blocks={post.body.json.blocks}
+            components={{
+              a: (props) => {
+                const isExternal = props.href.startsWith('/') === false
+                return (
+                  <Link
+                    {...props}
+                    className="not-prose text-dark-gray12 border-b border-dark-gray8 hover:border-dark-gray11 transition-colors"
+                    {...(isExternal
+                      ? { target: '_blank', rel: 'noopener' }
+                      : {})}
+                  />
+                )
+              },
+              hr: () => (
+                <p className="my-10 select-none text-center text-dark-gray10 tracking-widest">
+                  ﹡﹡﹡
+                </p>
+              ),
+              blockquote: ({ children }) => {
+                return (
+                  <blockquote className="border-l-[3px] border-dark-gray7 pl-4 not-prose my-8 italic text-[1.1em] text-dark-gray12">
+                    {children}
+                  </blockquote>
+                )
+              },
+              // PopoverComponent_mark: ({ children, ...rest }) => {
+              //   console.log(rest)
+              //   return <strong>custom block— {children}</strong>
+              // },
+            }}
+          >
+            {post.body.json.content}
+          </RichText>
+        </div>
+        <PostFooter xPostURL={post.xPost} />
+      </div>
     </>
   )
 }

@@ -2,7 +2,7 @@ import { basehub } from 'basehub'
 import { RichText } from 'basehub/react'
 import { Section } from './_components/section'
 import Link from 'next/link'
-import { Header } from './_components/header'
+import { Header, InnerPageHeader } from './_components/header'
 import { draftMode } from 'next/headers'
 import { ViewsFragment } from './_components/views-fragment'
 import { Suspense } from 'react'
@@ -65,7 +65,7 @@ const HomePage = async () => {
   })
 
   return (
-    <main className="pt-20 pb-10 px-5 flex flex-col gap-16 items-center">
+    <>
       <Header />
       <Section
         title={index.onMyRadarSection.sectionHeader.title}
@@ -152,7 +152,7 @@ const HomePage = async () => {
             return (
               <Link
                 key={post._id}
-                className="bg-dark-gray2 hover:bg-dark-gray3 transition-colors max-w-md p-4 border border-dark-gray4 rounded-lg flex flex-col gap-2"
+                className="bg-dark-gray1 hover:bg-dark-gray2 transition-colors max-w-md p-4 border border-dark-gray4 rounded-lg flex flex-col gap-2"
                 href={`/posts/${post._slug}`}
               >
                 <h3 className="font-medium">{post._title}</h3>
@@ -175,7 +175,7 @@ const HomePage = async () => {
           })}
         </div>
       </Section>
-    </main>
+    </>
   )
 }
 
