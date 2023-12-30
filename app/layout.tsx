@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 import { Header } from './_components/header'
 import localFont from 'next/font/local'
 import { siteURL } from './constants'
+import { Analytics } from '@vercel/analytics/react'
 
 const geistSans = localFont({
   src: '../public/geist-sans/GeistVariableVF.woff2',
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   )
