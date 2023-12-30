@@ -1,35 +1,20 @@
 import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
-// import { grayDark } from '@radix-ui/colors'
+import { grayDark } from '~/app/colors'
 import { redis } from '~/app/redis'
 
 export const runtime = 'edge'
 export const revalidate = 60
 
-const grayDark = {
-  gray1: '#111111',
-  gray2: '#191919',
-  gray3: '#222222',
-  gray4: '#2a2a2a',
-  gray5: '#313131',
-  gray6: '#3a3a3a',
-  gray7: '#484848',
-  gray8: '#606060',
-  gray9: '#6e6e6e',
-  gray10: '#7b7b7b',
-  gray11: '#b4b4b4',
-  gray12: '#eeeeee',
-}
-
 export default async function PostOG({ params }: { params: { slug: string } }) {
-  // // fonts
-  // const geist400 = fetch(
-  //   new URL(`../../../public/geist-sans/Geist-Regular.otf`, import.meta.url)
-  // ).then((res) => res.arrayBuffer())
+  // fonts
+  const geist400 = fetch(
+    new URL(`../../../public/geist-sans/Geist-Regular.otf`, import.meta.url)
+  ).then((res) => res.arrayBuffer())
 
-  // const geist500 = fetch(
-  //   new URL(`../../../public/geist-sans/Geist-Medium.otf`, import.meta.url)
-  // ).then((res) => res.arrayBuffer())
+  const geist500 = fetch(
+    new URL(`../../../public/geist-sans/Geist-Medium.otf`, import.meta.url)
+  ).then((res) => res.arrayBuffer())
 
   const data = await basehub().query({
     index: {
@@ -169,16 +154,16 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
     {
       width: 1200,
       height: 630,
-      // fonts: [
-      //   {
-      //     name: 'Geist 400',
-      //     data: await geist400,
-      //   },
-      //   {
-      //     name: 'Geist 500',
-      //     data: await geist500,
-      //   },
-      // ],
+      fonts: [
+        {
+          name: 'Geist 400',
+          data: await geist400,
+        },
+        {
+          name: 'Geist 500',
+          data: await geist500,
+        },
+      ],
     }
   )
 }

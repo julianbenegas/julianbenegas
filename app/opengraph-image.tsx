@@ -1,6 +1,6 @@
 import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
-import { grayDark } from '@radix-ui/colors'
+import { grayDark } from './colors'
 
 export const runtime = 'edge'
 export const revalidate = 60
