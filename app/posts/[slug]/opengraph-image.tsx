@@ -1,7 +1,7 @@
-import { basehub } from 'basehub'
+// import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
 import { grayDark } from '@radix-ui/colors'
-import { redis } from '~/app/redis'
+// import { redis } from '~/app/redis'
 
 export const runtime = 'edge'
 export const revalidate = 60
@@ -16,41 +16,41 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
     new URL(`../../../public/geist-sans/Geist-Medium.otf`, import.meta.url)
   ).then((res) => res.arrayBuffer())
 
-  const data = await basehub().query({
-    index: {
-      avatar: {
-        url: true,
-        alt: true,
-        width: true,
-        height: true,
-      },
-      title: true,
-      postsSection: {
-        posts: {
-          __args: {
-            filter: {
-              _sys_slug: { eq: params.slug },
-            },
-          },
-          items: {
-            _id: true,
-            _title: true,
-            date: true,
-            body: {
-              plainText: true,
-            },
-            xPost: true,
-          },
-        },
-      },
-    },
-  })
+  // const data = await basehub().query({
+  //   index: {
+  //     avatar: {
+  //       url: true,
+  //       alt: true,
+  //       width: true,
+  //       height: true,
+  //     },
+  //     title: true,
+  //     postsSection: {
+  //       posts: {
+  //         __args: {
+  //           filter: {
+  //             _sys_slug: { eq: params.slug },
+  //           },
+  //         },
+  //         items: {
+  //           _id: true,
+  //           _title: true,
+  //           date: true,
+  //           body: {
+  //             plainText: true,
+  //           },
+  //           xPost: true,
+  //         },
+  //       },
+  //     },
+  //   },
+  // })
 
-  const post = data.index.postsSection.posts.items[0]
+  // const post = data.index.postsSection.posts.items[0]
 
-  if (!post) throw new Error('Post not found')
+  // if (!post) throw new Error('Post not found')
 
-  const views = await redis.get<number>(`views:${post._id}`)
+  // const views = await redis.get<number>(`views:${post._id}`)
 
   return new ImageResponse(
     (
@@ -62,7 +62,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
           fontFamily: 'Geist 400',
         }}
       >
-        <header
+        {/* <header
           tw="flex w-full absolute items-center justify-between px-8 top-0"
           style={{
             height: '80px',
@@ -100,9 +100,9 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
           >
             Posts
           </nav>
-        </header>
+        </header> */}
 
-        <section tw="flex flex-col items-center">
+        {/* <section tw="flex flex-col items-center">
           <div tw="flex flex-col items-center">
             <h1
               tw="text-6xl text-balance text-center px-8 overflow-hidden whitespace-nowrap text-ellipsis"
@@ -136,7 +136,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
               {post.body.plainText}
             </pre>
           </div>
-        </section>
+        </section> */}
 
         <div
           tw="absolute bottom-0"
@@ -145,7 +145,6 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
             left: 0,
             top: '90%',
             right: 0,
-            // height: '120px',
             background:
               'linear-gradient(180deg, rgba(17, 17, 17, 0.00) 0%, #111 100%)',
           }}
