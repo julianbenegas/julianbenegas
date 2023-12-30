@@ -2,8 +2,9 @@ import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
 import { grayDark } from '@radix-ui/colors'
 import { notFound } from 'next/navigation'
-import { redis } from '~/app/redis'
+// import { redis } from '~/app/redis'
 
+export const runtime = 'edge'
 export const revalidate = 60
 
 export default async function PostOG({ params }: { params: { slug: string } }) {
@@ -50,7 +51,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
 
   if (!post) notFound()
 
-  const views = await redis.get<number>(`views:${post._id}`)
+  // const views = await redis.get<number>(`views:${post._id}`)
 
   return new ImageResponse(
     (
@@ -122,8 +123,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
-              })}{' '}
-              · {views} Views
+              })}
             </div>
             <pre
               tw="text-2xl flex text-balance mt-12"
