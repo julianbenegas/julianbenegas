@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Header, InnerPageHeader } from '~/app/_components/header'
+import { InnerPageHeader } from '~/app/_components/header'
 import { PostFooter } from './footer'
 import { ViewsFragment } from '~/app/_components/views-fragment'
 import { Suspense } from 'react'
@@ -104,6 +104,18 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
             body: {
               json: {
                 content: true,
+                // this is not working correctly because of a bug in our SDK generator.
+
+                // blocks: {
+                //   __typename: true,
+                //   on_PopoverComponent: {
+                //     _id: true,
+                //     type: true,
+                //     content: {
+                //       json: { content: true },
+                //     },
+                //   },
+                // },
               },
             },
             xPost: true,
@@ -160,6 +172,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
           </div>
           <div className="prose prose-invert text-dark-gray11 mt-8">
             <RichText
+              // blocks={post.body.json.blocks}
               components={{
                 a: (props) => {
                   const isExternal = props.href.startsWith('/') === false
@@ -173,6 +186,22 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                     />
                   )
                 },
+                hr: () => (
+                  <p className="my-10 text-center text-dark-gray10 tracking-widest">
+                    ﹡﹡﹡
+                  </p>
+                ),
+                blockquote: ({ children }) => {
+                  return (
+                    <blockquote className="border-l-[3px] border-dark-gray7 pl-4 not-prose my-8 italic text-[1.1em] text-dark-gray12">
+                      {children}
+                    </blockquote>
+                  )
+                },
+                // PopoverComponent_mark: ({ children, ...rest }) => {
+                //   console.log(rest)
+                //   return <strong>custom block— {children}</strong>
+                // },
               }}
             >
               {post.body.json.content}
