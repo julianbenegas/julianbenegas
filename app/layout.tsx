@@ -1,8 +1,15 @@
 import './global.css'
 import { basehub } from 'basehub'
 import { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
 import { Header } from './_components/header'
+import localFont from 'next/font/local'
+
+const geistSans = localFont({
+  src: '../public/geist-sans/GeistVariableVF.woff2',
+  variable: '--font-geist-sans',
+  preload: true,
+  fallback: ['sans-serif'],
+})
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { settings } = await basehub({ next: { revalidate: 60 } }).query({
@@ -29,15 +36,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} bg-black text-white`}>
+    <html lang="en" className={`${geistSans.variable}`}>
       <head>
         <link rel="icon" href="/icon" sizes="any" />
       </head>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <Header />
-        <main className="pt-16 pb-10 px-5 flex flex-col gap-12 items-center">
-          {children}
-        </main>
+        {children}
       </body>
     </html>
   )

@@ -12,6 +12,7 @@ import {
   Link2Icon,
   ReaderIcon,
 } from '@radix-ui/react-icons'
+import { PageWrapper } from './_components/page-wrapper'
 
 const HomePage = async () => {
   const { isEnabled: isDraftMode } = draftMode()
@@ -81,7 +82,7 @@ const HomePage = async () => {
   })
 
   return (
-    <>
+    <PageWrapper bg="black">
       {/* hero */}
       <section className="flex flex-col items-center gap-8">
         <img
@@ -89,7 +90,7 @@ const HomePage = async () => {
           alt={index.avatar.alt ?? ''}
           width={index.avatar.width}
           height={index.avatar.height}
-          className="rounded-full border border-dark-gray6 w-28 h-28"
+          className="rounded-full border select-none border-dark-gray6 w-28 h-28"
         />
         <div className="flex flex-col gap-1.5 text-center">
           <h1 className="text-2xl font-medium text-balance">{index.title}</h1>
@@ -223,7 +224,7 @@ const HomePage = async () => {
           })}
         </div>
       </Section>
-    </>
+    </PageWrapper>
   )
 }
 

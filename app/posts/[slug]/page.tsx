@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 import { PostFooter } from './footer'
 import { ViewsFragment } from '~/app/_components/views-fragment'
 import { Suspense } from 'react'
+import { PageWrapper } from '~/app/_components/page-wrapper'
 
 export const generateMetadata = async ({
   params,
@@ -129,7 +130,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
   if (!post) notFound()
 
   return (
-    <>
+    <PageWrapper>
       <div className="max-w-2xl">
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-bold text-balance">{post._title}</h1>
@@ -206,7 +207,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         </div>
         <PostFooter xPostURL={post.xPost} />
       </div>
-    </>
+    </PageWrapper>
   )
 }
 
