@@ -2,7 +2,7 @@ import './global.css'
 import { basehub } from 'basehub'
 import { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
-import { InnerPageHeader } from './_components/header'
+import { Header } from './_components/header'
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { settings } = await basehub({ next: { revalidate: 60 } }).query({
@@ -34,7 +34,7 @@ export default function RootLayout({
         <link rel="icon" href="/icon" sizes="any" />
       </head>
       <body>
-        <InnerPageHeader />
+        <Header />
         <main className="pt-16 pb-10 px-5 flex flex-col gap-12 items-center">
           {children}
         </main>

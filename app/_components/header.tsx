@@ -5,87 +5,7 @@ import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { Fragment } from 'react'
 
-export const Header = async ({
-  variant = 'normal',
-}: {
-  variant?: 'minimal' | 'normal'
-}) => {
-  const { isEnabled: isDraftMode } = draftMode()
-  const { index } = await basehub({
-    next: { revalidate: 60 },
-    draft: isDraftMode,
-  }).query({
-    index: {
-      avatar: {
-        url: {
-          __args: {
-            width: 300,
-            height: 300,
-          },
-        },
-        alt: true,
-        width: true,
-        height: true,
-      },
-      title: true,
-      bio: {
-        json: {
-          content: true,
-        },
-      },
-    },
-  })
-
-  return (
-    <header
-      className={clsx(
-        'flex flex-col items-center',
-        variant === 'minimal' && 'gap-4',
-        variant === 'normal' && 'gap-8'
-      )}
-    >
-      <img
-        src={index.avatar.url}
-        alt={index.avatar.alt ?? ''}
-        width={index.avatar.width}
-        height={index.avatar.height}
-        className={clsx(
-          'rounded-full border border-dark-gray6',
-          variant === 'minimal' && 'w-20 h-20',
-          variant === 'normal' && 'w-28 h-28'
-        )}
-      />
-      <div className="flex flex-col gap-1.5 text-center">
-        <h1
-          className={clsx(
-            variant === 'minimal' && 'text-dark-gray10',
-            variant === 'normal' && 'text-2xl font-medium'
-          )}
-        >
-          {index.title}
-        </h1>
-        {variant === 'normal' && (
-          <div className="text-sm text-dark-gray10">
-            <RichText
-              components={{
-                a: (props) => (
-                  <a
-                    {...props}
-                    className="underline hover:text-dark-gray11 transition-colors"
-                  />
-                ),
-              }}
-            >
-              {index.bio.json.content}
-            </RichText>
-          </div>
-        )}
-      </div>
-    </header>
-  )
-}
-
-export const InnerPageHeader = async () => {
+export const Header = async () => {
   const { isEnabled: isDraftMode } = draftMode()
   const data = await basehub({
     next: { revalidate: 60 },
@@ -128,7 +48,8 @@ export const InnerPageHeader = async () => {
           alt={data.index.avatar.alt ?? ''}
           width={data.index.avatar.width}
           height={data.index.avatar.height}
-          className="rounded-full border border-dark-gray6 w-6 h-6"
+          className="rounded-full border select-none border-dark-gray6 w-6 h-6"
+          draggable={false}
         />
         <div className="sm:flex hidden flex-col gap-1.5 text-center">
           <h1 className="text-sm text-dark-gray12 transition-colors">

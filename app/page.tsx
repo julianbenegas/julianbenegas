@@ -2,7 +2,6 @@ import { basehub } from 'basehub'
 import { RichText } from 'basehub/react'
 import { Section } from './_components/section'
 import Link from 'next/link'
-import { Header, InnerPageHeader } from './_components/header'
 import { draftMode } from 'next/headers'
 import { ViewsFragment } from './_components/views-fragment'
 import { Suspense } from 'react'
@@ -21,7 +20,24 @@ const HomePage = async () => {
     draft: isDraftMode,
   }).query({
     index: {
-      onMyRadarSection: {
+      avatar: {
+        url: {
+          __args: {
+            width: 300,
+            height: 300,
+          },
+        },
+        alt: true,
+        width: true,
+        height: true,
+      },
+      title: true,
+      bio: {
+        json: {
+          content: true,
+        },
+      },
+      nowSection: {
         sectionHeader: {
           title: true,
           subtitle: {
@@ -66,19 +82,47 @@ const HomePage = async () => {
 
   return (
     <>
-      <Header />
+      {/* hero */}
+      <section className="flex flex-col items-center gap-8">
+        <img
+          src={index.avatar.url}
+          alt={index.avatar.alt ?? ''}
+          width={index.avatar.width}
+          height={index.avatar.height}
+          className="rounded-full border border-dark-gray6 w-28 h-28"
+        />
+        <div className="flex flex-col gap-1.5 text-center">
+          <h1 className="text-2xl font-medium text-balance">{index.title}</h1>
+          <div className="text-sm text-dark-gray10 text-balance">
+            <RichText
+              components={{
+                a: (props) => (
+                  <a
+                    {...props}
+                    className="underline hover:text-dark-gray11 transition-colors"
+                  />
+                ),
+              }}
+            >
+              {index.bio.json.content}
+            </RichText>
+          </div>
+        </div>
+      </section>
+
+      {/* now */}
       <Section
-        title={index.onMyRadarSection.sectionHeader.title}
+        title={index.nowSection.sectionHeader.title}
         subtitle={
-          index.onMyRadarSection.sectionHeader.subtitle ? (
+          index.nowSection.sectionHeader.subtitle ? (
             <RichText>
-              {index.onMyRadarSection.sectionHeader.subtitle.json.content}
+              {index.nowSection.sectionHeader.subtitle.json.content}
             </RichText>
           ) : null
         }
       >
-        <div className="flex gap-2 flex-wrap justify-center max-w-2xl">
-          {index.onMyRadarSection.links.items.map((post) => {
+        <div className="flex gap-2 flex-wrap justify-center max-w-2xl overflow-hidden">
+          {index.nowSection.links.items.map((post) => {
             const El = post.href ? 'a' : 'p'
             const props = post.href
               ? {
@@ -127,16 +171,20 @@ const HomePage = async () => {
                 {...props}
                 className={clsx(
                   props.className,
-                  'py-1.5 select-none flex gap-1.5 items-center leading-none px-2.5 rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6'
+                  'p-1.5 select-none flex gap-1.5 max-w-full items-center leading-none rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6'
                 )}
               >
                 {icon && <span>{icon}</span>}
-                {post.label}
+                <span className="whitespace-nowrap text-ellipsis overflow-hidden">
+                  {post.label}
+                </span>
               </El>
             )
           })}
         </div>
       </Section>
+
+      {/* posts */}
       <Section
         title={index.postsSection.header.title}
         subtitle={
@@ -155,8 +203,8 @@ const HomePage = async () => {
                 className="bg-dark-gray1 hover:bg-dark-gray2 transition-colors max-w-md p-4 border border-dark-gray4 rounded-lg flex flex-col gap-2"
                 href={`/posts/${post._slug}`}
               >
-                <h3 className="font-medium">{post._title}</h3>
-                <p className="text-sm text-dark-gray10 line-clamp-3">
+                <h3 className="font-medium text-balance">{post._title}</h3>
+                <p className="text-sm text-dark-gray10 text-balance line-clamp-3">
                   {post.body.plainText.split(' ').slice(0, 48).join(' ')}
                 </p>
                 <p className="text-sm text-dark-gray10">

@@ -4,7 +4,6 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { InnerPageHeader } from '~/app/_components/header'
 import { PostFooter } from './footer'
 import { ViewsFragment } from '~/app/_components/views-fragment'
 import { Suspense } from 'react'
@@ -78,18 +77,18 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
     draft: isDraftMode,
   }).query({
     index: {
-      avatar: {
-        url: {
-          __args: {
-            width: 300,
-            height: 300,
-          },
-        },
-        alt: true,
-        width: true,
-        height: true,
-      },
-      title: true,
+      // avatar: {
+      //   url: {
+      //     __args: {
+      //       width: 300,
+      //       height: 300,
+      //     },
+      //   },
+      //   alt: true,
+      //   width: true,
+      //   height: true,
+      // },
+      // title: true,
       postsSection: {
         posts: {
           __args: {
@@ -133,7 +132,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
     <>
       <div className="max-w-2xl">
         <div className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold">{post._title}</h1>
+          <h1 className="text-3xl font-bold text-balance">{post._title}</h1>
           <div className="flex items-center gap-2">
             {/* <Link href="/" className="flex items-center gap-2">
                 <img
