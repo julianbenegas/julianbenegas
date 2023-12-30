@@ -4,7 +4,6 @@ import { grayDark } from '@radix-ui/colors'
 import { notFound } from 'next/navigation'
 import { redis } from '~/app/redis'
 
-export const runtime = 'edge'
 export const revalidate = 60
 
 export default async function PostOG({ params }: { params: { slug: string } }) {
