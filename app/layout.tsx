@@ -3,6 +3,7 @@ import { basehub } from 'basehub'
 import { Metadata } from 'next'
 import { Header } from './_components/header'
 import localFont from 'next/font/local'
+import { siteURL } from './constants'
 
 const geistSans = localFont({
   src: '../public/geist-sans/GeistVariableVF.woff2',
@@ -27,6 +28,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
       default: settings.meta.title,
     },
     description: settings.meta.description,
+    metadataBase: siteURL,
   }
 }
 
