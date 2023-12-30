@@ -187,7 +187,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                   )
                 },
                 hr: () => (
-                  <p className="my-10 text-center text-dark-gray10 tracking-widest">
+                  <p className="my-10 select-none text-center text-dark-gray10 tracking-widest">
                     ﹡﹡﹡
                   </p>
                 ),
