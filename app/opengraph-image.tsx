@@ -72,7 +72,7 @@ export default async function MainOG() {
               {data.index.title}
             </h1>
             <pre
-              tw="text-xl flex text-center mt-1"
+              tw="text-2xl flex text-center mt-1"
               style={{
                 color: grayDark.gray10,
                 lineHeight: 0.8,
