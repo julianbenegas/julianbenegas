@@ -15,6 +15,11 @@ module.exports = {
         destination: '/',
         permanent: true,
       },
+      {
+        source: '/2020/la-derecha-diario',
+        destination: 'https://old.julianbenegas.com/2020/la-derecha-diario',
+        permanent: false,
+      },
     ]
   },
 }

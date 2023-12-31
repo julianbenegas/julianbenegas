@@ -131,7 +131,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <PageWrapper>
-      <div className="max-w-2xl">
+      <div className="max-w-2xl w-full">
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-bold text-balance">{post._title}</h1>
           <div className="flex items-center gap-2">

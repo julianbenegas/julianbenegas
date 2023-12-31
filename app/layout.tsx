@@ -48,7 +48,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon" sizes="any" />
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen bg-[inherit] text-[inherit]">
         <Header />
         {children}
         <Analytics />
