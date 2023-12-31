@@ -30,6 +30,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
     },
     description: settings.meta.description,
     metadataBase: siteURL,
+    twitter: {
+      card: 'summary_large_image',
+      site: '@julianbenegas8',
+      creator: '@julianbenegas8',
+    },
   }
 }
 

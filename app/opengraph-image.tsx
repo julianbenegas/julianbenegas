@@ -1,10 +1,12 @@
 import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
 import { grayDark } from './colors'
+import { loadOgFonts } from './_og/fonts'
 
 export const revalidate = 60
 
 export default async function MainOG() {
+  const ogFonts = loadOgFonts()
   const data = await basehub().query({
     settings: {
       fonts: {
@@ -85,20 +87,7 @@ export default async function MainOG() {
     {
       width: 1200,
       height: 630,
-      fonts: [
-        {
-          name: 'Geist 400',
-          data: await fetch(new URL(data.settings.fonts.geist400.url)).then(
-            (res) => res.arrayBuffer()
-          ),
-        },
-        {
-          name: 'Geist 500',
-          data: await fetch(new URL(data.settings.fonts.geist500.url)).then(
-            (res) => res.arrayBuffer()
-          ),
-        },
-      ],
+      fonts: await ogFonts,
     }
   )
 }
