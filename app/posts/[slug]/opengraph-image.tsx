@@ -8,7 +8,7 @@ export const revalidate = 60
 
 export default async function PostOG({ params }: { params: { slug: string } }) {
   const ogFonts = loadOgFonts()
-  const data = await basehub().query({
+  const data = await basehub({ next: { revalidate: 60 } }).query({
     settings: {
       /**
        * og fonts are hosted on basehub cause
