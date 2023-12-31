@@ -57,14 +57,14 @@ export default async function MainOG() {
             alt={data.index.avatar.alt ?? ''}
             width={data.index.avatar.width}
             height={data.index.avatar.height}
-            tw="rounded-full border select-none w-48 h-48 mb-4"
+            tw="rounded-full border w-48 h-48 mb-4"
             style={{
               borderColor: grayDark.gray6,
             }}
           />
           <div tw="flex flex-col items-center">
             <h1
-              tw="text-6xl text-balance"
+              tw="text-6xl text-center"
               style={{
                 fontFamily: 'Geist 500',
               }}
@@ -72,7 +72,7 @@ export default async function MainOG() {
               {data.index.title}
             </h1>
             <pre
-              tw="text-xl flex text-balance mt-1"
+              tw="text-xl flex text-center mt-1"
               style={{
                 color: grayDark.gray10,
                 lineHeight: 0.8,

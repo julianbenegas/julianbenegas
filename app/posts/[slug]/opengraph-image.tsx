@@ -77,7 +77,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
             height: '80px',
           }}
         >
-          <div tw="flex items-center group">
+          <div tw="flex items-center">
             <img
               src={data.index.avatar.url}
               alt={data.index.avatar.alt ?? ''}
@@ -114,7 +114,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
         <section tw="flex flex-col items-center">
           <div tw="flex flex-col items-center">
             <h1
-              tw="text-6xl text-balance text-center px-8 overflow-hidden whitespace-nowrap text-ellipsis"
+              tw="text-6xl text-center px-8"
               style={{
                 fontFamily: 'Geist 600',
               }}
@@ -135,7 +135,7 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
               • {views ?? 0} Views
             </div>
             <pre
-              tw="text-2xl flex text-balance mt-12"
+              tw="text-2xl flex mt-12"
               style={{
                 color: grayDark.gray11,
                 lineHeight: 1.75,
