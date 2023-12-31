@@ -6,7 +6,6 @@ import { siteOrigin } from './constants'
 export const revalidate = 60
 
 export default async function MainOG() {
-  console.log(import.meta.url)
   // fonts
   const geist400 = fetch(
     new URL(`/geist-sans/Geist-Regular.otf`, siteOrigin)
