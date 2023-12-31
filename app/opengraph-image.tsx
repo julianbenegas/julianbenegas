@@ -1,21 +1,21 @@
 import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
 import { grayDark } from './colors'
-import { siteOrigin } from './constants'
 
 export const revalidate = 60
 
 export default async function MainOG() {
-  // fonts
-  const geist400 = fetch(
-    new URL(`/geist-sans/Geist-Regular.otf`, siteOrigin)
-  ).then((res) => res.arrayBuffer())
-
-  const geist500 = fetch(
-    new URL(`/geist-sans/Geist-Medium.otf`, siteOrigin)
-  ).then((res) => res.arrayBuffer())
-
-  const { index } = await basehub().query({
+  const data = await basehub().query({
+    settings: {
+      fonts: {
+        geist400: {
+          url: true,
+        },
+        geist500: {
+          url: true,
+        },
+      },
+    },
     index: {
       avatar: {
         url: {
@@ -51,10 +51,10 @@ export default async function MainOG() {
       >
         <section tw="flex flex-col items-center">
           <img
-            src={index.avatar.url}
-            alt={index.avatar.alt ?? ''}
-            width={index.avatar.width}
-            height={index.avatar.height}
+            src={data.index.avatar.url}
+            alt={data.index.avatar.alt ?? ''}
+            width={data.index.avatar.width}
+            height={data.index.avatar.height}
             tw="rounded-full border select-none w-48 h-48 mb-4"
             style={{
               borderColor: grayDark.gray6,
@@ -67,7 +67,7 @@ export default async function MainOG() {
                 fontFamily: 'Geist 500',
               }}
             >
-              {index.title}
+              {data.index.title}
             </h1>
             <pre
               tw="text-xl flex text-balance mt-1"
@@ -76,7 +76,7 @@ export default async function MainOG() {
                 lineHeight: 0.8,
               }}
             >
-              {index.bio.plainText}
+              {data.index.bio.plainText}
             </pre>
           </div>
         </section>
@@ -88,11 +88,15 @@ export default async function MainOG() {
       fonts: [
         {
           name: 'Geist 400',
-          data: await geist400,
+          data: await fetch(new URL(data.settings.fonts.geist400.url)).then(
+            (res) => res.arrayBuffer()
+          ),
         },
         {
           name: 'Geist 500',
-          data: await geist500,
+          data: await fetch(new URL(data.settings.fonts.geist500.url)).then(
+            (res) => res.arrayBuffer()
+          ),
         },
       ],
     }

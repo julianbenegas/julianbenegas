@@ -1,22 +1,22 @@
 import { basehub } from 'basehub'
 import { ImageResponse } from 'next/og'
 import { grayDark } from '~/app/colors'
-import { siteOrigin } from '~/app/constants'
 import { redis } from '~/app/redis'
 
 export const revalidate = 60
 
 export default async function PostOG({ params }: { params: { slug: string } }) {
-  // fonts
-  const geist400 = fetch(
-    new URL(`/geist-sans/Geist-Regular.otf`, siteOrigin)
-  ).then((res) => res.arrayBuffer())
-
-  const geist500 = fetch(
-    new URL(`/geist-sans/Geist-Medium.otf`, siteOrigin)
-  ).then((res) => res.arrayBuffer())
-
   const data = await basehub().query({
+    settings: {
+      fonts: {
+        geist400: {
+          url: true,
+        },
+        geist500: {
+          url: true,
+        },
+      },
+    },
     index: {
       avatar: {
         url: true,
@@ -157,11 +157,15 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
       fonts: [
         {
           name: 'Geist 400',
-          data: await geist400,
+          data: await fetch(new URL(data.settings.fonts.geist400.url)).then(
+            (res) => res.arrayBuffer()
+          ),
         },
         {
           name: 'Geist 500',
-          data: await geist500,
+          data: await fetch(new URL(data.settings.fonts.geist500.url)).then(
+            (res) => res.arrayBuffer()
+          ),
         },
       ],
     }
