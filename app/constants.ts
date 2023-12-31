@@ -8,9 +8,9 @@ export const vercelEnv = (process.env.NEXT_PUBLIC_VERCEL_ENV ??
 
 const urls = {
   development: 'http://localhost:3000',
-  preview:
-    process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL ??
-    'https://www.julianbenegas.com',
+  preview: `https://${
+    process.env.NEXT_PUBLIC_VERCEL_BRANCH_URL ?? 'www.julianbenegas.com'
+  }`,
   production: 'https://www.julianbenegas.com',
 } as const
 
