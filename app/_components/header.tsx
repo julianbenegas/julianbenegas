@@ -41,7 +41,7 @@ export const Header = async () => {
   })
 
   return (
-    <header className="flex items-center gap-4 justify-between px-3 py-2 border-b border-dark-gray4 sticky top-0 bg-dark-gray1">
+    <header className="flex z-50 items-center gap-4 justify-between px-3 py-2 border-b border-dark-gray4 sticky top-0 bg-dark-gray1">
       <Link className="flex items-center gap-2 group" href="/">
         <img
           src={data.index.avatar.url}
