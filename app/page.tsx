@@ -6,13 +6,8 @@ import { draftMode } from 'next/headers'
 import { ViewsFragment } from './_components/views-fragment'
 import { Suspense } from 'react'
 import clsx from 'clsx'
-import {
-  FaceIcon,
-  GlobeIcon,
-  Link2Icon,
-  ReaderIcon,
-} from '@radix-ui/react-icons'
 import { PageWrapper } from './_components/page-wrapper'
+import { DynamicIcon } from './_components/dynamic-icon'
 
 const HomePage = async () => {
   const { isEnabled: isDraftMode } = draftMode()
@@ -52,8 +47,8 @@ const HomePage = async () => {
             _id: true,
             _title: true,
             label: true,
-            type: true,
             href: true,
+            icon: true,
           },
         },
       },
@@ -93,7 +88,7 @@ const HomePage = async () => {
           className="rounded-full border select-none border-dark-gray6 w-28 h-28"
         />
         <div className="flex flex-col gap-1.5 text-center">
-          <h1 className="text-2xl font-medium text-balance">{index.title}</h1>
+          <h1 className="text-2xl font-semibold text-balance">{index.title}</h1>
           <div className="text-sm text-dark-gray10 text-balance">
             <RichText
               components={{
@@ -134,48 +129,20 @@ const HomePage = async () => {
                 }
               : {}
 
-            let icon: React.ReactNode = null
-            switch (post.type) {
-              case 'Habit':
-                icon = <FaceIcon />
-                break
-              case 'Reading List':
-                icon = <ReaderIcon />
-                break
-              case 'Link':
-                icon = <Link2Icon />
-                break
-              case 'X Post':
-                icon = <GlobeIcon />
-                icon = (
-                  <svg
-                    viewBox="0 0 21.57 19.5"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-3 h-3 flex"
-                  >
-                    <path
-                      d="M16.99 0h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L3.736 19.5H.426l7.73-8.835L0 0h6.826l4.713 6.231L16.99 0Zm-1.161 17.52h1.833L5.83 1.876H3.863L15.829 17.52Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                )
-                break
-
-              default:
-                break
-            }
-
             return (
               <El
                 key={post._id}
                 {...props}
                 className={clsx(
                   props.className,
-                  'p-1.5 select-none flex gap-1.5 max-w-full items-center leading-none rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6'
+                  'p-1.5 pr-2 select-none flex gap-1.5 max-w-full items-center leading-none rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6'
                 )}
               >
-                {icon && <span>{icon}</span>}
+                {post.icon && (
+                  <span>
+                    <DynamicIcon name={post.icon as 'X'} />
+                  </span>
+                )}
                 <span className="whitespace-nowrap text-ellipsis overflow-hidden">
                   {post.label}
                 </span>
