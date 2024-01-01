@@ -7,13 +7,13 @@ export const PostFooter = ({ xPostURL }: { xPostURL: string | null }) => {
       <div className="flex flex-col gap-2 items-start">
         {xPostURL && (
           <a
-            className="flex items-center gap-1.5 text-sm text-dark-gray10"
+            className="flex items-center gap-1.5 text-sm text-dark-gray10 hover:text-dark-gray12 transition-colors"
             href={xPostURL}
             target="_blank"
             rel="noopener"
           >
             <ArrowTopRightIcon />
-            <span>Discuss on X</span>
+            <span>Comment on X</span>
           </a>
         )}
         <Link
