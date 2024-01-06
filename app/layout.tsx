@@ -19,9 +19,14 @@ export const generateMetadata = async (): Promise<Metadata> => {
       meta: {
         title: true,
         description: true,
+        xUsername: true,
       },
     },
   })
+
+  const xUsername = settings.meta.xUsername?.startsWith('@')
+    ? settings.meta.xUsername
+    : `@${settings.meta.xUsername}`
 
   return {
     title: {
@@ -32,8 +37,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
     metadataBase: siteURL,
     twitter: {
       card: 'summary_large_image',
-      site: '@julianbenegas8',
-      creator: '@julianbenegas8',
+      site: xUsername,
+      creator: xUsername,
     },
   }
 }
