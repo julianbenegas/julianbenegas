@@ -163,12 +163,12 @@ const HomePage = async () => {
           ) : null
         }
       >
-        <div className="flex flex-col gap-3.5">
+        <div className="flex flex-col gap-3.5 w-full items-center">
           {index.postsSection.posts.items.map((post) => {
             return (
               <Link
                 key={post._id}
-                className="bg-dark-gray1 hover:bg-dark-gray2 transition-colors max-w-md p-4 border border-dark-gray4 rounded-lg flex flex-col gap-2"
+                className="bg-dark-gray1 hover:bg-dark-gray2 transition-colors w-full max-w-md p-4 border border-dark-gray4 rounded-lg flex flex-col gap-2"
                 href={`/posts/${post._slug}`}
               >
                 <h3 className="font-medium text-balance">{post._title}</h3>
