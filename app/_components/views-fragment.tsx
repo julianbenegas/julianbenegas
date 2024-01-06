@@ -17,5 +17,5 @@ export const ViewsFragment = async ({
     views = await redis.get(`views:${postId}`)
   }
 
-  return <>{views || 0}</>
+  return <>{views || '0'}</>
 }
