@@ -5,7 +5,7 @@ import sharp from 'sharp'
 export const revalidate = 60
 
 export const GET = async () => {
-  const data = await basehub({ next: { revalidate: 60 } }).query({
+  const data = await basehub({ next: { tags: ['basehub'] } }).query({
     index: {
       avatar: {
         url: {

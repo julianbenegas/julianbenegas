@@ -8,7 +8,7 @@ import { Fragment } from 'react'
 export const Header = async () => {
   const { isEnabled: isDraftMode } = draftMode()
   const data = await basehub({
-    next: { revalidate: 60 },
+    next: { tags: ['basehub'] },
     draft: isDraftMode,
   }).query({
     settings: {

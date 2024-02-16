@@ -16,7 +16,7 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const { isEnabled: isDraftMode } = draftMode()
   const data = await basehub({
-    next: { revalidate: 60 },
+    next: { tags: ['basehub'] },
     draft: isDraftMode,
   }).query({
     index: {
@@ -74,7 +74,7 @@ export const generateStaticParams = async () => {
 const PostPage = async ({ params }: { params: { slug: string } }) => {
   const { isEnabled: isDraftMode } = draftMode()
   const data = await basehub({
-    next: { revalidate: 60 },
+    next: { tags: ['basehub'] },
     draft: isDraftMode,
   }).query({
     index: {

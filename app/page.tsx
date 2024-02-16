@@ -12,7 +12,7 @@ import { DynamicIcon } from './_components/dynamic-icon'
 const HomePage = async () => {
   const { isEnabled: isDraftMode } = draftMode()
   const { index } = await basehub({
-    next: { revalidate: 60 },
+    next: { tags: ['basehub'] },
     draft: isDraftMode,
   }).query({
     index: {

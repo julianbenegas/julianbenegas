@@ -14,7 +14,7 @@ const geistSans = localFont({
 })
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const { settings } = await basehub({ next: { revalidate: 60 } }).query({
+  const { settings } = await basehub({ next: { tags: ['basehub'] } }).query({
     settings: {
       meta: {
         title: true,

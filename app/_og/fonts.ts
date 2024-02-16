@@ -1,7 +1,7 @@
 import { basehub } from 'basehub'
 
 export const loadOgFonts = async () => {
-  const data = await basehub({ next: { revalidate: 60 } }).query({
+  const data = await basehub({ next: { tags: ['basehub'] } }).query({
     settings: {
       /**
        * og fonts are hosted on basehub cause

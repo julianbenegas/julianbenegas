@@ -7,7 +7,7 @@ export const revalidate = 60
 
 export default async function MainOG() {
   const ogFonts = loadOgFonts()
-  const data = await basehub({ next: { revalidate: 60 } }).query({
+  const data = await basehub({ next: { tags: ['basehub'] } }).query({
     settings: {
       fonts: {
         geist400: {
