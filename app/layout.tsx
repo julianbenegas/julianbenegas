@@ -5,6 +5,8 @@ import { Header } from './_components/header'
 import localFont from 'next/font/local'
 import { siteURL } from './constants'
 import { Analytics } from '@vercel/analytics/react'
+import { Suspense } from 'react'
+import { Toolbar } from './_components/toolbar'
 
 const geistSans = localFont({
   src: '../public/geist-sans/GeistVariableVF.woff2',
@@ -57,6 +59,9 @@ export default function RootLayout({
         <Header />
         {children}
         <Analytics />
+        <Suspense>
+          <Toolbar />
+        </Suspense>
       </body>
     </html>
   )
