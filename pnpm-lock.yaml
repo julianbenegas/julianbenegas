@@ -15,8 +15,8 @@ dependencies:
     specifier: ^1.1.1
     version: 1.1.1
   basehub:
-    specifier: ^2.0.0
-    version: 2.0.0(postcss@8.4.31)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+    specifier: ^2.0.1
+    version: 2.0.1(postcss@8.4.31)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -681,8 +681,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /basehub@2.0.0(postcss@8.4.31)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-x9Jlu+9dSzyrrsfHR9AuJBUHVQVMqJ3PGfoOBLgfChxj85r9umQ+zozyFks5ctG0y34P7u11LmVEEl5P8H56rw==}
+  /basehub@2.0.1(postcss@8.4.31)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-GIEdrBtxYgf1yXTzse8rLlwHvIi1wE++ymTWQwx43wh4aEQBZ6tdgd2MQO4nTfZDyJnozyZf1R7g9kLEpl8GfQ==}
     hasBin: true
     peerDependencies:
       react: ^18.2.0
