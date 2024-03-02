@@ -98,7 +98,7 @@ const HomePage = async () => {
                 <h1 className="text-2xl font-semibold text-balance">
                   {index.title}
                 </h1>
-                <div className="text-sm text-dark-gray10 text-balance">
+                <div className="text-sm leading-snug text-dark-gray10 text-balance">
                   <RichText
                     components={{
                       a: (props) => (
