@@ -69,6 +69,7 @@ const HomePage = async () => {
                   _id: true,
                   _title: true,
                   _slug: true,
+                  __typename: true,
                   body: {
                     plainText: true,
                   },
