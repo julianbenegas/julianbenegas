@@ -1,4 +1,4 @@
-import { Pump } from 'basehub/next-pump'
+import { Pump } from 'basehub/react-pump'
 import clsx from 'clsx'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
