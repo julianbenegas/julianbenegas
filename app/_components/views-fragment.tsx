@@ -1,6 +1,9 @@
 import { unstable_noStore } from 'next/cache'
 import { draftMode } from 'next/headers'
 import { basehub } from 'basehub'
+import { Transaction } from 'basehub/api-transaction'
+
+const hardcodedIdToTest = '8e781486e3173290933ba'
 
 export const ViewsFragment = async ({
   postId,
@@ -12,7 +15,7 @@ export const ViewsFragment = async ({
   unstable_noStore()
   const { isEnabled: isDraftMode } = draftMode()
 
-  const viewsQueryPromise = basehub().query({
+  const viewsQueryPromise = basehub({ draft: true }).query({
     index: {
       postsSection: {
         posts: {
@@ -32,8 +35,8 @@ export const ViewsFragment = async ({
         __args: {
           data: JSON.stringify({
             type: 'update',
-            data: { type: 'number:incr', data: { id: postId } },
-          }),
+            data: { type: 'number:incr', id: hardcodedIdToTest },
+          } satisfies Transaction),
         },
       },
     })

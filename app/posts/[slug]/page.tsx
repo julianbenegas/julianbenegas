@@ -169,7 +169,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                       ·{' '}
                       <ViewsFragment
                         postId={post._id}
-                        increment={process.env.NODE_ENV !== 'development'}
+                        increment //={process.env.NODE_ENV !== 'development'}
                       />{' '}
                       Views
                     </Suspense>
