@@ -1,5 +1,5 @@
-import { Pump } from 'basehub/next-pump'
-import { RichText } from 'basehub/react'
+import { Pump } from 'basehub/react-pump'
+import { RichText } from 'basehub/react-rich-text'
 import { Section } from './_components/section'
 import Link from 'next/link'
 import { draftMode } from 'next/headers'
@@ -14,7 +14,7 @@ const HomePage = async () => {
 
   return (
     <Pump
-      draft={isDraftMode}
+      draft
       next={{ tags: ['basehub'] }}
       queries={[
         {

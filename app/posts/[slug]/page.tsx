@@ -1,6 +1,6 @@
 import { basehub } from 'basehub'
-import { Pump } from 'basehub/next-pump'
-import { RichText } from 'basehub/react'
+import { Pump } from 'basehub/react-pump'
+import { RichText } from 'basehub/react-rich-text'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
