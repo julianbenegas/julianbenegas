@@ -14,7 +14,7 @@ const HomePage = async () => {
 
   return (
     <Pump
-      draft
+      draft={isDraftMode}
       next={{ tags: ['basehub'] }}
       queries={[
         {
