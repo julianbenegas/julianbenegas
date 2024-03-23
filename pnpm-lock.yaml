@@ -18,8 +18,8 @@ dependencies:
     specifier: ^0.1.11
     version: 0.1.11(next@14.1.1-canary.62)(react@18.2.0)
   basehub:
-    specifier: 3.0.5-next.1
-    version: 3.0.5-next.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: 3.0.6
+    version: 3.0.6(react-dom@18.2.0)(react@18.2.0)
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -805,8 +805,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /basehub@3.0.5-next.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-13didypR3Os3QBhzpqfgiqXEDr41llT3mKHtejX70zTvPGUBnzZAD4h2lzOVChdEt71TTWyo9k6eGP5mI3W7cw==}
+  /basehub@3.0.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-GExDTq/4xCajYiJZpyUTmiqJqf2O6tHwKaRQnHbGOKyJZwiJYSQ2HC5JwQtKP3S6x4hHv8vEBKI2d578pSAfKA==}
     hasBin: true
     peerDependencies:
       react: ^18.2.0
