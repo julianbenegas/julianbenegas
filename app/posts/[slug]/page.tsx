@@ -9,6 +9,7 @@ import { PostFooter } from './footer'
 import { ViewsFragment } from '~/app/_components/views-fragment'
 import { Suspense } from 'react'
 import { PageWrapper } from '~/app/_components/page-wrapper'
+import { PostBody } from './body'
 
 export const generateMetadata = async ({
   params,
@@ -108,18 +109,23 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                   body: {
                     json: {
                       content: true,
-                      // this is not working correctly because of a bug in our SDK generator.
-
-                      // blocks: {
-                      //   __typename: true,
-                      //   on_PopoverComponent: {
-                      //     _id: true,
-                      //     type: true,
-                      //     content: {
-                      //       json: { content: true },
-                      //     },
-                      //   },
-                      // },
+                      blocks: {
+                        __typename: true,
+                        on_CalloutComponent: {
+                          _id: true,
+                          content: {
+                            json: { content: true },
+                          },
+                          intent: true,
+                        },
+                        on_PopoverComponent: {
+                          _id: true,
+                          type: true,
+                          content: {
+                            json: { content: true },
+                          },
+                        },
+                      },
                     },
                   },
                   xPost: true,
@@ -176,43 +182,9 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                   </p>
                 </div>
               </div>
-              <div className="prose prose-invert text-dark-gray11 mt-8">
-                <RichText
-                  // blocks={post.body.json.blocks}
-                  components={{
-                    a: (props) => {
-                      const isExternal = props.href.startsWith('/') === false
-                      return (
-                        <Link
-                          {...props}
-                          className="not-prose text-dark-gray12 border-b border-dark-gray8 hover:border-dark-gray11 transition-colors"
-                          {...(isExternal
-                            ? { target: '_blank', rel: 'noopener' }
-                            : {})}
-                        />
-                      )
-                    },
-                    hr: () => (
-                      <p className="my-10 select-none text-center text-dark-gray10 tracking-widest">
-                        ﹡﹡﹡
-                      </p>
-                    ),
-                    blockquote: ({ children }) => {
-                      return (
-                        <blockquote className="border-l-[3px] border-dark-gray7 pl-4 not-prose my-8 italic text-[1.1em] text-dark-gray12">
-                          {children}
-                        </blockquote>
-                      )
-                    },
-                    // PopoverComponent_mark: ({ children, ...rest }) => {
-                    //   console.log(rest)
-                    //   return <strong>custom block— {children}</strong>
-                    // },
-                  }}
-                >
-                  {post.body.json.content}
-                </RichText>
-              </div>
+              <PostBody blocks={post.body.json.blocks} className="mt-8">
+                {post.body.json.content}
+              </PostBody>
               <PostFooter xPostURL={post.xPost} />
             </div>
           </PageWrapper>
