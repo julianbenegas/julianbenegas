@@ -12,11 +12,7 @@ export const ViewsFragment = async ({
 }) => {
   unstable_noStore()
   const { isEnabled: isDraftMode } = draftMode()
-
-  let views = await getEventCount({ _analyticsKey, name: 'view' })
-  if (increment && !isDraftMode) {
-    views++
-  }
+  const views = await getEventCount({ _analyticsKey, name: 'view' })
   return (
     <>
       {views || '0'}
