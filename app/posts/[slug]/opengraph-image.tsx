@@ -1,8 +1,8 @@
 import { basehub } from 'basehub'
+import { getEventCount } from 'basehub/analytics'
 import { ImageResponse } from 'next/og'
 import { loadOgFonts } from '~/app/_og/fonts'
 import { grayDark } from '~/app/colors'
-import { redis } from '~/app/redis'
 
 export const revalidate = 60
 
@@ -43,6 +43,11 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
           },
           items: {
             _id: true,
+            _analyticsKey: {
+              __args: {
+                scope: 'query',
+              },
+            },
             _title: true,
             date: true,
             body: {
@@ -59,7 +64,10 @@ export default async function PostOG({ params }: { params: { slug: string } }) {
 
   if (!post) throw new Error('Post not found')
 
-  const views = await redis.get<number>(`views:${post._id}`)
+  const views = await getEventCount({
+    _analyticsKey: post._analyticsKey,
+    name: 'view',
+  })
 
   return new ImageResponse(
     (

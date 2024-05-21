@@ -67,6 +67,11 @@ const HomePage = async () => {
               posts: {
                 items: {
                   _id: true,
+                  _analyticsKey: {
+                    __args: {
+                      scope: 'query',
+                    },
+                  },
                   _title: true,
                   _slug: true,
                   __typename: true,
@@ -195,7 +200,10 @@ const HomePage = async () => {
                         })}
                         <Suspense fallback={null}>
                           {' '}
-                          · <ViewsFragment postId={post._id} /> Views
+                          · <ViewsFragment
+                            _analyticsKey={post._analyticsKey}
+                          />{' '}
+                          Views
                         </Suspense>
                       </p>
                     </Link>

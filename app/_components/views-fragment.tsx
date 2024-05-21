@@ -1,22 +1,24 @@
 import { unstable_noStore } from 'next/cache'
-import { redis } from '../redis'
+import { getEventCount, sendEvent } from 'basehub/analytics'
 import { draftMode } from 'next/headers'
 
 export const ViewsFragment = async ({
-  postId,
+  _analyticsKey,
   increment,
 }: {
-  postId: string
+  _analyticsKey: string
   increment?: boolean
 }) => {
   unstable_noStore()
   const { isEnabled: isDraftMode } = draftMode()
 
-  let views: null | number = null
+  const viewsPromise = getEventCount({ _analyticsKey, name: 'view' })
+  let views: number | null = null
   if (increment && !isDraftMode) {
-    views = await redis.incr(`views:${postId}`)
+    await sendEvent({ _analyticsKey, name: 'view' })
+    views = (await viewsPromise) + 1
   } else {
-    views = await redis.get(`views:${postId}`)
+    views = await viewsPromise
   }
 
   return <>{views || '0'}</>
