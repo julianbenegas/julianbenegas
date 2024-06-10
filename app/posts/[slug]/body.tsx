@@ -37,7 +37,6 @@ export const PostBody = ({
             )
           },
           PopoverComponent_mark: ({ children, ...rest }) => {
-            console.log(rest)
             return <strong>custom block— {children}</strong>
           },
           CalloutComponent: ({ content }) => {

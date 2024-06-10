@@ -8,6 +8,7 @@ import { Suspense } from 'react'
 import clsx from 'clsx'
 import { PageWrapper } from './_components/page-wrapper'
 import { DynamicIcon } from './_components/dynamic-icon'
+import { LinkWithAnalytics } from './_components/link-with-analytics'
 
 const HomePage = async () => {
   const { isEnabled: isDraftMode } = draftMode()
@@ -47,6 +48,7 @@ const HomePage = async () => {
               },
               links: {
                 items: {
+                  _analyticsKey: true,
                   _id: true,
                   _title: true,
                   label: true,
@@ -75,6 +77,7 @@ const HomePage = async () => {
                   _title: true,
                   _slug: true,
                   __typename: true,
+                  excerpt: true,
                   body: {
                     plainText: true,
                   },
@@ -134,25 +137,26 @@ const HomePage = async () => {
             >
               <div className="flex gap-2 flex-wrap justify-center max-w-2xl overflow-hidden">
                 {index.nowSection.links.items.map((post) => {
-                  const El = post.href ? 'a' : 'p'
+                  const El = post.href ? LinkWithAnalytics : 'p'
+
                   const props = post.href
                     ? {
                         href: post.href,
                         className: 'hover:bg-dark-gray5 transition-colors',
                         target: '_blank',
                         rel: 'noopener',
+                        _analyticsKey: post._analyticsKey,
                       }
                     : {}
 
-                  return (
-                    <El
-                      key={post._id}
-                      {...props}
-                      className={clsx(
-                        props.className,
-                        'p-1.5 pr-2 select-none flex gap-1.5 max-w-full items-center leading-none rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6'
-                      )}
-                    >
+                  const className = clsx(
+                    props.className,
+                    'p-1.5 pr-2 select-none flex gap-1.5 max-w-full items-center leading-none rounded-2xl text-dark-gray12 text-xs bg-dark-gray3 border border-dark-gray6',
+                    post.href && 'hover:bg-dark-gray5 transition-colors'
+                  )
+
+                  const children = (
+                    <>
                       {post.icon && (
                         <span>
                           <DynamicIcon name={post.icon as 'X'} />
@@ -161,7 +165,25 @@ const HomePage = async () => {
                       <span className="whitespace-nowrap text-ellipsis overflow-hidden">
                         {post.label}
                       </span>
-                    </El>
+                    </>
+                  )
+
+                  if (post.href)
+                    return (
+                      <LinkWithAnalytics
+                        key={post._id}
+                        className={className}
+                        href={post.href}
+                        _analyticsKey={post._analyticsKey}
+                      >
+                        {children}
+                      </LinkWithAnalytics>
+                    )
+
+                  return (
+                    <p key={post._id} {...props} className={className}>
+                      {children}
+                    </p>
                   )
                 })}
               </div>
@@ -190,7 +212,8 @@ const HomePage = async () => {
                         {post._title}
                       </h3>
                       <p className="text-sm text-dark-gray10 text-balance line-clamp-3">
-                        {post.body.plainText.split(' ').slice(0, 48).join(' ')}
+                        {post.excerpt ??
+                          post.body.plainText.split(' ').slice(0, 48).join(' ')}
                       </p>
                       <p className="text-sm text-dark-gray10">
                         {new Date(post.date).toLocaleDateString('en-US', {

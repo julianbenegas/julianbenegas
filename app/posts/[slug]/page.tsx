@@ -30,6 +30,10 @@ export const generateMetadata = async ({
           items: {
             _title: true,
             date: true,
+            ogImage: {
+              url: true,
+            },
+            excerpt: true,
             body: {
               plainText: true,
             },
@@ -45,7 +49,16 @@ export const generateMetadata = async ({
 
   return {
     title: post._title,
-    description: post.body.plainText.split(' ').slice(0, 24).join(' ') + '...',
+    description:
+      post.excerpt ||
+      post.body.plainText.split(' ').slice(0, 24).join(' ') + '...',
+    openGraph: {
+      images: [{ url: post.ogImage.url, alt: post._title }],
+    },
+    twitter: {
+      images: [{ url: post.ogImage.url, alt: post._title }],
+      card: 'summary_large_image',
+    },
   }
 }
 

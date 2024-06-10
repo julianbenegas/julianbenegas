@@ -1,12 +1,10 @@
 import './global.css'
 import { basehub } from 'basehub'
+import { Toolbar } from 'basehub/next-toolbar'
 import { Metadata } from 'next'
 import { Header } from './_components/header'
 import localFont from 'next/font/local'
 import { siteURL } from './constants'
-import { Analytics } from '@vercel/analytics/react'
-import { Suspense } from 'react'
-import { Toolbar } from './_components/toolbar'
 
 const geistSans = localFont({
   src: '../public/geist-sans/GeistVariableVF.woff2',
@@ -22,6 +20,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
         title: true,
         description: true,
         xUsername: true,
+        ogImage: {
+          url: true,
+        },
       },
     },
   })
@@ -41,6 +42,10 @@ export const generateMetadata = async (): Promise<Metadata> => {
       card: 'summary_large_image',
       site: xUsername,
       creator: xUsername,
+      images: [{ url: settings.meta.ogImage.url }],
+    },
+    openGraph: {
+      images: [{ url: settings.meta.ogImage.url }],
     },
   }
 }
@@ -58,10 +63,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen bg-[inherit] text-[inherit]">
         <Header />
         {children}
-        <Analytics />
-        <Suspense>
-          <Toolbar />
-        </Suspense>
+        <Toolbar />
       </body>
     </html>
   )
