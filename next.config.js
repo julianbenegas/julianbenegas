@@ -5,6 +5,9 @@ module.exports = {
   experimental: {
     ppr: true,
   },
+  logging: {
+    fetches: { fullUrl: true },
+  },
   images: {
     remotePatterns: [{ hostname: 'basehub.earth' }],
   },
