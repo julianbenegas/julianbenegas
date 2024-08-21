@@ -14,9 +14,9 @@
     "basehub": "7.2.8",
     "clsx": "^2.0.0",
     "geist": "^1.2.0",
-    "next": "14.3.0-canary.73",
-    "react": "19.0.0-beta-26f2496093-20240514",
-    "react-dom": "19.0.0-beta-26f2496093-20240514",
+    "next": "15.0.0-rc.0",
+    "react": "19.0.0-rc-a960b92c-20240819",
+    "react-dom": "19.0.0-rc-a960b92c-20240819",
     "sharp": "0.32.6"
   },
   "devDependencies": {
