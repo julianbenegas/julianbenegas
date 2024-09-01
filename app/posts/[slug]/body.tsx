@@ -36,6 +36,9 @@ export const PostBody = ({
               </blockquote>
             )
           },
+          li: (props) => {
+            return <li {...props} className="[&_>_p]:my-0" />
+          },
           PopoverComponent_mark: ({ children, ...rest }) => {
             return <strong>custom block— {children}</strong>
           },

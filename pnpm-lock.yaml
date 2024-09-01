@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.1.11
     version: 0.1.11(next@15.0.0-rc.0)(react@19.0.0-rc-a960b92c-20240819)
   basehub:
-    specifier: 7.2.8
-    version: 7.2.8(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3)
+    specifier: 7.2.10
+    version: 7.2.10(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3)
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1081,8 +1081,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /basehub@7.2.8(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3):
-    resolution: {integrity: sha512-D0Vp3fjyaZYPGqF1Y9H0AzNiDht3F5MRDNLwr1jjSZge5kdQA7aAVe5pOL6MnuPgJPAVgH8c8HiyxXswoVjgrw==}
+  /basehub@7.2.10(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3):
+    resolution: {integrity: sha512-E2oESaorSDmUudbX+3C6LjVAu3TJPWp7WnCdF3P5acQpHTbYpkkHu5cRLaTKJ095Mt1nOqrY7DStAmv89c17dw==}
     hasBin: true
     peerDependencies:
       react: ^18.2.0
