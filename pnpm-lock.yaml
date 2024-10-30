@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.1.11
     version: 0.1.11(next@15.0.0-rc.0)(react@19.0.0-rc-a960b92c-20240819)
   basehub:
-    specifier: 7.2.10
-    version: 7.2.10(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3)
+    specifier: 7.5.20
+    version: 7.5.20(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3)
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
@@ -79,8 +79,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@basehub/genql@9.0.0-canary.2:
-    resolution: {integrity: sha512-diZEHtEb5hUTdiD9oO355w1Y2zpudTMXxdtU/M55Uf1pV2FuClinFPoZTjaEAxmItAqEYYvmi7UQsvDiWw0gyg==}
+  /@basehub/genql@9.0.0-canary.6:
+    resolution: {integrity: sha512-o2RpYZ3U4z1FU8Dl3DWBxSs2bc2Z96w/pq7qnKEbHckZUm0wnygLeDRnvt7h0aJLvRZucoCzRXE/zblIoOqiGQ==}
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
       '@graphql-tools/load': 7.8.14(graphql@16.8.1)
@@ -100,8 +100,8 @@ packages:
       - enquirer
     dev: false
 
-  /@basehub/mutation-api-helpers@2.0.0:
-    resolution: {integrity: sha512-uZ6hYIcXF5105PdBceSR7Olj83/HjepD+pCyOqbaWX2VC8nvgRvDwARE6ODlxPVLjQidHtjmcm5x1FNPhCA2+Q==}
+  /@basehub/mutation-api-helpers@2.0.2:
+    resolution: {integrity: sha512-R2Er+hEmC7w+jrSsTnTHPK91vHNPv6+6mglqVJkph1weBjEetILUbOZwIE1pJ1/BbwmHtWbyzHEiO3zsfSXbWg==}
     dev: false
 
   /@emnapi/runtime@1.2.0:
@@ -751,16 +751,47 @@ packages:
       react: 19.0.0-rc-a960b92c-20240819
     dev: false
 
-  /@shikijs/core@1.14.1:
-    resolution: {integrity: sha512-KyHIIpKNaT20FtFPFjCQB5WVSTpLR/n+jQXhWHWVUMm9MaOaG9BGOG0MSyt7yA4+Lm+4c9rTc03tt3nYzeYSfw==}
+  /@shikijs/core@1.22.2:
+    resolution: {integrity: sha512-bvIQcd8BEeR1yFvOYv6HDiyta2FFVePbzeowf5pPS1avczrPK+cjmaxxh0nx5QzbON7+Sv0sQfQVciO7bN72sg==}
     dependencies:
+      '@shikijs/engine-javascript': 1.22.2
+      '@shikijs/engine-oniguruma': 1.22.2
+      '@shikijs/types': 1.22.2
+      '@shikijs/vscode-textmate': 9.3.0
+      '@types/hast': 3.0.4
+      hast-util-to-html: 9.0.3
+    dev: false
+
+  /@shikijs/engine-javascript@1.22.2:
+    resolution: {integrity: sha512-iOvql09ql6m+3d1vtvP8fLCVCK7BQD1pJFmHIECsujB0V32BJ0Ab6hxk1ewVSMFA58FI0pR2Had9BKZdyQrxTw==}
+    dependencies:
+      '@shikijs/types': 1.22.2
+      '@shikijs/vscode-textmate': 9.3.0
+      oniguruma-to-js: 0.4.3
+    dev: false
+
+  /@shikijs/engine-oniguruma@1.22.2:
+    resolution: {integrity: sha512-GIZPAGzQOy56mGvWMoZRPggn0dTlBf1gutV5TdceLCZlFNqWmuc7u+CzD0Gd9vQUTgLbrt0KLzz6FNprqYAxlA==}
+    dependencies:
+      '@shikijs/types': 1.22.2
+      '@shikijs/vscode-textmate': 9.3.0
+    dev: false
+
+  /@shikijs/transformers@1.22.2:
+    resolution: {integrity: sha512-8f78OiBa6pZDoZ53lYTmuvpFPlWtevn23bzG+azpPVvZg7ITax57o/K3TC91eYL3OMJOO0onPbgnQyZjRos8XQ==}
+    dependencies:
+      shiki: 1.22.2
+    dev: false
+
+  /@shikijs/types@1.22.2:
+    resolution: {integrity: sha512-NCWDa6LGZqTuzjsGfXOBWfjS/fDIbDdmVDug+7ykVe1IKT4c1gakrvlfFYp5NhAXH/lyqLM8wsAPo5wNy73Feg==}
+    dependencies:
+      '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
     dev: false
 
-  /@shikijs/transformers@1.14.1:
-    resolution: {integrity: sha512-JJqL8QBVCJh3L61jqqEXgFq1cTycwjcGj7aSmqOEsbxnETM9hRlaB74QuXvY/fVJNjbNt8nvWo0VwAXKvMSLRg==}
-    dependencies:
-      shiki: 1.14.1
+  /@shikijs/vscode-textmate@9.3.0:
+    resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
     dev: false
 
   /@swc/helpers@0.5.11:
@@ -965,6 +996,10 @@ packages:
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
     dev: false
 
+  /@ungap/structured-clone@1.2.0:
+    resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+    dev: false
+
   /@vercel/analytics@1.1.1:
     resolution: {integrity: sha512-+NqgNmSabg3IFfxYhrWCfB/H+RCUOCR5ExRudNG2+pcRehq628DJB5e1u1xqwpLtn4pAYii4D98w7kofORAGQA==}
     dependencies:
@@ -1081,17 +1116,14 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /basehub@7.2.10(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3):
-    resolution: {integrity: sha512-E2oESaorSDmUudbX+3C6LjVAu3TJPWp7WnCdF3P5acQpHTbYpkkHu5cRLaTKJ095Mt1nOqrY7DStAmv89c17dw==}
+  /basehub@7.5.20(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)(typescript@5.3.3):
+    resolution: {integrity: sha512-P+NlqFWtEahyAZLS0dkz+fHHUKArbH/XfaHYw79X5eLZ2fTl9o+NsSpUk2mZ8hitZpPS5hR+VigFUw9ZW4XcBA==}
     hasBin: true
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
     dependencies:
-      '@basehub/genql': 9.0.0-canary.2
-      '@basehub/mutation-api-helpers': 2.0.0
+      '@basehub/genql': 9.0.0-canary.6
+      '@basehub/mutation-api-helpers': 2.0.2
       '@radix-ui/react-slot': 1.1.0(@types/react@18.2.43)(react@19.0.0-rc-a960b92c-20240819)
-      '@shikijs/transformers': 1.14.1
+      '@shikijs/transformers': 1.22.2
       arg: 5.0.1
       dotenv-mono: 1.3.10
       esbuild: 0.19.2
@@ -1101,12 +1133,10 @@ packages:
       lodash.debounce: 4.0.8
       lodash.get: 4.4.2
       pusher-js: 8.3.0
-      react: 19.0.0-rc-a960b92c-20240819
-      react-dom: 19.0.0-rc-a960b92c-20240819(react@19.0.0-rc-a960b92c-20240819)
       resolve-pkg: 2.0.0
       server-only: 0.0.1
-      shiki: 1.14.1
-      sonner: 1.4.3(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)
+      shiki: 1.22.2
+      sonner: 1.5.0(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819)
       typesense: 1.8.2(@babel/runtime@7.24.5)
       zod: 3.22.1
     transitivePeerDependencies:
@@ -1114,6 +1144,8 @@ packages:
       - '@types/react'
       - debug
       - enquirer
+      - react
+      - react-dom
       - supports-color
       - typescript
     dev: false
@@ -1771,6 +1803,22 @@ packages:
     dependencies:
       function-bind: 1.1.2
 
+  /hast-util-to-html@9.0.3:
+    resolution: {integrity: sha512-M17uBDzMJ9RPCqLMO92gNNUDuBSq10a25SDBI08iCCxmorf4Yy6sYHK57n9WAbRAAaU+DuR4W6GN9K4DFZesYg==}
+    dependencies:
+      '@types/hast': 3.0.4
+      '@types/unist': 3.0.3
+      ccount: 2.0.1
+      comma-separated-tokens: 2.0.3
+      hast-util-whitespace: 3.0.0
+      html-void-elements: 3.0.0
+      mdast-util-to-hast: 13.2.0
+      property-information: 6.5.0
+      space-separated-tokens: 2.0.2
+      stringify-entities: 4.0.4
+      zwitch: 2.0.4
+    dev: false
+
   /hast-util-to-jsx-runtime@2.3.0:
     resolution: {integrity: sha512-H/y0+IWPdsLLS738P8tDnrQ8Z+dj12zQQ6WC11TIM21C8WFVoIxcqWXf2H3hiTVZjF1AWqoimGwrTWecWrnmRQ==}
     dependencies:
@@ -1797,6 +1845,10 @@ packages:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
     dependencies:
       '@types/hast': 3.0.4
+    dev: false
+
+  /html-void-elements@3.0.0:
+    resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
     dev: false
 
   /human-signals@2.1.0:
@@ -2086,6 +2138,20 @@ packages:
     dependencies:
       '@types/mdast': 4.0.4
       unist-util-is: 6.0.0
+    dev: false
+
+  /mdast-util-to-hast@13.2.0:
+    resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
+    dependencies:
+      '@types/hast': 3.0.4
+      '@types/mdast': 4.0.4
+      '@ungap/structured-clone': 1.2.0
+      devlop: 1.1.0
+      micromark-util-sanitize-uri: 2.0.0
+      trim-lines: 3.0.1
+      unist-util-position: 5.0.0
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
     dev: false
 
   /mdast-util-to-markdown@2.1.0:
@@ -2483,6 +2549,12 @@ packages:
       mimic-fn: 2.1.0
     dev: false
 
+  /oniguruma-to-js@0.4.3:
+    resolution: {integrity: sha512-X0jWUcAlxORhOqqBREgPMgnshB7ZGYszBNspP+tS9hPD3l13CdaXcHbgImoHUHlrvGx/7AvFEkTRhAGYh+jzjQ==}
+    dependencies:
+      regex: 4.3.3
+    dev: false
+
   /p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
@@ -2766,6 +2838,10 @@ packages:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
     dev: false
 
+  /regex@4.3.3:
+    resolution: {integrity: sha512-r/AadFO7owAq1QJVeZ/nq9jNS1vyZt+6t1p/E59B56Rn2GCya+gr1KSyOzNL/er+r+B7phv5jG2xU2Nz1YkmJg==}
+    dev: false
+
   /regexparam@1.3.0:
     resolution: {integrity: sha512-6IQpFBv6e5vz1QAqI+V4k8P2e/3gRrqfCJ9FI+O1FLQTO+Uz6RXZEZOPmTJ6hlGj7gkERzY5BRCv09whKP96/g==}
     engines: {node: '>=6'}
@@ -2934,10 +3010,14 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /shiki@1.14.1:
-    resolution: {integrity: sha512-FujAN40NEejeXdzPt+3sZ3F2dx1U24BY2XTY01+MG8mbxCiA2XukXdcbyMyLAHJ/1AUUnQd1tZlvIjefWWEJeA==}
+  /shiki@1.22.2:
+    resolution: {integrity: sha512-3IZau0NdGKXhH2bBlUk4w1IHNxPh6A5B2sUpyY+8utLu2j/h1QpFkAaUA1bAMxOWWGtTWcAh531vnS4NJKS/lA==}
     dependencies:
-      '@shikijs/core': 1.14.1
+      '@shikijs/core': 1.22.2
+      '@shikijs/engine-javascript': 1.22.2
+      '@shikijs/engine-oniguruma': 1.22.2
+      '@shikijs/types': 1.22.2
+      '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
     dev: false
 
@@ -2984,8 +3064,8 @@ packages:
       is-fullwidth-code-point: 4.0.0
     dev: false
 
-  /sonner@1.4.3(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819):
-    resolution: {integrity: sha512-SArYlHbkjqRuLiR0iGY2ZSr09oOrxw081ZZkQPfXrs8aZQLIBOLOdzTYxGJB5yIZ7qL56UEPmrX1YqbODwG0Lw==}
+  /sonner@1.5.0(react-dom@19.0.0-rc-a960b92c-20240819)(react@19.0.0-rc-a960b92c-20240819):
+    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -3204,6 +3284,10 @@ packages:
     dependencies:
       is-number: 7.0.0
 
+  /trim-lines@3.0.1:
+    resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
+    dev: false
+
   /ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
@@ -3332,6 +3416,13 @@ packages:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-stringify-position: 4.0.0
+    dev: false
+
+  /vfile@6.0.3:
+    resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
+    dependencies:
+      '@types/unist': 3.0.3
+      vfile-message: 4.0.2
     dev: false
 
   /which-module@2.0.1:
