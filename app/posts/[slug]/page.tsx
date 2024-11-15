@@ -1,7 +1,6 @@
 import { basehub } from 'basehub'
 import { Pump } from 'basehub/react-pump'
 import { Metadata } from 'next'
-import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { PostFooter } from './footer'
 import { ViewsFragment } from '~/app/_components/views-fragment'
@@ -10,15 +9,12 @@ import { PageWrapper } from '~/app/_components/page-wrapper'
 import { PostBody } from './body'
 
 export const generateMetadata = async ({
-  params,
+  params: _params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> => {
-  const { isEnabled: isDraftMode } = draftMode()
-  const data = await basehub({
-    next: { tags: ['basehub'] },
-    draft: isDraftMode,
-  }).query({
+  const params = await _params
+  const data = await basehub().query({
     index: {
       postsSection: {
         posts: {
@@ -63,7 +59,7 @@ export const generateMetadata = async ({
 }
 
 export const generateStaticParams = async () => {
-  const data = await basehub({ cache: 'no-store' }).query({
+  const data = await basehub().query({
     index: {
       postsSection: {
         posts: {
@@ -84,13 +80,14 @@ export const generateStaticParams = async () => {
   })
 }
 
-const PostPage = async ({ params }: { params: { slug: string } }) => {
-  const { isEnabled: isDraftMode } = draftMode()
-
+const PostPage = async ({
+  params: _params,
+}: {
+  params: Promise<{ slug: string }>
+}) => {
+  const params = await _params
   return (
     <Pump
-      draft={isDraftMode}
-      next={{ tags: ['basehub'] }}
       queries={[
         {
           index: {

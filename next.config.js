@@ -2,14 +2,18 @@
  * @type {import('next').NextConfig}
  */
 module.exports = {
-  experimental: {
-    ppr: true,
-  },
   logging: {
     fetches: { fullUrl: true },
   },
+  reactStrictMode: true,
+  experimental: {
+    ppr: true,
+  },
   images: {
-    remotePatterns: [{ hostname: 'basehub.earth' }],
+    remotePatterns: [
+      { hostname: 'basehub.earth' },
+      { hostname: 'assets.basehub.com' },
+    ],
   },
   redirects: async () => {
     return [

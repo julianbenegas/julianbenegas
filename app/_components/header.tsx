@@ -1,16 +1,11 @@
 import { Pump } from 'basehub/react-pump'
 import clsx from 'clsx'
-import { draftMode } from 'next/headers'
 import Link from 'next/link'
 import { Fragment } from 'react'
 
 export const Header = async () => {
-  const { isEnabled: isDraftMode } = draftMode()
-
   return (
     <Pump
-      draft={isDraftMode}
-      next={{ tags: ['basehub'] }}
       queries={[
         {
           settings: {

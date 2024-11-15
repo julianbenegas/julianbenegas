@@ -1,16 +1,11 @@
 import { basehub } from 'basehub'
-import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import sharp from 'sharp'
 
 export const revalidate = 60
 
 export const GET = async () => {
-  const { isEnabled: isDraftMode } = draftMode()
-  const data = await basehub({
-    next: { tags: ['basehub'] },
-    draft: isDraftMode,
-  }).query({
+  const data = await basehub().query({
     index: {
       avatar: {
         url: {

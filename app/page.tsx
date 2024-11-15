@@ -2,7 +2,6 @@ import { Pump } from 'basehub/react-pump'
 import { RichText } from 'basehub/react-rich-text'
 import { Section } from './_components/section'
 import Link from 'next/link'
-import { draftMode } from 'next/headers'
 import { ViewsFragment } from './_components/views-fragment'
 import { Suspense } from 'react'
 import clsx from 'clsx'
@@ -11,12 +10,8 @@ import { DynamicIcon } from './_components/dynamic-icon'
 import { LinkWithAnalytics } from './_components/link-with-analytics'
 
 const HomePage = async () => {
-  const { isEnabled: isDraftMode } = draftMode()
-
   return (
     <Pump
-      draft={isDraftMode}
-      next={{ tags: ['basehub'] }}
       queries={[
         {
           index: {
