@@ -1,19 +1,20 @@
 'use client'
-import { sendEvent } from 'basehub/analytics'
+import { sendEvent } from 'basehub/events'
 import * as React from 'react'
+import { ViewsFragment } from './views-fragment'
 
 export const IncrementViews = ({
-  _analyticsKey,
+  ingestKey,
 }: {
-  _analyticsKey: string
+  ingestKey: ViewsFragment['ingestKey']
 }) => {
   const hasIncremented = React.useRef(false)
 
   React.useEffect(() => {
     if (hasIncremented.current) return
     hasIncremented.current = true
-    sendEvent({ _analyticsKey, name: 'view' })
-  }, [])
+    sendEvent(ingestKey)
+  }, [ingestKey])
 
   return <></>
 }

@@ -2,12 +2,14 @@ import { Pump } from 'basehub/react-pump'
 import { RichText } from 'basehub/react-rich-text'
 import { Section } from './_components/section'
 import Link from 'next/link'
-import { ViewsFragment } from './_components/views-fragment'
+import { viewsFragment, ViewsFragment } from './_components/views-fragment'
 import { Suspense } from 'react'
 import clsx from 'clsx'
 import { PageWrapper } from './_components/page-wrapper'
 import { DynamicIcon } from './_components/dynamic-icon'
 import { LinkWithAnalytics } from './_components/link-with-analytics'
+
+export const dynamic = 'force-static'
 
 const HomePage = async () => {
   return (
@@ -43,12 +45,12 @@ const HomePage = async () => {
               },
               links: {
                 items: {
-                  _analyticsKey: true,
                   _id: true,
                   _title: true,
                   label: true,
                   href: true,
                   icon: true,
+                  clicks: { ingestKey: true },
                 },
               },
             },
@@ -64,11 +66,7 @@ const HomePage = async () => {
               posts: {
                 items: {
                   _id: true,
-                  _analyticsKey: {
-                    __args: {
-                      scope: 'query',
-                    },
-                  },
+                  views: viewsFragment,
                   _title: true,
                   _slug: true,
                   __typename: true,
@@ -132,15 +130,13 @@ const HomePage = async () => {
             >
               <div className="flex gap-2 flex-wrap justify-center max-w-2xl overflow-hidden">
                 {index.nowSection.links.items.map((post) => {
-                  const El = post.href ? LinkWithAnalytics : 'p'
-
                   const props = post.href
                     ? {
                         href: post.href,
                         className: 'hover:bg-dark-gray5 transition-colors',
                         target: '_blank',
                         rel: 'noopener',
-                        _analyticsKey: post._analyticsKey,
+                        ingestKey: post.clicks.ingestKey,
                       }
                     : {}
 
@@ -163,17 +159,18 @@ const HomePage = async () => {
                     </>
                   )
 
-                  if (post.href)
+                  if (post.href) {
                     return (
                       <LinkWithAnalytics
                         key={post._id}
                         className={className}
                         href={post.href}
-                        _analyticsKey={post._analyticsKey}
+                        ingestKey={post.clicks.ingestKey}
                       >
                         {children}
                       </LinkWithAnalytics>
                     )
+                  }
 
                   return (
                     <p key={post._id} {...props} className={className}>
@@ -218,10 +215,7 @@ const HomePage = async () => {
                         })}
                         <Suspense fallback={null}>
                           {' '}
-                          · <ViewsFragment
-                            _analyticsKey={post._analyticsKey}
-                          />{' '}
-                          Views
+                          · <ViewsFragment {...post.views} /> Views
                         </Suspense>
                       </p>
                     </Link>
