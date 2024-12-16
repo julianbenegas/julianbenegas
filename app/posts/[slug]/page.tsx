@@ -8,6 +8,8 @@ import { Suspense } from 'react'
 import { PageWrapper } from '~/app/_components/page-wrapper'
 import { PostBody } from './body'
 
+export const dynamic = 'force-static'
+
 export const generateMetadata = async ({
   params: _params,
 }: {

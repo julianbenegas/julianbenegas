@@ -9,6 +9,8 @@ import { PageWrapper } from './_components/page-wrapper'
 import { DynamicIcon } from './_components/dynamic-icon'
 import { LinkWithAnalytics } from './_components/link-with-analytics'
 
+export const dynamic = 'force-static'
+
 const HomePage = async () => {
   return (
     <Pump
