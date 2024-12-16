@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "dev": "basehub dev & next",
-    "build": "next build",
+    "build": "basehub build && next build",
     "start": "next start",
     "type-check": "tsc"
   },
