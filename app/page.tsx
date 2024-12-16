@@ -128,8 +128,6 @@ const HomePage = async () => {
             >
               <div className="flex gap-2 flex-wrap justify-center max-w-2xl overflow-hidden">
                 {index.nowSection.links.items.map((post) => {
-                  const El = post.href ? LinkWithAnalytics : 'p'
-
                   const props = post.href
                     ? {
                         href: post.href,
