@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { PageWrapper } from './_components/page-wrapper'
 
 export default function NotFound() {

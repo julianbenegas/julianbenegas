@@ -3,7 +3,7 @@ import { Pump } from 'basehub/react-pump'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { PostFooter } from './footer'
-import { ViewsFragment } from '~/app/_components/views-fragment'
+import { viewsFragment, ViewsFragment } from '~/app/_components/views-fragment'
 import { Suspense } from 'react'
 import { PageWrapper } from '~/app/_components/page-wrapper'
 import { PostBody } from './body'
@@ -100,11 +100,7 @@ const PostPage = async ({
                 },
                 items: {
                   _id: true,
-                  _analyticsKey: {
-                    __args: {
-                      scope: 'query',
-                    },
-                  },
+                  views: viewsFragment,
                   _title: true,
                   date: true,
                   body: {
@@ -160,8 +156,8 @@ const PostPage = async ({
                       {' '}
                       ·{' '}
                       <ViewsFragment
-                        _analyticsKey={post._analyticsKey}
                         increment={process.env.NODE_ENV !== 'development'}
+                        {...post.views}
                       />{' '}
                       Views
                     </Suspense>

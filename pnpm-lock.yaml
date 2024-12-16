@@ -7,31 +7,31 @@ settings:
 dependencies:
   '@radix-ui/react-icons':
     specifier: ^1.3.0
-    version: 1.3.0(react@19.0.0-rc.1)
+    version: 1.3.0(react@19.0.0)
   '@vercel/analytics':
     specifier: ^1.1.1
     version: 1.1.1
   '@vercel/toolbar':
     specifier: ^0.1.11
-    version: 0.1.11(next@15.0.4-canary.12)(react@19.0.0-rc.1)
+    version: 0.1.11(next@15.1.1-canary.5)(react@19.0.0)
   basehub:
-    specifier: 8.0.0-canary.17
-    version: 8.0.0-canary.17(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1)(typescript@5.3.3)
+    specifier: https://pkg.pr.new/basehub-ai/basehub@e718f69
+    version: '@pkg.pr.new/basehub-ai/basehub@e718f69(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0)(react@19.0.0)(typescript@5.3.3)'
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
   geist:
     specifier: ^1.2.0
-    version: 1.2.0(next@15.0.4-canary.12)
+    version: 1.2.0(next@15.1.1-canary.5)
   next:
-    specifier: 15.0.4-canary.12
-    version: 15.0.4-canary.12(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1)
+    specifier: 15.1.1-canary.5
+    version: 15.1.1-canary.5(react-dom@19.0.0)(react@19.0.0)
   react:
-    specifier: 19.0.0-rc.1
-    version: 19.0.0-rc.1
+    specifier: 19.0.0
+    version: 19.0.0
   react-dom:
-    specifier: 19.0.0-rc.1
-    version: 19.0.0-rc.1(react@19.0.0-rc.1)
+    specifier: 19.0.0
+    version: 19.0.0(react@19.0.0)
   sharp:
     specifier: 0.32.6
     version: 0.32.6
@@ -79,8 +79,8 @@ packages:
       regenerator-runtime: 0.14.1
     dev: false
 
-  /@basehub/genql@9.0.0-canary.7:
-    resolution: {integrity: sha512-JkHLKwpmRM3IkINbYfXSZnEL8gQwpeSk0BFhHgIuVjaGX9RNpsfAG40OmsVAUZ8NZ8fOC7NpHpj+J3HZVje9eA==}
+  /@basehub/genql@9.0.0-canary.9:
+    resolution: {integrity: sha512-kn/NDPXOxO/GAbORDvpLNozLE9tmPtHwW/5YzCMH8RltAbJz9DOH2TmTEvFb+zrkchZPGLkxjM+j892f0pUyaQ==}
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.8.1)
       '@graphql-tools/load': 7.8.14(graphql@16.8.1)
@@ -100,15 +100,15 @@ packages:
       - enquirer
     dev: false
 
-  /@basehub/mutation-api-helpers@2.0.2:
-    resolution: {integrity: sha512-R2Er+hEmC7w+jrSsTnTHPK91vHNPv6+6mglqVJkph1weBjEetILUbOZwIE1pJ1/BbwmHtWbyzHEiO3zsfSXbWg==}
+  /@basehub/mutation-api-helpers@2.0.4:
+    resolution: {integrity: sha512-pvFIUUMSLRxRqyuXUeiHSnBLys9SvL+OGJeg2uDDfRkGBnTX+k4kexbA1Ze/5UAa/O+jiJJffOvyliBhIuw3Zg==}
     dev: false
 
   /@emnapi/runtime@1.2.0:
     resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
     requiresBuild: true
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
     optional: true
 
@@ -324,7 +324,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       globby: 11.1.0
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.8.1
       unixify: 1.0.0
     dev: false
 
@@ -336,7 +336,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
       resolve-from: 5.0.0
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
 
   /@graphql-tools/load@7.8.14(graphql@16.8.1):
@@ -348,7 +348,7 @@ packages:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
       p-limit: 3.1.0
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
 
   /@graphql-tools/merge@8.4.2(graphql@16.8.1):
@@ -358,7 +358,7 @@ packages:
     dependencies:
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
 
   /@graphql-tools/schema@9.0.19(graphql@16.8.1):
@@ -369,7 +369,7 @@ packages:
       '@graphql-tools/merge': 8.4.2(graphql@16.8.1)
       '@graphql-tools/utils': 9.2.1(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.8.1
       value-or-promise: 1.0.12
     dev: false
 
@@ -380,7 +380,7 @@ packages:
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.8.1)
       graphql: 16.8.1
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
 
   /@graphql-typed-document-node/core@3.2.0(graphql@16.8.1):
@@ -601,12 +601,12 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@next/env@15.0.4-canary.12:
-    resolution: {integrity: sha512-N9aJQbSyIRVtgOKwCNrINuXO6FmSMgVuL7bxSvElnWUnkTa/xB8zQot+CmBcp2tXcrk6N6VZymrUNhWhwLA1iQ==}
+  /@next/env@15.1.1-canary.5:
+    resolution: {integrity: sha512-DjAoWwdjOYsLEmy8dGNT5jG1In9RG2A5mcPSySaO56+CYgd82a8Xqf3r+sH0Op6D6V7/TmzuIPTdxofYZOZFqg==}
     dev: false
 
-  /@next/swc-darwin-arm64@15.0.4-canary.12:
-    resolution: {integrity: sha512-KnhmDsCtffW+hHWyBPoi4ePHeLK3WQZi7lI+aslmOXH1V7DKaQp18r9MWh3FgYSHlVHXbeUi9voCLHeKe9IqwA==}
+  /@next/swc-darwin-arm64@15.1.1-canary.5:
+    resolution: {integrity: sha512-kgUQnOTNZrIDKBYPrEuv56WRbt1IAUx1OIYweFZnvHRfmnxuMjjFS4FBOFk1dSdBQsMi8CJ5geki8eJ9Uhobgg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
@@ -614,8 +614,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-darwin-x64@15.0.4-canary.12:
-    resolution: {integrity: sha512-1xkZo89ZP6R0xPXgi52tVVLSeTAPly20v7QTuN0qnwGv4a/8QUBI+nC8GvY/qo4GNdGcT0HgAu0gY54vKLgG3A==}
+  /@next/swc-darwin-x64@15.1.1-canary.5:
+    resolution: {integrity: sha512-cx+iA74gwYgbJaPgxbRk3E8OPhylTMK5EEbE/EEx+uYrIixNQQ/zXS9BJjLe1eFN7DuEDDEJEEeeUStqu/FemA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
@@ -623,8 +623,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-gnu@15.0.4-canary.12:
-    resolution: {integrity: sha512-OwNFCwvjx3X1nFRypgtBXe4iZ74AbykEPpHZbAjOcLdZdaEZMlywFpneacxpb1zJOIaPkboATixBuQkfyH2jXQ==}
+  /@next/swc-linux-arm64-gnu@15.1.1-canary.5:
+    resolution: {integrity: sha512-l1sxaav3IGn08TeIA/zWO4nfnNjZ+7EdR46r5sSwXz/gRdcZ0OlRNWOVSUUlVOeQDixtFhZj+XWDxQWFPCy5VQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -632,8 +632,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-arm64-musl@15.0.4-canary.12:
-    resolution: {integrity: sha512-rA7SKOVuph39AYRcZc2IIet2Qbtt7j1AtWKd9qnPZ818XuLfW6CQXmmXqXr9zqWqPWUeVYYNQDdjuc4DMB7lcA==}
+  /@next/swc-linux-arm64-musl@15.1.1-canary.5:
+    resolution: {integrity: sha512-8V2hfdTkkdThpSL/hLgW4O/JDmRzXFz6LYhjDyRD/Tj2a63FIagoqiwyZ8Z6xkvbPIqDFDhoocNDm23lY/xM3w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
@@ -641,8 +641,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-gnu@15.0.4-canary.12:
-    resolution: {integrity: sha512-HEWWuM4v3GiZdlo6BUpVCI+bvJ7s6xXEuyOwDYCeLoKyKgvu94euexbDDCQjiF8Ey4cqsz58BI9o0Cf+1lycJg==}
+  /@next/swc-linux-x64-gnu@15.1.1-canary.5:
+    resolution: {integrity: sha512-8NTdiIRtT3sZaIBuVGPyS56+G6d4+3biEYSN+35qqnnHmXledokcA9MPi2z9/mbPFFO/CsEdolrUFbs6OxCsrw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -650,8 +650,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-linux-x64-musl@15.0.4-canary.12:
-    resolution: {integrity: sha512-4244Aej6zyqDXrlNp/F+7hs+M74bYWoh+jM2w9Dhcrr1FeAC3gZL+59CPWqlVl5XGqPAAhzlVyrYDERu+SfyaA==}
+  /@next/swc-linux-x64-musl@15.1.1-canary.5:
+    resolution: {integrity: sha512-eCzJd34zxt88RcZOM4pJYsbYUE8TZ07aOrpxn/S/4nqNd/NU7qMrkNjnEXAzGnSatMGZgskueF66YTtpAmbMyw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
@@ -659,8 +659,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-arm64-msvc@15.0.4-canary.12:
-    resolution: {integrity: sha512-sS4QFGvVBVPUbxL0/ANSjpSZyCuBlBCBMUrURtpkY4KcBZAVQLCQzmC8ppCNdraxelC1SGY1eCc1eqpIEgYDLQ==}
+  /@next/swc-win32-arm64-msvc@15.1.1-canary.5:
+    resolution: {integrity: sha512-faS9mQbnCCkwt0n4z+luvOTIrPcwIBGhTXistTov0ODhDlIGgog0PFvLNtfCRrmvTbjHpUEjGnvKc2jP/oCcsw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
@@ -668,8 +668,8 @@ packages:
     dev: false
     optional: true
 
-  /@next/swc-win32-x64-msvc@15.0.4-canary.12:
-    resolution: {integrity: sha512-QJpy355Gq86mcBW1nK8bg+3Q1y+qRqjTHGjGjqhVEqx/dp+TNY+9Bu2OsiskhKQdu2fuUrjoFdxOU6MVEn6abw==}
+  /@next/swc-win32-x64-msvc@15.1.1-canary.5:
+    resolution: {integrity: sha512-cor0a3R+bAkDGPSmd37xER99X9lcXn8eFWri4mu4LU66AfMNgteqhKYXsgBjsZ1MH9ieAt4TLUTRv9D5vFKvVQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -699,7 +699,7 @@ packages:
     resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
     dev: true
 
-  /@radix-ui/react-compose-refs@1.1.0(@types/react@18.2.43)(react@19.0.0-rc.1):
+  /@radix-ui/react-compose-refs@1.1.0(@types/react@18.2.43)(react@19.0.0):
     resolution: {integrity: sha512-b4inOtiaOnYf9KWyO3jAeeCG6FeyfY6ldiEPanbUjWd+xIk5wZeHa8yVwmrJ2vderhu/BQvzCrJI0lHd+wIiqw==}
     peerDependencies:
       '@types/react': '*'
@@ -709,18 +709,18 @@ packages:
         optional: true
     dependencies:
       '@types/react': 18.2.43
-      react: 19.0.0-rc.1
+      react: 19.0.0
     dev: false
 
-  /@radix-ui/react-icons@1.3.0(react@19.0.0-rc.1):
+  /@radix-ui/react-icons@1.3.0(react@19.0.0):
     resolution: {integrity: sha512-jQxj/0LKgp+j9BiTXz3O3sgs26RNet2iLWmsPyRz2SIcR4q/4SbazXfnYwbAr+vLYKSfc7qxzyGQA1HLlYiuNw==}
     peerDependencies:
       react: ^16.x || ^17.x || ^18.x
     dependencies:
-      react: 19.0.0-rc.1
+      react: 19.0.0
     dev: false
 
-  /@radix-ui/react-slot@1.1.0(@types/react@18.2.43)(react@19.0.0-rc.1):
+  /@radix-ui/react-slot@1.1.0(@types/react@18.2.43)(react@19.0.0):
     resolution: {integrity: sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==}
     peerDependencies:
       '@types/react': '*'
@@ -729,45 +729,45 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.2.43)(react@19.0.0-rc.1)
+      '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.2.43)(react@19.0.0)
       '@types/react': 18.2.43
-      react: 19.0.0-rc.1
+      react: 19.0.0
     dev: false
 
-  /@shikijs/core@1.22.2:
-    resolution: {integrity: sha512-bvIQcd8BEeR1yFvOYv6HDiyta2FFVePbzeowf5pPS1avczrPK+cjmaxxh0nx5QzbON7+Sv0sQfQVciO7bN72sg==}
+  /@shikijs/core@1.17.7:
+    resolution: {integrity: sha512-ZnIDxFu/yvje3Q8owSHaEHd+bu/jdWhHAaJ17ggjXofHx5rc4bhpCSW+OjC6smUBi5s5dd023jWtZ1gzMu/yrw==}
     dependencies:
-      '@shikijs/engine-javascript': 1.22.2
-      '@shikijs/engine-oniguruma': 1.22.2
-      '@shikijs/types': 1.22.2
+      '@shikijs/engine-javascript': 1.17.7
+      '@shikijs/engine-oniguruma': 1.17.7
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.3
     dev: false
 
-  /@shikijs/engine-javascript@1.22.2:
-    resolution: {integrity: sha512-iOvql09ql6m+3d1vtvP8fLCVCK7BQD1pJFmHIECsujB0V32BJ0Ab6hxk1ewVSMFA58FI0pR2Had9BKZdyQrxTw==}
+  /@shikijs/engine-javascript@1.17.7:
+    resolution: {integrity: sha512-wwSf7lKPsm+hiYQdX+1WfOXujtnUG6fnN4rCmExxa4vo+OTmvZ9B1eKauilvol/LHUPrQgW12G3gzem7pY5ckw==}
     dependencies:
-      '@shikijs/types': 1.22.2
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
       oniguruma-to-js: 0.4.3
     dev: false
 
-  /@shikijs/engine-oniguruma@1.22.2:
-    resolution: {integrity: sha512-GIZPAGzQOy56mGvWMoZRPggn0dTlBf1gutV5TdceLCZlFNqWmuc7u+CzD0Gd9vQUTgLbrt0KLzz6FNprqYAxlA==}
+  /@shikijs/engine-oniguruma@1.17.7:
+    resolution: {integrity: sha512-pvSYGnVeEIconU28NEzBXqSQC/GILbuNbAHwMoSfdTBrobKAsV1vq2K4cAgiaW1TJceLV9QMGGh18hi7cCzbVQ==}
     dependencies:
-      '@shikijs/types': 1.22.2
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
     dev: false
 
-  /@shikijs/transformers@1.22.2:
-    resolution: {integrity: sha512-8f78OiBa6pZDoZ53lYTmuvpFPlWtevn23bzG+azpPVvZg7ITax57o/K3TC91eYL3OMJOO0onPbgnQyZjRos8XQ==}
+  /@shikijs/transformers@1.17.7:
+    resolution: {integrity: sha512-Nu7DaUT/qHDqbEsWBBqX6MyPMFbR4hUZcK11TA+zU/nPu9eDFE8v0p+n+eT4A3+3mxX6czMSF81W4QNsQ/NSpQ==}
     dependencies:
-      shiki: 1.22.2
+      shiki: 1.17.7
     dev: false
 
-  /@shikijs/types@1.22.2:
-    resolution: {integrity: sha512-NCWDa6LGZqTuzjsGfXOBWfjS/fDIbDdmVDug+7ykVe1IKT4c1gakrvlfFYp5NhAXH/lyqLM8wsAPo5wNy73Feg==}
+  /@shikijs/types@1.17.7:
+    resolution: {integrity: sha512-+qA4UyhWLH2q4EFd+0z4K7GpERDU+c+CN2XYD3sC+zjvAr5iuwD1nToXZMt1YODshjkEGEDV86G7j66bKjqDdg==}
     dependencies:
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
@@ -781,10 +781,10 @@ packages:
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
     dev: false
 
-  /@swc/helpers@0.5.13:
-    resolution: {integrity: sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==}
+  /@swc/helpers@0.5.15:
+    resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.8.1
     dev: false
 
   /@tailwindcss/typography@0.5.10(tailwindcss@3.4.0):
@@ -993,7 +993,7 @@ packages:
       server-only: 0.0.1
     dev: false
 
-  /@vercel/toolbar@0.1.11(next@15.0.4-canary.12)(react@19.0.0-rc.1):
+  /@vercel/toolbar@0.1.11(next@15.1.1-canary.5)(react@19.0.0):
     resolution: {integrity: sha512-JnZ7DEqM+flZzbCd0XA7m1shnp+/7yJ3w11GtjGdzBi9haduq4zR0kBePp+3V6n+I9v884ZYcf+MPNUo4wtAgw==}
     peerDependencies:
       next: '>=11.0.0'
@@ -1004,8 +1004,8 @@ packages:
       execa: 5.1.1
       find-up: 5.0.0
       get-port: 5.1.1
-      next: 15.0.4-canary.12(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1)
-      react: 19.0.0-rc.1
+      next: 15.1.1-canary.5(react-dom@19.0.0)(react@19.0.0)
+      react: 19.0.0
       strip-ansi: 6.0.1
     dev: false
 
@@ -1101,40 +1101,6 @@ packages:
 
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
-    dev: false
-
-  /basehub@8.0.0-canary.17(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1)(typescript@5.3.3):
-    resolution: {integrity: sha512-vhEXwy2twmPGTZASXX587jnSbcmbBSI2o3d6YQXIeEQvnRMDwdm7rT5stTW1FkxYLJAjM1xLBeP/M1EtpbqGiw==}
-    hasBin: true
-    dependencies:
-      '@basehub/genql': 9.0.0-canary.7
-      '@basehub/mutation-api-helpers': 2.0.2
-      '@radix-ui/react-slot': 1.1.0(@types/react@18.2.43)(react@19.0.0-rc.1)
-      '@shikijs/transformers': 1.22.2
-      arg: 5.0.1
-      dotenv-mono: 1.3.10
-      esbuild: 0.19.2
-      esbuild-plugin-d.ts: 1.2.3(typescript@5.3.3)
-      github-slugger: 2.0.0
-      hast-util-to-jsx-runtime: 2.3.0
-      lodash.debounce: 4.0.8
-      lodash.get: 4.4.2
-      pusher-js: 8.3.0
-      resolve-pkg: 2.0.0
-      server-only: 0.0.1
-      shiki: 1.22.2
-      sonner: 1.5.0(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1)
-      typesense: 1.8.2(@babel/runtime@7.24.5)
-      zod: 3.22.1
-    transitivePeerDependencies:
-      - '@babel/runtime'
-      - '@types/react'
-      - debug
-      - enquirer
-      - react
-      - react-dom
-      - supports-color
-      - typescript
     dev: false
 
   /binary-extensions@2.2.0:
@@ -1673,12 +1639,12 @@ packages:
   /function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  /geist@1.2.0(next@15.0.4-canary.12):
+  /geist@1.2.0(next@15.1.1-canary.5):
     resolution: {integrity: sha512-RZsgCkGnSi1IV1Ozg3s6Ou4r/jzLff9+47ChjpJ5yX8ncEC/RwdStGwhdFzDcnSv0xU0+9J/fTX5Kht0NajTXA==}
     peerDependencies:
       next: ^13.2 || ^14
     dependencies:
-      next: 15.0.4-canary.12(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1)
+      next: 15.1.1-canary.5(react-dom@19.0.0)(react@19.0.0)
     dev: false
 
   /get-caller-file@2.0.5:
@@ -2426,16 +2392,16 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /next@15.0.4-canary.12(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1):
-    resolution: {integrity: sha512-/4F7W4oQSAHg2o7au04e0snmXve3Y6h0JnMJneVBQeWgMaovtO9K48r25LflN2mBWIOTLvLnV1fn2EAD4EsI4Q==}
+  /next@15.1.1-canary.5(react-dom@19.0.0)(react@19.0.0):
+    resolution: {integrity: sha512-9Se4EwpK6VtMWZSkAAOTLSF+/RBizsvmkNnIXAieFBTPD0Mjoi7Sw8I6tOXH0yUZFo+YHDPG5jk4H3hFUszdfg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
       '@playwright/test': ^1.41.2
       babel-plugin-react-compiler: '*'
-      react: ^18.2.0 || 19.0.0-rc-380f5d67-20241113
-      react-dom: ^18.2.0 || 19.0.0-rc-380f5d67-20241113
+      react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
+      react-dom: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
       sass: ^1.3.0
     peerDependenciesMeta:
       '@opentelemetry/api':
@@ -2447,24 +2413,24 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 15.0.4-canary.12
+      '@next/env': 15.1.1-canary.5
       '@swc/counter': 0.1.3
-      '@swc/helpers': 0.5.13
+      '@swc/helpers': 0.5.15
       busboy: 1.6.0
       caniuse-lite: 1.0.30001587
       postcss: 8.4.31
-      react: 19.0.0-rc.1
-      react-dom: 19.0.0-rc.1(react@19.0.0-rc.1)
-      styled-jsx: 5.1.6(react@19.0.0-rc.1)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      styled-jsx: 5.1.6(react@19.0.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.0.4-canary.12
-      '@next/swc-darwin-x64': 15.0.4-canary.12
-      '@next/swc-linux-arm64-gnu': 15.0.4-canary.12
-      '@next/swc-linux-arm64-musl': 15.0.4-canary.12
-      '@next/swc-linux-x64-gnu': 15.0.4-canary.12
-      '@next/swc-linux-x64-musl': 15.0.4-canary.12
-      '@next/swc-win32-arm64-msvc': 15.0.4-canary.12
-      '@next/swc-win32-x64-msvc': 15.0.4-canary.12
+      '@next/swc-darwin-arm64': 15.1.1-canary.5
+      '@next/swc-darwin-x64': 15.1.1-canary.5
+      '@next/swc-linux-arm64-gnu': 15.1.1-canary.5
+      '@next/swc-linux-arm64-musl': 15.1.1-canary.5
+      '@next/swc-linux-x64-gnu': 15.1.1-canary.5
+      '@next/swc-linux-x64-musl': 15.1.1-canary.5
+      '@next/swc-win32-arm64-msvc': 15.1.1-canary.5
+      '@next/swc-win32-x64-msvc': 15.1.1-canary.5
       sharp: 0.33.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -2785,17 +2751,17 @@ packages:
       strip-json-comments: 2.0.1
     dev: false
 
-  /react-dom@19.0.0-rc.1(react@19.0.0-rc.1):
-    resolution: {integrity: sha512-k8MfDX+4G+eaa1cXXI9QF4d+pQtYol3nx8vauqRWUEOPqC7NQn2qmEqUsLoSd28rrZUL+R3T2VC+kZ2Hyx1geQ==}
+  /react-dom@19.0.0(react@19.0.0):
+    resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
     peerDependencies:
-      react: 19.0.0-rc.1
+      react: ^19.0.0
     dependencies:
-      react: 19.0.0-rc.1
-      scheduler: 0.25.0-rc.1
+      react: 19.0.0
+      scheduler: 0.25.0
     dev: false
 
-  /react@19.0.0-rc.1:
-    resolution: {integrity: sha512-NZKln+uyPuyHchzP07I6GGYFxdAoaKhehgpCa3ltJGzwE31OYumLeshGaitA1R/fS5d9D2qpZVwTFAr6zCLM9w==}
+  /react@19.0.0:
+    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
     engines: {node: '>=0.10.0'}
     dev: false
 
@@ -2900,8 +2866,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /scheduler@0.25.0-rc.1:
-    resolution: {integrity: sha512-fVinv2lXqYpKConAMdergOl5owd0rY1O4P/QTe0aWKCqGtu7VsCt1iqQFxSJtqK4Lci/upVSBpGwVC7eWcuS9Q==}
+  /scheduler@0.25.0:
+    resolution: {integrity: sha512-xFVuu11jh+xcO7JOAGJNOXld8/TcEHK/4CituBUeUb5hqxJLj9YuemAEuvm9gQ/+pgXYfbQuqAkiYu+u7YEsNA==}
     dev: false
 
   /semver@7.5.4:
@@ -2996,13 +2962,13 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /shiki@1.22.2:
-    resolution: {integrity: sha512-3IZau0NdGKXhH2bBlUk4w1IHNxPh6A5B2sUpyY+8utLu2j/h1QpFkAaUA1bAMxOWWGtTWcAh531vnS4NJKS/lA==}
+  /shiki@1.17.7:
+    resolution: {integrity: sha512-Zf6hNtWhFyF4XP5OOsXkBTEx9JFPiN0TQx4wSe+Vqeuczewgk2vT4IZhF4gka55uelm052BD5BaHavNqUNZd+A==}
     dependencies:
-      '@shikijs/core': 1.22.2
-      '@shikijs/engine-javascript': 1.22.2
-      '@shikijs/engine-oniguruma': 1.22.2
-      '@shikijs/types': 1.22.2
+      '@shikijs/core': 1.17.7
+      '@shikijs/engine-javascript': 1.17.7
+      '@shikijs/engine-oniguruma': 1.17.7
+      '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
     dev: false
@@ -3050,14 +3016,14 @@ packages:
       is-fullwidth-code-point: 4.0.0
     dev: false
 
-  /sonner@1.5.0(react-dom@19.0.0-rc.1)(react@19.0.0-rc.1):
-    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
+  /sonner@1.7.1(react-dom@19.0.0)(react@19.0.0):
+    resolution: {integrity: sha512-b6LHBfH32SoVasRFECrdY8p8s7hXPDn3OHUFbZZbiB1ctLS9Gdh6rpX2dVrpQA0kiL5jcRzDDldwwLkSKk3+QQ==}
     peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
     dependencies:
-      react: 19.0.0-rc.1
-      react-dom: 19.0.0-rc.1(react@19.0.0-rc.1)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
     dev: false
 
   /source-map-js@1.0.2:
@@ -3141,7 +3107,7 @@ packages:
       inline-style-parser: 0.2.3
     dev: false
 
-  /styled-jsx@5.1.6(react@19.0.0-rc.1):
+  /styled-jsx@5.1.6(react@19.0.0):
     resolution: {integrity: sha512-qSVyDTeMotdvQYoHWLNGwRFJHC+i+ZvdBRYosOFgC+Wg1vx4frN2/RG/NA7SYqqvKNLf39P2LSRA2pu6n0XYZA==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -3155,7 +3121,7 @@ packages:
         optional: true
     dependencies:
       client-only: 0.0.1
-      react: 19.0.0-rc.1
+      react: 19.0.0
     dev: false
 
   /sucrase@3.34.0:
@@ -3278,8 +3244,8 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tslib@2.6.2:
-    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+  /tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
     dev: false
 
   /tunnel-agent@0.6.0:
@@ -3444,6 +3410,11 @@ packages:
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
+  /xmldom@0.6.0:
+    resolution: {integrity: sha512-iAcin401y58LckRZ0TkI4k0VSM1Qg0KGSc3i8rU+xrxe19A/BN1zHyVSJY7uoutVlaTSzYyk/v5AmkewAP7jtg==}
+    engines: {node: '>=10.0.0'}
+    dev: false
+
   /y18n@4.0.3:
     resolution: {integrity: sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ==}
     dev: false
@@ -3493,4 +3464,42 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
+    dev: false
+
+  '@pkg.pr.new/basehub-ai/basehub@e718f69(@babel/runtime@7.24.5)(@types/react@18.2.43)(react-dom@19.0.0)(react@19.0.0)(typescript@5.3.3)':
+    resolution: {tarball: https://pkg.pr.new/basehub-ai/basehub@e718f69}
+    id: '@pkg.pr.new/basehub-ai/basehub@e718f69'
+    name: basehub
+    version: 8.0.0-canary.27
+    hasBin: true
+    dependencies:
+      '@basehub/genql': 9.0.0-canary.9
+      '@basehub/mutation-api-helpers': 2.0.4
+      '@radix-ui/react-slot': 1.1.0(@types/react@18.2.43)(react@19.0.0)
+      '@shikijs/transformers': 1.17.7
+      arg: 5.0.1
+      dotenv-mono: 1.3.10
+      esbuild: 0.19.2
+      esbuild-plugin-d.ts: 1.2.3(typescript@5.3.3)
+      github-slugger: 2.0.0
+      hast-util-to-jsx-runtime: 2.3.0
+      lodash.debounce: 4.0.8
+      lodash.get: 4.4.2
+      pusher-js: 8.3.0
+      resolve-pkg: 2.0.0
+      server-only: 0.0.1
+      shiki: 1.17.7
+      sonner: 1.7.1(react-dom@19.0.0)(react@19.0.0)
+      typesense: 1.8.2(@babel/runtime@7.24.5)
+      xmldom: 0.6.0
+      zod: 3.22.1
+    transitivePeerDependencies:
+      - '@babel/runtime'
+      - '@types/react'
+      - debug
+      - enquirer
+      - react
+      - react-dom
+      - supports-color
+      - typescript
     dev: false
