@@ -20,15 +20,24 @@ export const ViewsFragment = async ({
 } & ViewsFragment) => {
   unstable_noStore()
   const { isEnabled: isDraftMode } = await draftMode()
-  const views = await getEvents(adminKey, {
-    type: 'time-series',
-    range: 'all-time',
-  })
+
+  const getEventsAction = async () => {
+    'use server'
+
+    const views = await getEvents(adminKey, {
+      type: 'time-series',
+      range: 'all-time',
+    })
+
+    return views.success ? views.data : 0
+  }
 
   return (
-    <>
-      {views.success ? views.data : '0'}
-      {increment && !isDraftMode && <IncrementViews ingestKey={ingestKey} />}
-    </>
+    <IncrementViews
+      ingestKey={ingestKey}
+      getEventsAction={getEventsAction}
+      increment={Boolean(increment && !isDraftMode)}
+      initialCount={await getEventsAction()}
+    />
   )
 }
