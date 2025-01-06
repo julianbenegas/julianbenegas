@@ -7,7 +7,7 @@ module.exports = {
   },
   reactStrictMode: true,
   experimental: {
-    // dynamicIO: true,
+    ppr: true,
   },
   images: {
     remotePatterns: [
