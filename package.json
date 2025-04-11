@@ -14,10 +14,10 @@
     "basehub": "8.1.31",
     "clsx": "^2.0.0",
     "geist": "^1.2.0",
-    "next": "15.1.1-canary.5",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "sharp": "0.32.6"
+    "next": "15.3.1-canary.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "sharp": "0.34.1"
   },
   "devDependencies": {
     "@radix-ui/colors": "^3.0.0",

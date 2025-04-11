@@ -8,14 +8,14 @@ export const LinkWithAnalytics = ({
   onClick,
   href,
   ...props
-}: { ingestKey: `${any}:${string}` } & LinkProps &
+}: { ingestKey: string } & LinkProps &
   Omit<JSX.IntrinsicElements['a'], 'href' | 'ref'>) => {
   return (
     <Link
       {...props}
       href={href}
       onClick={(e) => {
-        sendEvent(ingestKey)
+        sendEvent(ingestKey as any)
         onClick?.(e)
       }}
     />
