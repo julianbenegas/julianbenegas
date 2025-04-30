@@ -18,8 +18,8 @@ importers:
         specifier: ^0.1.11
         version: 0.1.11(next@15.3.1-canary.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       basehub:
-        specifier: 8.1.31
-        version: 8.1.31(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(typescript@5.3.3)
+        specifier: 8.2.0
+        version: 8.2.0(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(typescript@5.3.3)
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -664,8 +664,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  basehub@8.1.31:
-    resolution: {integrity: sha512-Meev/0ynbXJjHbFQiCkRB+AHXvlMG3foZY/aFrdqaX1AoFkhagkNk6mydSvsjv5hFdHLiw610wdud7tOTsce0g==}
+  basehub@8.2.0:
+    resolution: {integrity: sha512-nkGp0opeUWe7N0R83M05ozjRy5diLamE8yod3q9h4KiszvsGrag/fvPnjdtKC1J+d4jOCCVy/P4BPpT/gZymHQ==}
     hasBin: true
 
   binary-extensions@2.2.0:
@@ -2336,7 +2336,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  basehub@8.1.31(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(typescript@5.3.3):
+  basehub@8.2.0(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(typescript@5.3.3):
     dependencies:
       '@basehub/genql': 9.0.0-canary.13
       '@radix-ui/react-slot': 1.1.0(@types/react@19.0.1)(react@19.1.0)

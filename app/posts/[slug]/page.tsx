@@ -104,6 +104,7 @@ const PostPage = async ({
                   _id: true,
                   views: viewsFragment,
                   _title: true,
+                  _dashboardUrl: true,
                   date: true,
                   body: {
                     json: {
@@ -169,7 +170,10 @@ const PostPage = async ({
               <PostBody blocks={post.body.json.blocks} className="mt-8">
                 {post.body.json.content}
               </PostBody>
-              <PostFooter xPostURL={post.xPost} />
+              <PostFooter
+                xPostURL={post.xPost}
+                dashboardURL={post._dashboardUrl}
+              />
             </div>
           </PageWrapper>
         )
