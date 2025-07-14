@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { PageWrapper } from './_components/page-wrapper'
 import { DynamicIcon } from './_components/dynamic-icon'
 import { LinkWithAnalytics } from './_components/link-with-analytics'
+import { NewsletterForm } from './_components/newsletter-form'
 
 export const dynamic = 'force-static'
 
@@ -77,6 +78,19 @@ const HomePage = async () => {
                   date: true,
                 },
               },
+            },
+            newsletterSection: {
+              sectionHeader: {
+                title: true,
+                subtitle: {
+                  json: {
+                    content: true,
+                  },
+                },
+              },
+              emailPlaceholder: true,
+              buttonText: true,
+              signups: { ingestKey: true },
             },
           },
         },
@@ -222,6 +236,29 @@ const HomePage = async () => {
                   )
                 })}
               </div>
+            </Section>
+
+            {/* newsletter */}
+            <Section
+              title={(index as any).newsletterSection.sectionHeader.title}
+              subtitle={
+                (index as any).newsletterSection.sectionHeader.subtitle ? (
+                  <RichText>
+                    {
+                      (index as any).newsletterSection.sectionHeader.subtitle
+                        .json.content
+                    }
+                  </RichText>
+                ) : null
+              }
+            >
+              <NewsletterForm
+                emailPlaceholder={
+                  (index as any).newsletterSection.emailPlaceholder
+                }
+                buttonText={(index as any).newsletterSection.buttonText}
+                ingestKey={(index as any).newsletterSection.signups.ingestKey}
+              />
             </Section>
           </PageWrapper>
         )
