@@ -16,7 +16,7 @@
     "jsx": "preserve",
     "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "~/public/*": ["../public/*"],
@@ -25,6 +25,13 @@
     "plugins": [{ "name": "next" }],
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "basehub.config.ts",
+    "basehub.d.ts"
+  , "basehub-types.d.ts"],
   "exclude": ["node_modules"]
 }
