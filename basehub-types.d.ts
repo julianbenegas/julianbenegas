@@ -124,7 +124,7 @@ export interface BlockColor {
     __typename: 'BlockColor'
 }
 
-export type BlockDocument = (CalloutComponent | Components | Fonts | Header | Index | LinkComponent | Links | MetaComponent | NavLinks | NewsletterSection | NowSection | PopoverComponent | Posts | PostsItem | PostsSection | SectionHeaderComponent | Settings | WriteComponent | _AgentSTART | calloutComponent_AsList | linkComponent_AsList | metaComponent_AsList | popoverComponent_AsList | postsItem_AsList | sectionHeaderComponent_AsList | writeComponent_AsList) & { __isUnion?: true }
+export type BlockDocument = (CalloutComponent | Components | Fonts | Header | Index | LinkComponent | Links | MetaComponent | NavLinks | NewsletterSection | NowSection | PopoverComponent | Posts | PostsItem | PostsSection | SectionHeaderComponent | Settings | WriteComponent | _AgentStart | calloutComponent_AsList | linkComponent_AsList | metaComponent_AsList | popoverComponent_AsList | postsItem_AsList | sectionHeaderComponent_AsList | writeComponent_AsList) & { __isUnion?: true }
 
 export interface BlockDocumentSys {
     apiNamePath: Scalars['String']
@@ -565,7 +565,7 @@ export interface PostsSection {
 }
 
 export interface Query {
-    _agent: (_AgentSTART | null)
+    _agent: (_AgentStart | null)
     /** Query across the custom AI agents in the repository. */
     _agents: _agents
     /** Query across all of the instances of a component. Pass in filters and sorts if you want, and get each instance via the `items` key. */
@@ -699,7 +699,7 @@ export interface WriteComponent {
 
 export type WriteComponentOrderByEnum = '_sys_createdAt__ASC' | '_sys_createdAt__DESC' | '_sys_hash__ASC' | '_sys_hash__DESC' | '_sys_id__ASC' | '_sys_id__DESC' | '_sys_lastModifiedAt__ASC' | '_sys_lastModifiedAt__DESC' | '_sys_slug__ASC' | '_sys_slug__DESC' | '_sys_title__ASC' | '_sys_title__DESC' | 'clicks__ASC' | 'clicks__DESC' | 'href__ASC' | 'href__DESC' | 'icon__ASC' | 'icon__DESC' | 'label__ASC' | 'label__DESC'
 
-export interface _AgentSTART {
+export interface _AgentStart {
     _agentKey: Scalars['String']
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
@@ -724,7 +724,7 @@ export interface _AgentSTART {
     searchTheWeb: Scalars['Boolean']
     slackInstallUrl: Scalars['String']
     systemPrompt: Scalars['String']
-    __typename: '_AgentSTART'
+    __typename: '_AgentStart'
 }
 
 export interface _BranchInfo {
@@ -793,7 +793,7 @@ export type _ResolveTargetsWithEnum = 'id' | 'objectName'
 export type _StructureFormatEnum = 'json' | 'xml'
 
 export interface _agents {
-    start: _AgentSTART
+    start: _AgentStart
     __typename: '_agents'
 }
 
@@ -1034,7 +1034,7 @@ export interface BlockDocumentGenqlSelection{
     on_SectionHeaderComponent?: SectionHeaderComponentGenqlSelection
     on_Settings?: SettingsGenqlSelection
     on_WriteComponent?: WriteComponentGenqlSelection
-    on__AgentSTART?: _AgentSTARTGenqlSelection
+    on__AgentStart?: _AgentStartGenqlSelection
     on_calloutComponent_AsList?: calloutComponent_AsListGenqlSelection
     on_linkComponent_AsList?: linkComponent_AsListGenqlSelection
     on_metaComponent_AsList?: metaComponent_AsListGenqlSelection
@@ -1711,7 +1711,7 @@ export interface PostsSectionGenqlSelection{
 }
 
 export interface QueryGenqlSelection{
-    _agent?: (_AgentSTARTGenqlSelection & { __args: {
+    _agent?: (_AgentStartGenqlSelection & { __args: {
     /** The ID of the agent. */
     id: Scalars['String']} })
     /** Query across the custom AI agents in the repository. */
@@ -1908,7 +1908,7 @@ export interface WriteComponentGenqlSelection{
 
 export interface WriteComponentFilterInput {AND?: (WriteComponentFilterInput | null),OR?: (WriteComponentFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),href?: (StringFilter | null),icon?: (SelectFilter | null),label?: (StringFilter | null)}
 
-export interface _AgentSTARTGenqlSelection{
+export interface _AgentStartGenqlSelection{
     _agentKey?: boolean | number
     _analyticsKey?: { __args: {
     /**
@@ -2004,7 +2004,7 @@ export interface _PlaygroundInfoGenqlSelection{
 }
 
 export interface _agentsGenqlSelection{
-    start?: _AgentSTARTGenqlSelection
+    start?: _AgentStartGenqlSelection
     __typename?: boolean | number
 }
 
@@ -2459,9 +2459,9 @@ export interface FragmentsMap {
     root: WriteComponent,
     selection: WriteComponentGenqlSelection,
 }
-  _AgentSTART: {
-    root: _AgentSTART,
-    selection: _AgentSTARTGenqlSelection,
+  _AgentStart: {
+    root: _AgentStart,
+    selection: _AgentStartGenqlSelection,
 }
   _BranchInfo: {
     root: _BranchInfo,
