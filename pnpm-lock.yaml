@@ -18,8 +18,8 @@ importers:
         specifier: ^0.1.11
         version: 0.1.11(next@15.3.1-canary.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       basehub:
-        specifier: 9.3.5
-        version: 9.3.5(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(zod@3.22.1)
+        specifier: 9.3.6
+        version: 9.3.6(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(zod@3.22.1)
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -503,8 +503,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  basehub@9.3.5:
-    resolution: {integrity: sha512-H5ZMWGRAGl1peCTV5P9EKd4CmHpGrE5I8CVQlkjx7MP1+rvTnZ7OqH81Poey5X0LYpbBuXOUk+FttP6cDoREvg==}
+  basehub@9.3.6:
+    resolution: {integrity: sha512-QR+j0H+ZiJz0kHxJDqddsn87U83oEjFWZsNXNvX63V3FGf+gW+kytINcO6ijF4nvU+1v8tdycJ6qUvZ8c7DlWg==}
     hasBin: true
 
   binary-extensions@2.2.0:
@@ -1985,7 +1985,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  basehub@9.3.5(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(zod@3.22.1):
+  basehub@9.3.6(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(zod@3.22.1):
     dependencies:
       '@basehub/mutation-api-helpers': 2.1.3(zod@3.22.1)
       '@radix-ui/react-slot': 1.1.0(@types/react@19.0.1)(react@19.1.0)
