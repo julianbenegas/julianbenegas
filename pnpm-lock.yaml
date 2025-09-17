@@ -18,8 +18,8 @@ importers:
         specifier: ^0.1.11
         version: 0.1.11(next@15.3.1-canary.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       basehub:
-        specifier: 9.3.6
-        version: 9.3.6(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(zod@3.22.1)
+        specifier: 9.4.2
+        version: 9.4.2(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
@@ -77,8 +77,8 @@ packages:
     resolution: {integrity: sha512-Nms86NXrsaeU9vbBJKni6gXiEXZ4CVpYVzEjDH9Sb8vmZ3UljyA1GSOJl/6LGPO8EHLuSF9H+IxNXHPX8QHJ4g==}
     engines: {node: '>=6.9.0'}
 
-  '@basehub/mutation-api-helpers@2.1.3':
-    resolution: {integrity: sha512-YYl2Xps1c8W2bnX1T1Rox9t85Goe4wpmw3mcRhx7FRBYtc5exzWd2tDj/wl/bvRVzvYPd7Nx2iu7FyjU4yHFNA==}
+  '@basehub/mutation-api-helpers@2.1.7':
+    resolution: {integrity: sha512-Oe0SaaLShEYyqgaeICD7GkJdniMvSVdQWsXmgelLMgHfgS4q0wFKK2LQr4A7ttAG3z/yEeeCZ3mZ1MAcuwyBiA==}
     peerDependencies:
       zod: ^3.25.0
 
@@ -503,8 +503,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  basehub@9.3.6:
-    resolution: {integrity: sha512-QR+j0H+ZiJz0kHxJDqddsn87U83oEjFWZsNXNvX63V3FGf+gW+kytINcO6ijF4nvU+1v8tdycJ6qUvZ8c7DlWg==}
+  basehub@9.4.2:
+    resolution: {integrity: sha512-LWRSHJLcVa3I//3q4jAo83cd0eUbr/uALMkde8pik9BTeUjupDGUBerdFmNUs/QQTgR1DQpE/Y9dsMJIyRLCXQ==}
     hasBin: true
 
   binary-extensions@2.2.0:
@@ -1582,8 +1582,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.22.1:
-    resolution: {integrity: sha512-+qUhAMl414+Elh+fRNtpU+byrwjDFOS1N7NioLY+tSlcADTx4TkCUua/hxJvxwDXcV4397/nZ420jy4n4+3WUg==}
+  zod@4.1.9:
+    resolution: {integrity: sha512-HI32jTq0AUAC125z30E8bQNz0RQ+9Uc+4J7V97gLYjZVKRjeydPgGt6dvQzFrav7MYOUGFqqOGiHpA/fdbd0cQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -1596,9 +1596,9 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
-  '@basehub/mutation-api-helpers@2.1.3(zod@3.22.1)':
+  '@basehub/mutation-api-helpers@2.1.7(zod@4.1.9)':
     dependencies:
-      zod: 3.22.1
+      zod: 4.1.9
 
   '@emnapi/runtime@1.4.0':
     dependencies:
@@ -1985,9 +1985,9 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  basehub@9.3.6(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0)(zod@3.22.1):
+  basehub@9.4.2(@babel/runtime@7.24.5)(@types/react@19.0.1)(react@19.1.0):
     dependencies:
-      '@basehub/mutation-api-helpers': 2.1.3(zod@3.22.1)
+      '@basehub/mutation-api-helpers': 2.1.7(zod@4.1.9)
       '@radix-ui/react-slot': 1.1.0(@types/react@19.0.1)(react@19.1.0)
       '@shikijs/transformers': 1.17.7
       '@xmldom/xmldom': 0.9.6
@@ -2008,13 +2008,13 @@ snapshots:
       shiki: 1.17.7
       type-fest: 4.41.0
       typesense: 1.8.2(@babel/runtime@7.24.5)
+      zod: 4.1.9
     transitivePeerDependencies:
       - '@babel/runtime'
       - '@types/react'
       - debug
       - react
       - supports-color
-      - zod
 
   binary-extensions@2.2.0: {}
 
@@ -3214,6 +3214,6 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod@3.22.1: {}
+  zod@4.1.9: {}
 
   zwitch@2.0.4: {}
