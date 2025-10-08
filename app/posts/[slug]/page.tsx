@@ -14,7 +14,7 @@ export const generateMetadata = async ({
   params: _params,
 }: {
   params: Promise<{ slug: string }>
-}): Promise<Metadata> => {
+}): Promise<Metadata | undefined> => {
   const params = await _params
   const data = await basehub().query({
     index: {
@@ -43,7 +43,7 @@ export const generateMetadata = async ({
 
   const post = data.index.postsSection.posts.items[0]
 
-  if (!post) notFound()
+  if (!post) return undefined
 
   return {
     title: post._title,

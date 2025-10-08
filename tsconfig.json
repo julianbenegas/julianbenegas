@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,16 +17,24 @@
     "module": "esnext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
-      "~/public/*": ["../public/*"],
-      "~/*": ["./*"]
+      "~/public/*": [
+        "../public/*"
+      ],
+      "~/*": [
+        "./*"
+      ]
     },
-    "plugins": [{ "name": "next" }],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "strictNullChecks": true
   },
   "include": [
@@ -31,7 +43,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "basehub.config.ts",
-    "basehub.d.ts"
-  , "basehub-types.d.ts"],
-  "exclude": ["node_modules"]
+    "basehub.d.ts",
+    "basehub-types.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
