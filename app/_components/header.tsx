@@ -69,7 +69,7 @@ export const Header = async () => {
                         className={clsx(
                           'transition-colors',
                           navLink.highlight
-                            ? 'text-dark-orange10 hover:text-dark-orange11'
+                            ? 'text-dark-red10 hover:text-dark-red11'
                             : 'hover:text-dark-gray11'
                         )}
                         {...(navLink.isExternal

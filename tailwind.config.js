@@ -1,4 +1,4 @@
-import { grayDark, gray, orangeDark, orange } from '@radix-ui/colors'
+import { grayDark, gray, redDark, red } from '@radix-ui/colors'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,10 +12,10 @@ module.exports = {
       white: '#fff',
       black: '#000',
       ...gray,
-      ...orange,
+      ...red,
       dark: {
         ...grayDark,
-        ...orangeDark,
+        ...redDark,
       },
     },
     extend: {},
