@@ -44,7 +44,8 @@
     ".next/types/**/*.ts",
     "basehub.config.ts",
     "basehub.d.ts",
-    "basehub-types.d.ts"
+    "basehub-types.d.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
