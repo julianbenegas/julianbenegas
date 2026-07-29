@@ -59,6 +59,15 @@ export const Header = async () => {
               </div>
             </Link>
             <nav className="text-sm text-dark-gray10">
+              <Link
+                href="/about"
+                className="transition-colors hover:text-dark-gray11"
+              >
+                About
+              </Link>
+              {data.settings.header.navLinks.items.length > 0 && (
+                <span className="cursor-default select-none"> · </span>
+              )}
               {data.settings.header.navLinks.items.map(
                 (navLink, i, { length }) => {
                   const isLast = i === length - 1
